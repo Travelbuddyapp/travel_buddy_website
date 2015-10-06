@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   has_many :vaccines
   has_many :documents
   has_many :contacts
-  has_many :addresses
+  has_one :address
   
 end

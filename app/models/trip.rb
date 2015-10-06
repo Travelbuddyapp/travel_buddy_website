@@ -3,5 +3,6 @@ class Trip < ActiveRecord::Base
   has_many :checklists
   has_many :contacts
   has_many :reservations
+  serialize :ice_id
   
 end

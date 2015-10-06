@@ -6,7 +6,7 @@ class CreateVaccines < ActiveRecord::Migration
       t.string :administration_method
       t.date :date_given
       t.date :expiration_date
-      t.belongs_to :user
+      t.belongs_to :user, index: true
 
       t.timestamps null: false
     end
