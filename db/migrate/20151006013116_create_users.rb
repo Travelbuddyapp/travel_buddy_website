@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.date :birth_date
       t.string :phone_number
       t.string :gender
-      t.attachment :avatar
 
       t.timestamps null: false
     end
