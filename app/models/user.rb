@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  has_many :trips
-  has_many :vaccines
-  has_many :documents
-  has_many :contacts
-  has_one :address
+  has_many :trips, dependent: :destroy
+  has_many :vaccines, dependent: :destroy
+  has_many :documents, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_one :address, dependent: :destroy
   
 end

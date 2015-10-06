@@ -1,8 +1,8 @@
 class Trip < ActiveRecord::Base
   belongs_to :user
-  has_many :checklists
-  has_many :contacts
-  has_many :reservations
+  has_many :checklists, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :reservations, dependent: :destroy
   serialize :ice_id
   
 end
