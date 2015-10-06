@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+ruby '2.2.2'
+gem 'shoulda-matchers'
+gem 'devise'
+gem 'haml'
+gem 'simplecov'
+gem 'paperclip'
+gem 'factory_girl_rails'
+# gem 'materialize or bootstrap'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -35,6 +44,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'pry'
+  gem 'rspec'
 end
 
 group :development do
