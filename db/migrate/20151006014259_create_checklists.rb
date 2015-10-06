@@ -3,8 +3,8 @@ class CreateChecklists < ActiveRecord::Migration
     create_table :checklists do |t|
       t.string :title
       t.date :due_date
-      t.integer :trip_id
-      t.integer :user_id
+      t.belongs_to :trip
+      t.belongs_to :user
 
       t.timestamps null: false
     end

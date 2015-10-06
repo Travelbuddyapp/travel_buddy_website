@@ -3,7 +3,7 @@ class CreateListItems < ActiveRecord::Migration
     create_table :list_items do |t|
       t.string :content
       t.boolean :completed
-      t.integer :checklist_id
+      t.belongs_to :checklist
 
       t.timestamps null: false
     end

@@ -4,7 +4,7 @@ class CreateDocuments < ActiveRecord::Migration
       t.string :name
       t.attachment :attachment
       t.date :expiration_date
-      t.integer :user_id
+      t.belongs_to :user
 
       t.timestamps null: false
     end

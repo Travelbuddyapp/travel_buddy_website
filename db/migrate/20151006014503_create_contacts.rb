@@ -6,6 +6,8 @@ class CreateContacts < ActiveRecord::Migration
       t.string :email
       t.text :note_field
       t.boolean :ice
+      t.belongs_to :user
+      t.belongs_to :trip
 
       t.timestamps null: false
     end

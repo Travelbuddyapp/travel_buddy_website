@@ -6,7 +6,7 @@ class CreateTrips < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.text :ice_id
-      t.integer :user_id
+      t.belongs_to :user
 
       t.timestamps null: false
     end
