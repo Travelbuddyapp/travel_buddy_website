@@ -47,7 +47,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'pry'
-  gem 'rspec'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
