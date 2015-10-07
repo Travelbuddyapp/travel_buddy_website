@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'static_page#home'
-
+  get '/about', to: 'static_page#about_us', as: :about 
   resources :addresses
   resources :contacts
   resources :documents
