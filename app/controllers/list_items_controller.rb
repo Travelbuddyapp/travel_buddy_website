@@ -9,7 +9,7 @@ class ListItemsController < ApplicationController
 
   def create
     @checklist = Checklist.find(params[:checklist_id])
-    @list_item = List_item.new(list_item_params)
+    @list_item = ListItem.new(list_item_params)
     if @list_item.save
       redirect_to course_path(@checklist)
     else
