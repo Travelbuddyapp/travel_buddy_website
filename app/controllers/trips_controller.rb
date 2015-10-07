@@ -15,7 +15,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     if @trip.save
-      redirect_to @trip
+      redirect_to trip_path
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class TripsController < ApplicationController
 
   def update
     if @trip.update(trip_params)
-      redirect_to @trip
+      redirect_to trip_path
     else
       render 'edit'
     end
