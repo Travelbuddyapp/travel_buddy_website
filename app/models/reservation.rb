@@ -39,5 +39,10 @@ class Reservation < ActiveRecord::Base
   def self.others
     where(race: 'Other')
   end
+
+  def reserve
+    raise 'You need to override this method in your sub classes'
+    'We have recorded your generic reservation.'
+  end
   
 end
