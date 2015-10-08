@@ -4,7 +4,7 @@ class Reservation < ActiveRecord::Base
   validates :type, presence: true
   # validates_presence_of :name
 
-  def self.races
+  def self.types
     %w(Lodging Travel Vehicle Dining Activity Event Other)
     # Not sure if being too general or too specific above?
     # Also is it too formal? too vague? Dining or restaurant?
@@ -13,31 +13,31 @@ class Reservation < ActiveRecord::Base
 
   #scopes
   def self.lodgings
-    where(race: 'Lodging')
+    where(type: 'Lodging')
   end
 
   def self.travels
-    where(race: 'Travel')
+    where(type: 'Travel')
   end
 
   def self.vehicles
-    where(race: 'Vehicle')
+    where(type: 'Vehicle')
   end
 
   def self.dinings
-    where(race: 'Dining')
+    where(type: 'Dining')
   end
 
   def self.activities
-    where(race: 'Activity')
+    where(type: 'Activity')
   end
 
   def self.events
-    where(race: 'Event')
+    where(type: 'Event')
   end
 
   def self.others
-    where(race: 'Other')
+    where(type: 'Other')
   end
 
   def reserve

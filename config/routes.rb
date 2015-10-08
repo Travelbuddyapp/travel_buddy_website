@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :events, controller: 'reservations', type: 'Events'
   resources :other, controller: 'reservations', type: 'Other'
 
-
   resources :trips
   resources :users
   resources :vaccines
