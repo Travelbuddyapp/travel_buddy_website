@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   resources :addresses
   resources :contacts
   resources :documents
+
   resources :reservations
+  resources :lodging, controller: 'reservations', type: 'Lodging'
+  resources :travel, controller: 'reservations', type: 'Travel'
+  resources :vehicle, controller: 'reservations', type: 'Vehicle'
+  resources :dining, controller: 'reservations', type: 'Dining'
+  resources :activities, controller: 'reservations', type: 'Activities'
+  resources :events, controller: 'reservations', type: 'Events'
+  resources :other, controller: 'reservations', type: 'Other'
+
+
   resources :trips
   resources :users
   resources :vaccines
