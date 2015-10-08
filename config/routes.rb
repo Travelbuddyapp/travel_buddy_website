@@ -1,27 +1,45 @@
 Rails.application.routes.draw do
-  devise_for :users
+
   root 'static_page#home'
   get '/about', to: 'static_page#about_us', as: :about 
-  resources :addresses
-  resources :contacts
-  resources :documents
 
-  resources :reservations
-  resources :lodging, controller: 'reservations', type: 'Lodging'
-  resources :travel, controller: 'reservations', type: 'Travel'
-  resources :vehicle, controller: 'reservations', type: 'Vehicle'
-  resources :dining, controller: 'reservations', type: 'Dining'
-  resources :activities, controller: 'reservations', type: 'Activities'
-  resources :events, controller: 'reservations', type: 'Events'
-  resources :other, controller: 'reservations', type: 'Other'
+  devise_for :users
+  resources :users do
+    resources :addresses # done twice
+    resources :contacts  # done twice
+    resources :documents
+    resources :vaccines
+    resources :trips do
+      resources :contacts  # done twice
+      resources :reservations
+      resources :lodging, controller: 'reservations', type: 'Lodging' do
+        resources :addresses # done twice STI inheritance.
+      end
+      resources :travel, controller: 'reservations', type: 'Travel' do
+        resources :addresses # done twice STI inheritance.
+      end
+      resources :vehicle, controller: 'reservations', type: 'Vehicle' do
+        resources :addresses # done twice STI inheritance.
+      end
+      resources :dining, controller: 'reservations', type: 'Dining' do 
+        resources :addresses # done twice STI inheritance.
+      end
+      resources :activities, controller: 'reservations', type: 'Activities' do 
+        resources :addresses # done twice STI inheritance.
+      end
+      resources :events, controller: 'reservations', type: 'Events' do 
+        resources :addresses # done twice STI inheritance.
+      end
+      resources :other, controller: 'reservations', type: 'Other' do 
+        resources :addresses # done twice STI inheritance.
+      end #end of addresses nested inside of reservation
+      resources :checklists do
+        resources :list_items
+      end # end of cheklist/list item do loop
+    end # end of trips nesting loop
+  end # end of users nesting.
 
-  resources :trips
-  resources :users
-  resources :vaccines
   
-  resources :checklists do
-    resources :list_items
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
