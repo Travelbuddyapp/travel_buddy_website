@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe ListItem, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'attributes' do
+    it { should respond_to(:content) }
+    it { should respond_to(:completed) }
+    it { should belong_to(:checklist) }
+    it { should validate_presence_of(:content) }
+    it { should validate_presence_of(:completed) }
+  end
 end
