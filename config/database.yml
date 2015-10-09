@@ -21,11 +21,11 @@ test:
   <<: *default
   database: travel_buddy_test
 
-production:
-  <<: *default
-  database: travel_buddy_production
-  username: travel_buddy
-  password: <%= ENV['TRAVEL_BUDDY_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: travel_buddy_production
+#   username: travel_buddy
+#   password: <%= ENV['TRAVEL_BUDDY_DATABASE_PASSWORD'] %>
 
 
 
