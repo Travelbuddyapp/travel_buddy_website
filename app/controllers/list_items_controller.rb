@@ -1,6 +1,6 @@
 class ListItemsController < ApplicationController
-  #didn't include show/index since those actions are covered by
-  #show page 4 checklist, where 1 checklist will show ALL related list_items
+  # didn't include show/index since those actions are covered by
+  # show page 4 checklist, where 1 checklist will show ALL related list_items
   def new
     @checklist = Checklist.find(params[:checklist_id])
     @list_item = @checklist.list_items.new
@@ -42,6 +42,6 @@ class ListItemsController < ApplicationController
   private
 
   def list_item_params
-    params.require(:list_item).permit (:content, :completed, :checklist_id)
+    params.require(:list_item).permit(:content, :completed, :checklist_id)
   end
 end
