@@ -9,10 +9,11 @@
   <%= f.email_field :email %>
 
   <%= f.label :note_field %>
-  <%= f.text_area :note_field %>
+  <%= f.text_field :note_field %>
 
-  <%= f.check_box :ice %>
-  <%= f.check_box :ice %>
+  <%= f.check_box :ice, {}, true, false %>
+  <%= f.label :ice %>
+  <br>
 
   <%= f.submit %>
 <% end %>
