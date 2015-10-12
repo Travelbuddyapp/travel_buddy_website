@@ -1,10 +1,13 @@
-<h1>Contacts#index</h1>
+<h1>Contacts Index</h1>
 <p>Find me in app/views/contacts/index.html.erb</p>
 
 <%= link_to "new", new_user_contact_path %>
 <%= link_to "back", :back %>
+<br>
 
-<% @contact.each do |f| %>
-  Name: <%= f.name %><br>
-  Phone Number: <%= f.phone_number %><br>
+<% @contact.each do |contact| %>
+<br>
+  Name: <%= contact.name %><br>
+  Phone Number: <%= contact.phone_number %><br>
+<%= link_to "Show", user_contact_path(current_user, contact) %><br>
 <% end %>

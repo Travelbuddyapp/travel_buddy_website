@@ -1,7 +1,6 @@
 class ContactsController < ApplicationController
   before_action :find_user
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
-  
   def index
     @contact = Contact.all
   end
@@ -19,7 +18,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to alligator_path
+      redirect_to user_contacts_path
     else
       render 'new'
     end
@@ -37,7 +36,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @contact.destroy method: :delete
+    @contact.destroy
     redirect_to user_contacts_path
   end
 
