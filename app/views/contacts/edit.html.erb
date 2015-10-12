@@ -1,7 +1,7 @@
 <h1>Contacts#edit</h1>
 <p>Find me in app/views/contacts/edit.html.erb</p>
 
-<%= link_to "back", :back %>
+<%= link_to "Back", :back %>
 <%= render 'contact_form' %>
 
 <%= link_to 'Destroy', user_contact_path(current_user, @contact), data: {:confirm => 'Are you sure?'}, :method => :delete %>
