@@ -5,12 +5,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users do
-    resources :addresses # done twice
-    resources :contacts  # done twice
+    resources :addresses # done here and under reservations
+    resources :contacts
     resources :documents
     resources :vaccines
     resources :trips do
-      resources :contacts  # done twice
       resources :reservations
       resources :lodging, controller: 'reservations', type: 'Lodging' do
         resources :addresses # done twice STI inheritance.
