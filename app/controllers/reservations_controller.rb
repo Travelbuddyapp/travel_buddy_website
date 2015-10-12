@@ -1,11 +1,12 @@
 class ReservationsController < ApplicationController
+include StiHelper
+
+before_action :set_user
+before_action :set_trip
 before_action :find_reservation, only: [:show, :edit, :update, :destroy]
   
   def index
     @reservation = Reservation.all
-  end
-
-  def show
   end
 
   def new
@@ -19,6 +20,9 @@ before_action :find_reservation, only: [:show, :edit, :update, :destroy]
     else
       render 'new'
     end
+  end
+
+  def show
   end
 
   def edit
@@ -39,11 +43,21 @@ before_action :find_reservation, only: [:show, :edit, :update, :destroy]
 
   private
 
-  def reservation_params
-    params.require(:reservation).permit(:business_name, :confirmation_number, :check_in_date, :check_out_date, :note)
+  def set_user
+    # @user = User.find(params[:user_id])
+    @user = User.find(current_user)
+  end
+
+  def set_trip
+    @trip = Trip.find(params[:trip_id])
   end
 
   def find_reservation
     @reservation = Reservation.find(params[:id])
   end
+
+  def reservation_params
+    params.require(:reservation).permit(:business_name, :confirmation_number, :check_in_date, :check_out_date, :note)
+  end
+
 end
