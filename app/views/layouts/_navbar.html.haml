@@ -4,8 +4,9 @@
     %a.button-collapse{"data-activates" => "mobile-demo", :href => "/"}
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
-      %li
-        %a{href: "/"} Home
+      - if user_signed_in?
+        %li
+          %a{href: "/"} Home
       %li
         %a{href: "/about"} About
       - if user_signed_in?
