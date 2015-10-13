@@ -20,52 +20,7 @@
       = link_to 'Edit', edit_user_address_path(@user)
     %br
     = link_to 'Edit Profile', edit_user_registration_path
-  .col.s12.m9
-    %ul.tabs
-      %li.tab.col.s3
-        %a.active{href: '#contacts'}
-          Contacts
-      %li.tab.col.s3
-        %a{href: '#documents'}
-          Documents
-      %li.tab.col.s3
-        %a{href: '#vaccines'}
-          Vaccines
-      %li.tab.col.s3
-        %a{href: '#trips'}
-          Trips
-    #contacts.col.s12
-      - if @user.contacts.empty?
-        %h4
-          There are currently zero contacts
-      - else
-        - @user.contacts.each do |contact|
-          = contact.name
-      = link_to 'create a contact', new_user_contact_path(@user)
-    #documents.col.s12
-      - if @user.documents.empty?
-        %h4
-          There are currently zero documents
-      - else
-        - @user.documents.each do |document|
-          = document.name
-      = link_to 'create a document', new_user_document_path(@user)
-    #vaccines.col.s12
-      - if @user.vaccines.empty?
-        %h4
-          There are currently zero vaccines
-      - else
-        - @user.vaccines.each do |vaccine|
-          = vaccine.name
-      = link_to 'create a vaccine', new_user_vaccine_path(@user)
-    #trips.col.s12
-      - if @user.trips.empty?
-        %h4
-          There are currently zero trips
-      - else
-        - @user.trips.each do |trip|
-          = trip.name
-      = link_to 'create a trip', new_user_trip_path(@user)
+
 
 
 
