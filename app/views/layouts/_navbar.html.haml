@@ -7,13 +7,10 @@
       %li
         %a{href: "/"} Home
       %li
-        - if user_signed_in? 
-          %a{href: "/users/#{current_user.id}"} Profile
-        - else
-          %a{href: "/users"} Profile
-      %li
         %a{href: "/about"} About
       - if user_signed_in?
+        %li
+          %a{href: "/users/#{current_user.id}"} Profile
         %li= link_to 'Log Out', destroy_user_session_path, method: :delete
       - else
         %li= link_to 'Log In', new_user_session_path
