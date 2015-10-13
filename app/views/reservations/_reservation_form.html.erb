@@ -1,6 +1,6 @@
 
 
-<%= form_for @reservation do |f| %>
+<%= form_for [@user, @trip, @reservation] do |f| %>
   <%= f.label :business_name %>
   <%= f.text_field :business_name %>
 

@@ -1,8 +1,12 @@
 class ContactsController < ApplicationController
+  before_action :find_user
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
   def index
     @contact = Contact.all
   end
+
+# post = user
+# comment = contact
 
   def show
   end
@@ -14,7 +18,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to contacts_path
+      redirect_to user_contacts_path
     else
       render 'new'
     end
@@ -25,15 +29,15 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update(contact_params)
-      redirect_to contact_path
+      redirect_to user_contacts_path
     else
       render 'edit'
     end
   end
 
   def destroy
-    @contact.destroy method: :delete
-    redirect_to contact_path
+    @contact.destroy
+    redirect_to user_contacts_path
   end
 
   private
@@ -45,4 +49,9 @@ class ContactsController < ApplicationController
   def find_contact
     @contact = Contact.find(params[:id])
   end
+
+  def find_user
+    @contact = User.find(current_user)
+  end
+
 end

@@ -1,4 +1,4 @@
-<%= form_for @contact do |f| %>
+<%= form_for [current_user, @contact] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -11,8 +11,10 @@
   <%= f.label :note_field %>
   <%= f.text_field :note_field %>
 
-  <%= f.label :ice %>
-  <%= f.text_field :ice %>
+  <%= f.check_box :ice, {}, true, false %>
+  <%= f.label 'Emergency Contact?' %>
+  <br>
+  <br>
 
   <%= f.submit %>
 <% end %>

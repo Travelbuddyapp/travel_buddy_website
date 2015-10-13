@@ -1,9 +1,12 @@
 <h1>Contacts#show</h1>
 <p>Find me in app/views/contacts/show.html.erb</p>
 
+<%= link_to "Back", :back %><br>
 
 Name: <%= @contact.name %><br>
 Phone Number: <%= @contact.phone_number %><br>
 Email: <%= @contact.email %><br>
 Notes: <%= @contact.note_field %><br>
 Emergency Contact: <%= @contact.ice %><br>
+<%= link_to "Edit", edit_user_contact_path %>
+<%= link_to 'Destroy', user_contact_path(current_user, @contact), data: {:confirm => 'Are you sure?'}, :method => :delete %>
