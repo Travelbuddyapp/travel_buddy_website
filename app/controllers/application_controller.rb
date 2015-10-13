@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :authenticate_user!
-  # before_filter :require_permission
+  before_filter :require_permission
   before_action :configure_permitted_parameters, if: :devise_controller?
  
   protected
@@ -14,15 +14,10 @@ class ApplicationController < ActionController::Base
   end
 
   def require_permission
-    if user_signed_in? 
-      if (params[:id]) == nil
-      else
-        if User.find(params[:id]) != current_user
-        # raise
-        # flash[:error] = "Don't do that"
-        redirect_to root_path
-        end
-      end
+    if user_signed_in? && (params[:id]) == nil
+    elsif User.find(params[:id]) != current_user
+      flash[:error] = "Don't do that"
+      redirect_to root_path
     end
   end
 end

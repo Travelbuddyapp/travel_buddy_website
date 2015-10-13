@@ -9,6 +9,7 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
+   <p> <%= flash[:error]%></p>
     <div class="container">
       <%= yield %>
     </div>
