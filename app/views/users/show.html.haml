@@ -18,7 +18,9 @@
       = "Address: #{@user.address}"
       |
       = link_to 'Edit', edit_user_address_path(@user)
-  .col.s12.m8.offset-m1
+    %br
+    = link_to 'Edit Profile', edit_user_registration_path
+  .col.s12.m9
     %ul.tabs
       %li.tab.col.s3
         %a.active{href: '#contacts'}
@@ -33,13 +35,37 @@
         %a{href: '#trips'}
           Trips
     #contacts.col.s12
-      ADD CONTACT INFORMATION
+      - if @user.contacts.empty?
+        %h4
+          There are currently zero contacts
+      - else
+        - @user.contacts.each do |contact|
+          = contact.name
+      = link_to 'create a contact', new_user_contact_path(@user)
     #documents.col.s12
-      ADD DOCUMENTS INFORMATION
+      - if @user.documents.empty?
+        %h4
+          There are currently zero documents
+      - else
+        - @user.documents.each do |document|
+          = document.name
+      = link_to 'create a document', new_user_document_path(@user)
     #vaccines.col.s12
-      ADD VACCINES INFORMATION
+      - if @user.vaccines.empty?
+        %h4
+          There are currently zero vaccines
+      - else
+        - @user.vaccines.each do |vaccine|
+          = vaccine.name
+      = link_to 'create a vaccine', new_user_vaccine_path(@user)
     #trips.col.s12
-      ADD TRIPS INFORMATION
+      - if @user.trips.empty?
+        %h4
+          There are currently zero trips
+      - else
+        - @user.trips.each do |trip|
+          = trip.name
+      = link_to 'create a trip', new_user_trip_path(@user)
 
 
 
