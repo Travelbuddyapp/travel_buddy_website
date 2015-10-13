@@ -26,11 +26,22 @@
     </div>
   </div>
 
-  <div class="field center-align">
-    <%= f.radio_button :gender, "Male" %>Male
-    <%= f.radio_button :gender, "Female" %>Female
-    <%= f.label :gender,"Female" %>
+  <div class="field">
+    <%= f.radio_button :gender, id = "Male" %>
+    <label for="user_gender_male"> Male </label>
+    <%= f.radio_button :gender, id = "Female" %>
+    <label for="user_gender_female"> Female </label>
   </div>
+
+
+<!--     <p>
+      <input name="group1" type="radio" id="test1" />
+      <label for="test1">Red</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="test2" />
+      <label for="test2">Yellow</label>
+    </p> -->
 
   <div class="field">
     <%= f.label :email %><br />
