@@ -1,10 +1,13 @@
 class ContactsController < ApplicationController
   before_action :find_user
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
+
   def index
-    @contact = Contact.all
+    @contact = Contact.where(user_id: current_user.id)
   end
 
+# (:where => 'User.("Peter")')
+# (:where => 'current_user')
 # post = user
 # comment = contact
 
@@ -43,7 +46,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :phone_number, :email, :note_field, :ice)
+    params.require(:contact).permit(:name, :phone_number, :email, :note_field, :ice, :user_id)
   end
 
   def find_contact
