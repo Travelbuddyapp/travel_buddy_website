@@ -40,6 +40,12 @@ class DocumentsController < ApplicationController
     redirect_to user_documents_path(@user)
   end
 
+  def pdf
+    binding.pry
+    pdf_filename = File.join(Rails.root, "tmp/my_document.pdf")
+    send_file(pdf_filename, :filename => "your_document.pdf", :type => "application/pdf")
+  end
+
   private
 
   def document_params
