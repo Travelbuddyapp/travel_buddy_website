@@ -1,0 +1,26 @@
+.row
+  .col.s12.m3
+    - if @user.avatar_file_name.nil?
+      %img.center{src:"http://emblemsbf.com/img/11864.jpg"}
+    - else
+      = image_tag @user.avatar.url(:medium), class: 'center'
+    %span.avatar-fullname
+      = "#{@user.first_name} #{@user.last_name}"
+    %span.avatar-information
+      = "Birthday: #{@user.birth_date}"
+    %span.avatar-information
+      = "Phone number: #{@user.phone_number}"
+    %span.avatar-information
+      = "Gender: #{@user.gender}"
+    - if @user.address.nil?
+      = link_to 'Add address', new_user_address_path(@user)
+    - else
+      = "Address: #{@user.address}"
+      |
+      = link_to 'Edit', edit_user_address_path(@user)
+  .col.s12.m9
+    %ul.tabs
+      %li.tab.col.s3
+      
+
+

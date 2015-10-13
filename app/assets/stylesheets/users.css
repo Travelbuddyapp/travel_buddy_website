@@ -1,0 +1,26 @@
+img.center {
+  display: block;
+  margin: 0 auto;
+  width: 230px;
+  height: 230px;
+}
+
+span.avatar-fullname {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  font-size: 26px;
+  line-height: 30px;
+}
+
+span.avatar-information {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  font-size: : 20px;
+  line-height: 24px;
+}
+
+.row{
+  margin-top: 20px;
+}
