@@ -5,12 +5,12 @@
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
       %li
+        %a{href: "/"} Home
+      %li
         - if user_signed_in? 
           %a{href: "/users/#{current_user.id}"} Profile
         - else
           %a{href: "/users"} Profile
-      %li
-        %a{href: "/"} Home
       %li
         %a{href: "/about"} About
       - if user_signed_in?

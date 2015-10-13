@@ -10,20 +10,21 @@
             -# %br
             -# = link_to "User trip reservations", user_trip_reservations_path(@user, @trip)
             %br
-            = link_to "contacts", user_contacts_path(current_user, @contacts)
-            -# %br
-            -# = link_to "documents", documents_path
-            -# %br
+            = link_to "Contacts", user_contacts_path(current_user, @contacts)
+            %br
+            %a{href: "/about"} About
+            -# = link_to "documents", user_documents_path
+            %br
             -# = link_to "reservations", reservations_path
-            -# %br
+            %br
             -# = link_to "trips", trips_path
-            -# %br
+            %br
             -# = link_to "users", users_path
-            -# %br
-            -# = link_to "vaccines", vaccines_path
-            -# %br
+            %br
+            = link_to "Vaccines", user_vaccines_path(current_user)
+            %br
             -# = link_to "checklists", checklists_path
-            -# %br
+            %br
             A web application that will assist in planning your travels
   .footer-copyright
     .container

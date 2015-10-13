@@ -1,8 +1,11 @@
-<h1>Vaccines#index</h1>
-<p>Find me in app/views/vaccines/index.html.erb</p>
+<h1 class="center-align">Vaccines Index</h1>
+<p class="center-align">Find me in app/views/vaccines/index.html.erb</p>
 
-<%= link_to "new", new_vaccine_path %>
+
 
 <% @vaccine.each do |f| %>
   Name: <%= f.name %><br>
 <% end %>
+
+<%= link_to "Vaccine Card Front", "http://www.immunize.org/shop/views/lifetimecard_pg2.pdf" %><br>
+<%= link_to "Vaccine Card Back", "http://www.immunize.org/shop/views/lifetimecard_pg1.pdf" %><br>
