@@ -9,7 +9,9 @@
   </head>
   <body>
     <%= render 'layouts/navbar' %>
-   <p> <%= flash[:error]%></p>
+   <p> <%= flash[:notice]%></p>
+   <p> <%= flash[:error1]%></p>
+   <p> <%= flash[:error2]%></p>
     <div class="container">
       <%= yield %>
     </div>
