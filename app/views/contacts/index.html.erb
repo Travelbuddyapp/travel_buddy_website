@@ -1,13 +1,29 @@
 <h1>Contacts Index</h1>
 <p>Find me in app/views/contacts/index.html.erb</p>
 
-<%= link_to "New", new_user_contact_path %>
 <%= link_to "Back", :back %>
 <br>
 
-<% @contact.each do |contact| %>
-<br>
-  Name: <%= contact.name %><br>
-  Phone Number: <%= contact.phone_number %><br>
-<%= link_to "Show", user_contact_path(current_user, contact) %><br>
-<% end %>
+
+<div class="row">
+
+  <div class="col s12 m6 l4">
+    <div class="card-panel">
+      <div class="center-align">
+        <%= link_to "New", new_user_contact_path %><br>
+        <i class="fa fa-plus fa-2x"></i><br>
+        New Contact
+      </div>
+    </div>
+  </div>
+
+  <% @contact.each do |contact| %>
+  <div class="col s12 m6 l4">
+    <div class="card-panel white">
+      Name: <%= contact.name %><br>
+      Phone Number: <%= contact.phone_number %><br>
+      <%= link_to "Show", user_contact_path(current_user, contact) %><br>
+    </div>
+  </div>
+  <% end %>
+</div>

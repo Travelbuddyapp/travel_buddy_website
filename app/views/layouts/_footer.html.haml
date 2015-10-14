@@ -18,13 +18,13 @@
             %br
             -# = link_to "reservations", user_trip_reservations_path(current_user, @trip, @reservations)
             %br
-            -# = link_to "trips", trips_path
-            -# %br
+            = link_to "Trips", user_trips_path(current_user, @trips)
+            %br
             -# = link_to "users", users_path
             %br
             = link_to "Vaccines", user_vaccines_path(current_user)
             %br
-            -# = link_to "checklists", checklists_path
+            -# = link_to "checklists", user_checklists_path
             %br
             A web application that will assist in planning your travels
   .footer-copyright

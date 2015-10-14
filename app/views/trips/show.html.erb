@@ -1,9 +1,95 @@
 <h1>Trips#show</h1>
 Shows only 1 trip<br>
 
+<div class="row">
+  <div class="col s12 m4">
+    <div class="card-panel">
+      Name: <%= @trip.name %><br>
+      Description: <%= @trip.description %><br>
+      Start Date: <%= @trip.start_date %><br>
+      End Date: <%= @trip.end_date %><br>
+      Emergency Contact: <%= @trip.ice_id %><br>
+      <div class="card-action">
+        <%= link_to "Edit", edit_user_trip_path %>
+        <%= link_to 'Delete', user_trip_path(current_user, @trip), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      </div>
+    </div>
+  </div>
+</div>
 
-Name: <%= @trip.name %><br>
-Description: <%= @trip.description %><br>
-Start Date: <%= @trip.start_date %><br>
-End Date: <%= @trip.end_date %><br>
-Emergency Contact: <%= @trip.ice_id %><br>
+
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s3">
+        <a class="active" href="#trips">
+          Trips
+        </a>
+      </li>
+      <li class="tab col s3">
+        <a href="#contacts">
+          Contacts
+        </a>
+      </li>
+      <li class="tab col s3">
+        <a href="#documents">
+          Documents
+        </a>
+      </li>
+      <li class="tab col s3">
+        <a href="#vaccines">
+          Vaccines
+        </a>
+      </li>
+    </ul>
+    <div class="col s12" id="contacts">
+      <% if @user.contacts.empty? %>
+        <h4>
+          There are currently zero contacts
+        </h4>
+      <% else %>
+        <% @user.contacts.each do |contact| %>
+          <%= contact.name %>
+        <% end %>
+      <% end %>
+      <%= link_to 'create a contact', new_user_contact_path(@user) %>
+    </div>
+    <div class="col s12" id="documents">
+      <% if @user.documents.empty? %>
+        <h4>
+          There are currently zero documents
+        </h4>
+      <% else %>
+        <% @user.documents.each do |document| %>
+          <%= document.name %>
+          <%= image_tag document.attachment.url(:medium) %>
+        <% end %>
+      <% end %>
+      <%= link_to 'create a document', new_user_document_path(@user) %>
+    </div>
+    <div class="col s12" id="vaccines">
+      <% if @user.vaccines.empty? %>
+        <h4>
+          There are currently zero vaccines
+        </h4>
+      <% else %>
+        <% @user.vaccines.each do |vaccine| %>
+          <%= vaccine.name %>
+        <% end %>
+      <% end %>
+      <%= link_to 'create a vaccine', new_user_vaccine_path(@user) %>
+    </div>
+    <div class="col s12" id="trips">
+      <% if @user.trips.empty? %>
+        <h4>
+          There are currently zero trips
+        </h4>
+      <% else %>
+        <% @user.trips.each do |trip| %>
+          <%= trip.name %>
+        <% end %>
+      <% end %>
+      <%= link_to 'create a trip', new_user_trip_path(@user) %>
+    </div>
+  </div>
+</div>
