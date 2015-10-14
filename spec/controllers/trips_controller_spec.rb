@@ -8,6 +8,13 @@ before(:each) do
   user.trips << trip
 end
 
+  describe "GET #index" do
+    it "returns http success" do
+      get :index, {user_id: user.id, id: trip.id}
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "GET #new" do
     it "returns http success" do
       get :new, {user_id: user.id}
@@ -26,9 +33,6 @@ end
       expect(Trip.last.name).to eq(name)
     end
 
-    # it 'does not add a trip without name' do
-    # end
-
     it 'renders the new template on error' do
       create_params = {user_id: user.id, trip: {name: nil}}
       post :create, create_params
@@ -45,14 +49,17 @@ end
   end
 
   describe "GET #edit" do
+
     it "returns http success" do
       get :edit, {user_id: user.id, id: trip.id}
       expect(response).to have_http_status(:success)
     end
+
     it 'renders the edit template' do
       get :edit, {user_id: user.id, id: trip.id}
       expect(response).to render_template('edit')
     end
+    
   end
 
   describe "PUT #update" do
@@ -64,9 +71,6 @@ end
       trip = trip.reload #need to reload with updated attr to check...
       expect(trip.name).to eq('Trip 1')
     end
-
-    # it 'does not update without a name' do
-    # end
 
     it 'renders the edit template on error' do
       trip = Trip.create(name: "Trip 1")
