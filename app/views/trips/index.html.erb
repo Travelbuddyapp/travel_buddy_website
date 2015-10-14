@@ -22,7 +22,7 @@
     <div class="card-panel ">       
       Name: <%= f.name %><br>
       Start Date: <%= f.start_date %><br>
-      <%= link_to "show", new_user_trip_path %>
+      <%= link_to "show", user_trip_path(current_user, f) %>
     </div>
   </div>
   <% end %>
