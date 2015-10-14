@@ -80,7 +80,7 @@ end
   describe "DELETE #destroy" do
     it "destroys the trip" do
       expect(Trip.count).to eq(1)
-      delete :destroy, {id: trip.id, user_id: user.id }
+      delete :destroy, {id: trip.id, user_id: user.id}
       expect(Trip.count).to eq(0)
     end
   end
