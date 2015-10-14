@@ -30,6 +30,7 @@
       - else
         - @user.documents.each do |document|
           = link_to document.name, document.attachment.url(:original, false)
+          = link_to 'Destroy', user_document_path(@user,document), method: 'delete', data:{confirm: 'Really Destroy?'}
           %br
       = link_to 'create a document', new_user_document_path(@user)
     #vaccines.col.s12
