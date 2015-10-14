@@ -6,28 +6,38 @@
     %ul.right.hide-on-med-and-down
       - if user_signed_in?
         %li
-          %a{href: "/"} Home
-      %li
-        %a{href: "/about"} About
-      - if user_signed_in?
+          %a{href: "/"} Home 
+        %li
+          %a{href: "/users/#{current_user.id}/trips"} Trips
+        %li
+          %a{href: "/users/#{current_user.id}/contacts"} Contacts
         %li
           %a{href: "/users/#{current_user.id}"} Profile
+          - if user_signed_in? 
+          - else
+            %a{href: "/users"} Profile
         %li= link_to 'Log Out', destroy_user_session_path, method: :delete
       - else
+        %li
+          %a{href: "/about"} About
         %li= link_to 'Log In', new_user_session_path
         %li= link_to 'Sign Up', new_user_registration_path
     %ul#mobile-demo.side-nav
-      %li
-        - if user_signed_in? 
-          %a{href: "/users/#{current_user.id}"} Profile
-        - else
-          %a{href: "/users"} Profile
-      %li
-        %a{href: "/"} Home
-      %li
-        %a{href: "/about"} About
       - if user_signed_in?
+        %li
+          %a{href: "/"} Home 
+        %li
+          %a{href: "/users/#{current_user.id}/trips"} Trips
+        %li
+          %a{href: "/users/#{current_user.id}/contacts"} Contacts
+        %li
+          %a{href: "/users/#{current_user.id}"} Profile
+          - if user_signed_in? 
+          - else
+            %a{href: "/users"} Profile
         %li= link_to 'Log Out', destroy_user_session_path, method: :delete
       - else
+        %li
+          %a{href: "/about"} About
         %li= link_to 'Log In', new_user_session_path
         %li= link_to 'Sign Up', new_user_registration_path        
