@@ -29,8 +29,8 @@
           There are currently zero documents
       - else
         - @user.documents.each do |document|
-          = document.name
-          = image_tag document.attachment.url(:medium)
+          = link_to document.name, document.attachment.url(:original, false)
+          %br
       = link_to 'create a document', new_user_document_path(@user)
     #vaccines.col.s12
       - if @user.vaccines.empty?

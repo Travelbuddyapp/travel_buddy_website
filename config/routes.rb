@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'static_page#home'
-  get '/about', to: 'static_page#about_us', as: :about 
 
   devise_for :users
+  root 'static_page#home'
+  get "documents/pdf"
+  get '/about', to: 'static_page#about_us', as: :about 
   resources :users do
     resources :addresses # done here and under reservations
     resources :contacts

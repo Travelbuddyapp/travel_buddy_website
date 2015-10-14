@@ -16,7 +16,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.user = @user
-    binding.pry
+    # binding.pry
     if @document.save
       redirect_to user_documents_path(@user)
     else
@@ -42,8 +42,8 @@ class DocumentsController < ApplicationController
 
   def pdf
     binding.pry
-    pdf_filename = File.join(Rails.root, "tmp/my_document.pdf")
-    send_file(pdf_filename, :filename => "your_document.pdf", :type => "application/pdf")
+    pdf_filename = File.join(Rails.root, "public/system/documents/attachment/000/000/005/original/Equation_Sheet__8_9_copy.pdf")
+    send_file(pdf_filename, :filename => "Equation_Sheet__8_9_copy.pdf", :type => "application/pdf")
   end
 
   private
