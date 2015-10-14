@@ -62,7 +62,6 @@ Shows only 1 trip<br>
       <% else %>
         <% @user.documents.each do |document| %>
           <%= document.name %>
-          <%= image_tag document.attachment.url(:medium) %>
         <% end %>
       <% end %>
       <%= link_to 'create a document', new_user_document_path(@user) %>
