@@ -14,12 +14,16 @@ class ApplicationController < ActionController::Base
   end
 
   def require_permission
-    if user_signed_in? && (params[:id]) == nil
-    elsif User.find(params[:id]) != current_user
-      flash[:error] = "Don't do that"
-      redirect_to root_path
+    if user_signed_in? && params[:id]
+      if params[:user_id] == current_user.id.to_s
+      elsif params[:id] == current_user.id.to_s
+      else
+        flash[:error1] = "Wrong route, You can only see your stuff."
+        redirect_to root_path
+      end
     end
   end
+  # I'm proud of this bit of code, I wrote it myself! -Willard Moore
 end
 
 
