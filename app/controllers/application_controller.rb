@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
    devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :birth_date << :phone_number << :gender << :avatar
    devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name << :birth_date << :phone_number << :gender << :avatar
   end
-
+  # TODO: Do we need validation below now that user route is gone?
   def require_permission
     if user_signed_in? && params[:id]
       if params[:user_id] == current_user.id.to_s
