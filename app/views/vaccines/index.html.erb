@@ -1,11 +1,178 @@
 <h1 class="center-align">Vaccines Index</h1>
 <p class="center-align">Find me in app/views/vaccines/index.html.erb</p>
 
-
-
-<% @vaccine.each do |f| %>
-  Name: <%= f.name %><br>
-<% end %>
-
 <%= link_to "Vaccine Card Front", "http://www.immunize.org/shop/views/lifetimecard_pg2.pdf" %><br>
 <%= link_to "Vaccine Card Back", "http://www.immunize.org/shop/views/lifetimecard_pg1.pdf" %><br>
+
+<table class="centered bordered striped">
+  <thead>
+    <tr>
+      <th data-field="id">Vaccine</th>
+      <th data-field="name">Type of vaccine</th>
+      <th data-field="name">Date given mo/day/yr</th>
+      <th data-field="name">Health care professional or clinic name</th>
+      <th data-field="name">Date next dose due</th>
+    </tr>
+  </thead>
+  <% else %>
+    <tbody>
+        <tr>
+          <td>H. influenzae
+type b
+(Hib, Hib-HepB,
+DTaP-IPV/Hib,
+DTaP/Hib,
+Hib-MenCY)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      
+      <tr>
+        <td>Polio
+(IPV, OPV,
+DTaP-HepB-IPV,
+DTaP-IPV/Hib,
+DTaP-IPV)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>Pneumococcal
+(PCV7, PCV13,
+PPSV23)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>Rotavirus
+(RV5 [RotaTeq],
+RV1 [Rotarix],
+RV [unknown])</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>Measles, Mumps,
+Rubella
+(MMR, MMRV)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Varicella
+(chickenpox)
+(VAR, MMRV</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+       <tr>
+        <td>Hepatitis A
+(HepA, HepA-HepB)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Meningococcal
+(MCV4, MenB,
+MPSV4, Hib-MenCY)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Human
+papillomavirus
+(HPV2, HPV4,
+HPV9)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Zoster (shingles)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Hepatitis B
+(HepB, Hib-HepB,
+DTaP-HepB-IPV,
+HepA-HepB)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Diphtheria,
+Tetanus,
+Pertussis
+(whooping cough)
+(DTaP, DTP, DT,
+Td, Tdap,
+DTaP-HepB-IPV,
+DTaP-IPV/Hib,
+DTaP-IPV,
+DTaP/Hib)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Influenza
+(IIV, LAIV)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+</table>
+
