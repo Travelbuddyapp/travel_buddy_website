@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      redirect_to user_trip_reservations_path(current_user, @trip)
+      redirect_to trip_reservations_path(@trip)
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to user_trip_reservations_path(current_user, @trips)
+      redirect_to trip_reservations_path(@trip)
     else
       render 'edit'
     end
@@ -36,7 +36,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
-    redirect_to user_trip_reservations_path(current_user, @trips)
+    redirect_to trip_reservations_path(@trip)
   end
 
   private

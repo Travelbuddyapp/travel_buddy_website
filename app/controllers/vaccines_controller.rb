@@ -5,9 +5,6 @@ class VaccinesController < ApplicationController
     @vaccine = Vaccine.all
   end
 
-  def show
-  end
-
   def new
     @vaccine = Vaccine.new
   end
@@ -19,6 +16,9 @@ class VaccinesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
   end
 
   def edit
@@ -33,18 +33,19 @@ class VaccinesController < ApplicationController
   end
 
   def destroy
-    @vaccine.destroy method: :delete
-    redirect_to vaccine_path
+    @vaccine.destroy
+    redirect_to vaccines_path
   end
 
   private
 
-  def vaccine_params
-    params.require(:vaccine).permit(:name, :details, :administration_method, :date_given, :expiration_date)
-  end
-
   def find_vaccine
     @vaccine = Vaccine.find(params[:id])
   end
+
+  def vaccine_params
+    params.require(:vaccine).permit(:name, :details, :administration_method, :date_given, :expiration_date)
+  end
+  
 end
 
