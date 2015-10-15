@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :documents, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_one :address, dependent: :destroy
+  accepts_nested_attributes_for :address, allow_destroy: true , reject_if: proc { |attributes| attributes['address'].blank? }
   
   delegate :lodging, :travel, :vehicle, :dining, :activity, :event, :other, to: :reservations
 

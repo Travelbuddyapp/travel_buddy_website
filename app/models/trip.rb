@@ -4,5 +4,6 @@ class Trip < ActiveRecord::Base
   has_many :reservations, dependent: :destroy
   serialize :ice_id
   validates :name, presence: true
+  # accepts_nested_attributes_for :addresses, reject_if: proc { |attributes| attributes['address'].blank? }
   
 end
