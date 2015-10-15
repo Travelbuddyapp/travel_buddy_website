@@ -1,13 +1,9 @@
 class ChecklistsController < ApplicationController
+  before_action :find_trip
   before_action :find_checklist, only: [:show, :edit, :update, :destroy]
 
   def index
     @checklists = Checklist.all
-  end
-
-  def show
-    @list_items = List_item.where(checklist_id: params[:id])
-    #not sure on if ^ is List_item, ListItem, or something else...
   end
 
   def new
@@ -18,11 +14,17 @@ class ChecklistsController < ApplicationController
     @checklist = Checklist.new(checklist_params)
  
     if @checklist.save
-      redirect_to checklist_path
+      redirect_to trip_checklists_path(@trip)
       # TODO check if checklist_path is correct?
     else
       render :new
     end
+  end
+
+  def show
+    @list_items = ListItem.where(checklist_id: params[:id])
+    # not sure on if ^ is List_item, ListItem, or something else...
+    # also, is it params[:id] or something else?
   end
 
   def edit
@@ -31,7 +33,7 @@ class ChecklistsController < ApplicationController
   def update
    
     if @checklist.update(checklist_params)
-      redirect_to checklists_path
+      redirect_to trip_checklists_path(@trip)
     else
       render :edit
     end
@@ -39,17 +41,21 @@ class ChecklistsController < ApplicationController
 
   def destroy
     @checklist.destroy
-    redirect_to checklists_path
+    redirect_to trip_checklists_path(@trip)
   end
 
  private
 
-  def checklist_params
-    params.require(:checklist).permit(:title, :due_date, :trip_id, :user_id)
+  def find_trip
+    @trip = Trip.find(params[:id])
   end
 
   def find_checklist
     @checklist = Checklist.find(params[:id])
+  end
+
+  def checklist_params
+    params.require(:checklist).permit(:title, :due_date, :trip_id, :user_id)
   end
 end
 
