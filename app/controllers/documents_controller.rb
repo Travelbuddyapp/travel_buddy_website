@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   before_action :user
 
   def index
-    @documents = Document.all
+    @documents = Document.where(user_id:params[:user_id])
   end
 
   def show
