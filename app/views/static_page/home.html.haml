@@ -24,10 +24,10 @@
             .hide-on-med-and-down.inline
               Documents
     #trips.col.s12
-      = render partial: 'trips', locals: {trip: @trip}
+      = render partial: '/shared/trips', locals: {trip: @trip}
     #checklists.col.s12
-      = render 'checklists'
+      = render '/shared/checklists'
     #reservations.col.s12
-      = render 'reservations'
+      = render '/shared/reservations'
     #documents.col.s12
-      = render 'documents'
+      = render '/shared/documents'
