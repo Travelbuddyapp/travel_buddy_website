@@ -8,14 +8,14 @@
         %li
           %a{href: "/"} Home 
         %li
-          %a{href: "/users/#{current_user.id}/trips"} Trips
+          %a{href: "/trips"} Trips
         %li
-          %a{href: "/users/#{current_user.id}/contacts"} Contacts
+          %a{href: "/contacts"} Contacts
         %li
-          %a{href: "/users/#{current_user.id}"} Profile
+          %a{href: "/account"} Account
           - if user_signed_in? 
           - else
-            %a{href: "/users"} Profile
+            %a{href: "/account"} Account
         %li= link_to 'Log Out', destroy_user_session_path, method: :delete
       - else
         %li
@@ -27,14 +27,14 @@
         %li
           %a{href: "/"} Home 
         %li
-          %a{href: "/users/#{current_user.id}/trips"} Trips
+          %a{href: "/trips"} Trips
         %li
-          %a{href: "/users/#{current_user.id}/contacts"} Contacts
+          %a{href: "/contacts"} Contacts
         %li
-          %a{href: "/users/#{current_user.id}"} Profile
+          %a{href: "/account"} Account
           - if user_signed_in? 
           - else
-            %a{href: "/users"} Profile
+            %a{href: "/account"} Account
         %li= link_to 'Log Out', destroy_user_session_path, method: :delete
       - else
         %li
