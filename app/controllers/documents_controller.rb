@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action :find_document, only: [:show, :edit, :update, :destroy]
+  before_action :document, only: [:show, :edit, :update, :destroy]
   before_action :user
 
   def index
@@ -45,7 +45,7 @@ class DocumentsController < ApplicationController
     params.require(:document).permit(:name, :expiration_date, :attachment)
   end
 
-  def find_document
+  def document
     @document = Document.find(params[:id])
   end
 

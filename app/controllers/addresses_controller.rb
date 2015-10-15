@@ -1,13 +1,11 @@
 class AddressesController < ApplicationController
-  before_action :find_address, only: [:show, :edit, :udpate, :destroy]
+  before_action :address, only: [:show, :edit, :update, :destroy]
+  before_action :user
 
   def index
-    @addresses = Address.all
   end
 
   def show
-    @addresses = Address.where(address_id: params[:id])
-    #TODO: I don't think this is right.
   end
 
   def new
@@ -16,9 +14,9 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-
+    @address.user = @user
     if @address.save
-      redirect_to address_path
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -29,7 +27,7 @@ class AddressesController < ApplicationController
 
   def update
     if @address.update(address_params)
-      redirect_to addresses_path
+      redirect_to user_path(@user)
     else
       render :edit
     end
@@ -37,17 +35,21 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to addresses_path
+    redirect_to user_path(@user)
   end
 
   private
 
   def address_params
-    params.require(:address).permit()
+    params.require(:address).permit(:latitude, :longitude, :address)
   end
 
-  def find_address
+  def address
     @address = Address.find(params[:id])
+  end
+
+  def user
+    @user = User.find(params[:user_id])
   end
 
 end
