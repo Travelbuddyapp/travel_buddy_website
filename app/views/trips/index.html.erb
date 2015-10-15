@@ -1,8 +1,6 @@
 <h1>Trips#index</h1>
 <p>Find me in app/views/trips/index.html.erb</p>
 
-<%= link_to "new", new_user_trip_path %>
-<br>
 
     
 <div class="row">
@@ -10,7 +8,6 @@
   <div class="col s12 m6 l4 new-trip-link" data-user-id='<%= current_user[:id]%>'>
     <div class="card-panel">
       <div class="center-align">
-        <%= link_to "New", new_user_trip_path %><br>
         <i class="fa fa-plus fa-2x"></i><br>
         New Trip
       </div>
@@ -23,7 +20,6 @@
     <div class="card-panel ">       
       Name: <%= f.name %><br>
       Start Date: <%= f.start_date %><br>
-      <%= link_to "show", user_trip_path(current_user, f) %>
     </div>
   </div>
   <% end %>

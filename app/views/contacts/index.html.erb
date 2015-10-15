@@ -2,7 +2,6 @@
 <p>Find me in app/views/contacts/index.html.erb</p>
 
 <%= link_to "Back", :back %>
-<br>
 
 
 <div class="row">
@@ -21,7 +20,6 @@
     <div class="card-panel white show-contact-link" data-contact-id='<%= contact[:id] %>' data-user-id='<%= current_user[:id] %>'>
       Name: <%= contact.name %><br>
       Phone Number: <%= contact.phone_number %><br>
-      <%= link_to "Show", user_contact_path(current_user, contact) %><br>
     </div>
   </div>
   <% end %>
