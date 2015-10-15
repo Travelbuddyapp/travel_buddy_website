@@ -2,8 +2,9 @@
 Shows only 1 trip<br>
 
 <div class="row">
-  <div class="col s12 m4">
-    <div class="card-panel">
+  <div class="col s12 m6 l10">
+    <div class="card">
+    <div class="container">
       Name: <%= @trip.name %><br>
       Description: <%= @trip.description %><br>
       Start Date: <%= @trip.start_date %><br>
@@ -13,27 +14,38 @@ Shows only 1 trip<br>
         <%= link_to "Edit", edit_user_trip_path(@user, @trip) %>
         <%= link_to 'Delete', user_trip_path(@user, @trip), data: {:confirm => 'Are you sure?'}, :method => :delete %>
       </div>
+      </div>
     </div>
   </div>
 </div>
 
-
 <div class="row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s6">
-        <a class="active" href="#checklists">
-          Checklists
+      <li class="tab col s12 m3">
+        <a href="#checklists">
+          <i class="fa fa-list">
+            <div class="hide-on-med-and-down inline">
+              Checklists
+            </div>
+          </i>
         </a>
       </li>
-      <li class="tab col s6">
+      <li class="tab col s12 m3">
         <a href="#reservations">
-          Reservations
+          <i class="fa fa-calendar">
+            <div class="hide-on-med-and-down inline">
+              Reservations
+            </div>
+          </i>
         </a>
       </li>
     </ul>
     <div class="col s12" id="checklists">
-      <%= link_to 'create checklist for this trip', new_user_trip_checklist_path(@user, @trip) %>
+    <%= render 'checklist' %>
+    </div>
+    <div class="col s12" id="reservations">
+    <%= render 'reservation' %>
     </div>
     <div class="col s12" id="reservations">
   </div>

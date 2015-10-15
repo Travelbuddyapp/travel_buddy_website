@@ -1,4 +1,4 @@
-%h1.center-align Documents#index
+%h4.center-align Documents#index
 %table.centered.bordered.striped
   %thead
     %tr
@@ -12,7 +12,7 @@
       - @user.documents.each do |document|
         %tr
           %td
-            = link_to document.name.titleize, document.attachment.url(:original, false)
+            = link_to document.name.titleize, document.attachment.url(:original, false), target:"_blank"
           %td
             = document.created_at.strftime('%m/%d/%Y')
           %td
