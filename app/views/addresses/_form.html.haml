@@ -1,8 +1,9 @@
-= form_for [@user,@address] do |f|
+= form_for @address do |f|
   = f.label :latitude
   = f.number_field :latitude
   = f.label :longitude
   = f.number_field :longitude
   = f.label :address
   = f.text_field :address
+  = f.hidden_field :user_id, :value => @user.id
   = f.submit

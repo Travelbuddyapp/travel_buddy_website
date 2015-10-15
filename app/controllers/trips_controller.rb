@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   before_action :user
 
   def index
-    @trips = Trip.where(user_id:params[:user_id])
+    @trips = Trip.where(user_id:@user)
   end
 
   def new
@@ -13,7 +13,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     if @trip.save
-      redirect_to user_trips_path(@user)
+      redirect_to trips_path
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class TripsController < ApplicationController
 
   def update
     if @trip.update(trip_params)
-      redirect_to user_trip_path(@user,@trip)
+      redirect_to trip_path(@trip)
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-    redirect_to user_trips_path(@user)
+    redirect_to trips_path
   end
 
   private
@@ -48,7 +48,7 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:name, :description, :start_date, :end_date, :ice_id)
+    params.require(:trip).permit(:name, :description, :start_date, :end_date, :ice_id, :user_id)
   end
 end
 

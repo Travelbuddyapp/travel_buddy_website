@@ -11,8 +11,8 @@ Shows only 1 trip<br>
       End Date: <%= @trip.end_date %><br>
       Emergency Contact: <%= @trip.ice_id %><br>
       <div class="card-action">
-        <%= link_to "Edit", edit_user_trip_path(@user, @trip) %>
-        <%= link_to 'Delete', user_trip_path(@user, @trip), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+        <%= link_to "Edit", edit_trip_path(@trip) %>
+        <%= link_to 'Delete', trip_path(@trip), data: {:confirm => 'Are you sure?'}, :method => :delete %>
       </div>
       </div>
     </div>

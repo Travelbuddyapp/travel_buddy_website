@@ -13,12 +13,12 @@
     %span.avatar-information
       = "Gender: #{@user.gender}"
     - if @user.address.nil?
-      = link_to 'Add address', new_user_address_path(@user)
+      = link_to 'Add address', new_address_path
     - else
       = "Address: #{@user.address.address}"
       |
-      = link_to 'Edit', edit_user_address_path(@user,@user.address.id)
+      = link_to 'Edit', edit_address_path(@user.address.id)
     %br
     = link_to 'Edit Profile', edit_user_registration_path
 
-= render 'vaccine'
+/ = render 'vaccine'
