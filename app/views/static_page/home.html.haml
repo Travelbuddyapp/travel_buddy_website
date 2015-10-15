@@ -16,6 +16,10 @@
         %a{href: '#documents'}
           Documents
     #trips.col.s12
+      = render partial: 'trips', locals: {trip: @trip}
     #checklists.col.s12
+      = render 'checklists'
     #reservations.col.s12
+      = render 'reservations'
     #documents.col.s12
+      = render 'documents'
