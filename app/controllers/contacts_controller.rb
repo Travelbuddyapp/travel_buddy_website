@@ -44,12 +44,12 @@ class ContactsController < ApplicationController
     @contact = User.find(current_user)
   end
 
-  def contact_params
-    params.require(:contact).permit(:name, :phone_number, :email, :note_field, :ice, :user_id)
-  end
-
   def find_contact
     @contact = Contact.find(params[:id])
+  end
+
+  def contact_params
+    params.require(:contact).permit(:name, :phone_number, :email, :note_field, :ice, :user_id)
   end
 
 end
