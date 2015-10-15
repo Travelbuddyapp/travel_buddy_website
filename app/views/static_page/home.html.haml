@@ -4,18 +4,25 @@
 .row
   .col.s12
     %ul.tabs
-      %li.tab.col.s3
+      %li.tab.col.s12.m3
         %a.active{href: '#trips'}
+          %i.fa.fa-plane
           Trips
-      %li.tab.col.s3
+      %li.tab.col.s12.m3
         %a{href: '#checklists'}
-          Checklists
-      %li.tab.col.s3
+          %i.fa.fa-list
+            .hide-on-med-and-down.inline
+              Checklists
+      %li.tab.col.s12.m3
         %a{href: '#reservations'}
-          Reservations
-      %li.tab.col.s3
+          %i.fa.fa-calendar
+            .hide-on-med-and-down.inline
+              Reservations
+      %li.tab.col.s12.m3
         %a{href: '#documents'}
-          Documents
+          %i.fa.fa-files-o
+            .hide-on-med-and-down.inline
+              Documents
     #trips.col.s12
       = render partial: 'trips', locals: {trip: @trip}
     #checklists.col.s12
