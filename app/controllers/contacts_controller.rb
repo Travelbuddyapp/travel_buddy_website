@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update(contact_params)
-      redirect_to contacts_path
+      redirect_to contact_path(@contact)
     else
       render 'edit'
     end

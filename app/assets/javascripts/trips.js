@@ -4,7 +4,7 @@ $(document).ready(function() {
   });
 
   $('.show-trip-link').click(function(){
-    trip_id = $(this).data('trip-id');
+    var trip_id = $(this).data('trip-id');
     window.location = '/trips/' + trip_id
   });
 })
