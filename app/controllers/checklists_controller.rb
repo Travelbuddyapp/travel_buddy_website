@@ -7,7 +7,7 @@ class ChecklistsController < ApplicationController
   end
 
   def new
-    @checklist = Checklist.new
+    @checklist = @trip.checklists.new
   end
 
   def create
@@ -47,7 +47,7 @@ class ChecklistsController < ApplicationController
  private
 
   def find_trip
-    @trip = Trip.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
   end
 
   def find_checklist
