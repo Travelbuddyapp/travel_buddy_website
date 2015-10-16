@@ -1,7 +1,8 @@
 <h4 class="center-align">Reservations#index</h4>
-
-<% @reservation.each do |f| %>
-  Business Name: <%= f.business_name %><br>
-  Confirmation # <%= f.confirmation_number %><br>
-  Check in: <%= f.check_in_date %><br>
+<% if @reservation != nil %>
+  <% @reservation.each do |f| %>
+    Business Name: <%= f.business_name %><br>
+    Confirmation # <%= f.confirmation_number %><br>
+    Check in: <%= f.check_in_date %><br>
+  <% end %>
 <% end %>
