@@ -6,7 +6,7 @@ class Trip < ActiveRecord::Base
   validates :name, presence: true
   
   def ice_name
-    contact.name
+    contact == nil ? "Not Set" : contact.name
   end
   
 end
