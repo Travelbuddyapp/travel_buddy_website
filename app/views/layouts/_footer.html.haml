@@ -7,19 +7,16 @@
         %p.grey-text.text-lighten-4
           -if current_user
             List all links to every page here
-            -# %br
             %br
-            = link_to "Contacts", contacts_path(current_user, @contacts)
+            = link_to "Contacts", contacts_path
             %br
             %a{href: "/about"} About
             %br
-            = link_to "Documents", documents_path(current_user, @documents)
+            = link_to "Documents", documents_path
             %br
             = link_to "reservations", trip_reservations_path(Trip.first.id, @reservations)
             %br
-            = link_to "Trips", trips_path(current_user, @trips)
-            %br
-            -# = link_to "users", users_path
+            = link_to "Trips", trips_path
             %br
             = link_to "Vaccines", vaccines_path
             %br

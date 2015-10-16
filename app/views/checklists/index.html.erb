@@ -1,4 +1,19 @@
 <h1>Checklists#index</h1>
-<p>Find me in app/views/checklists/index.html.erb</p>
-
-<%= link_to "new", new_trip_checklist_path %>
+<div class="row">
+  <div class="col s12 m6 l4 new-checklist-link"data-trip-id='<%= @trip.id %>'>
+    <div class="card-panel">
+      <div class="center-align">
+        <i class="fa fa-plus fa-2x"></i><br>
+          New Checklist
+      </div>
+    </div>
+  </div>
+  <% @checklists.each do |checklist| %>
+    <div class="col s12 m4 show-checklist-link" data-trip-id='<%= @trip.id %>' data-checklist-id='<%= checklist.id %>'>
+      <div class="card-panel">
+        Title: <%= checklist.title %><br>
+        Due Date: <%= checklist.due_date %>
+      </div>
+    </div>
+  <% end %>
+</div>

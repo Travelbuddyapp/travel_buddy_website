@@ -4,7 +4,7 @@
     <div class="card-panel">
       <div class="center-align">
         <i class="fa fa-plus fa-2x"></i><br>
-        New Trip
+          New Trip
       </div>
     </div>
   </div>
@@ -14,6 +14,7 @@
     <div class="card-panel">       
       Name: <%= f.name %><br>
       Start Date: <%= f.start_date %><br>
+      <%= link_to 'See checklist', trip_checklists_path(f) %>
     </div>
   </div>
   <% end %>

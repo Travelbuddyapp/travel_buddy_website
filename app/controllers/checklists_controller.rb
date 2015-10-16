@@ -1,17 +1,18 @@
 class ChecklistsController < ApplicationController
-  before_action :find_trip
-  before_action :find_checklist, only: [:show, :edit, :update, :destroy]
+  before_action :trip
+  before_action :user
+  before_action :checklist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @checklists = Checklist.all
+    @checklists = Checklist.where(trip_id:@trip)
   end
 
   def new
-    @checklist = @trip.checklists.new
+    @checklist = Checklist.new
   end
 
   def create
-    @checklist = Checklist.new(checklist_params)
+    @checklist = @trip.checklists.new(checklist_params)
     if @checklist.save
       redirect_to trip_checklists_path(@trip)
     else
@@ -40,18 +41,22 @@ class ChecklistsController < ApplicationController
     redirect_to trip_checklist_path(@trip)
   end
 
- private
+  private
+  
+  def user
+    @user = current_user
+  end
 
-  def find_trip
+  def trip
     @trip = Trip.find(params[:trip_id])
   end
 
-  def find_checklist
+  def checklist
     @checklist = Checklist.find(params[:id])
   end
 
   def checklist_params
-    params.require(:checklist).permit(:title, :due_date, :trip_id, :user_id)
+    params.require(:checklist).permit(:title, :due_date)
   end
   
 end
