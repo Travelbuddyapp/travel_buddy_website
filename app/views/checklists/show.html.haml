@@ -1,0 +1,8 @@
+%h1.center-align
+  = @checklist.title
+= link_to 'add list item', new_trip_checklist_list_item_path(@trip,@checklist)
+%br
+- @list_items.each do |item|
+  = item.content
+  = link_to 'destroy', trip_checklist_list_item_path(@trip,@checklist,item), method: 'delete', data:{confirm: 'Really Destroy?'}
+  %br

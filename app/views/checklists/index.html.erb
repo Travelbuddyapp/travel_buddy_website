@@ -17,3 +17,18 @@
     </div>
   <% end %>
 </div>
+
+<ul class="collapsible popout" data-collapsible="accordion">
+  <% @checklists.each do |checklist| %>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i><%= checklist.title %></div>
+      <div class="collapsible-body">
+        <ol>
+          <% checklist.list_items.each do |item| %>
+            <li><%= item.content %></li>
+          <% end %>
+        </ol>
+      </div>
+    </li>
+  <% end %>
+</ul>
