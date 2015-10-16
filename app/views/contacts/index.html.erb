@@ -2,7 +2,7 @@
 <p>Find me in app/views/contacts/index.html.erb</p>
 <div class="row">
   <div class="col s12 m6 l4">
-    <div class="card-panel new-contact-link">
+    <div class="card-panel new-contact-link teal lighten-2 z-depth-2 waves-effect hoverable">
       <div class="center-align">
         <i class="fa fa-plus fa-2x"></i><br>
           New Contact
@@ -11,7 +11,7 @@
   </div>
   <% @contact.each do |contact| %>
     <div class="col s12 m6 l4">
-      <div class="card-panel white show-contact-link" data-contact-id='<%= contact[:id] %>'>
+      <div class="card-panel white show-contact-link hoverable" data-contact-id='<%= contact[:id] %>'>
         Name: <%= contact.name %><br>
         Phone Number: <%= contact.phone_number %><br>
       </div>
