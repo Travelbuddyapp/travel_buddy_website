@@ -8,23 +8,22 @@
           -if current_user
             List all links to every page here
             -# %br
-            -# = link_to "User trip reservations", user_trip_reservations_path(@user, @trip)
             %br
-            / = link_to "Contacts", user_contacts_path(current_user, @contacts)
+            = link_to "Contacts", contacts_path(current_user, @contacts)
             %br
             %a{href: "/about"} About
             %br
-            / = link_to "Documents", user_documents_path(current_user, @documents)
+            = link_to "Documents", documents_path(current_user, @documents)
             %br
-            -# = link_to "reservations", user_trip_reservations_path(current_user, @trip, @reservations)
+            = link_to "reservations", trip_reservations_path(current_user, @trip, @reservations)
             %br
-            / = link_to "Trips", user_trips_path(current_user, @trips)
+            = link_to "Trips", trips_path(current_user, @trips)
             %br
-            / # = link_to "users", users_path
+            -# = link_to "users", users_path
             %br
-            / = link_to "Vaccines", user_vaccines_path(current_user)
+            = link_to "Vaccines", vaccines_path
             %br
-            / = link_to "checklists", "http://localhost:3000/users/1/trips/1/checklists"
+            = link_to "checklists", "http://localhost:3000/trips/2/checklists"
             %br
             A web application that will assist in planning your travels
   .footer-copyright

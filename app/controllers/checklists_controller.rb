@@ -13,7 +13,7 @@ class ChecklistsController < ApplicationController
   def create
     @checklist = Checklist.new(checklist_params)
     if @checklist.save
-      redirect_to trip_checklists_path(@trip)
+      redirect_to trip_checklist_path(@trip)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class ChecklistsController < ApplicationController
   def update
    
     if @checklist.update(checklist_params)
-      redirect_to trip_checklists_path(@trip)
+      redirect_to trip_checklist_path(@trip)
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class ChecklistsController < ApplicationController
 
   def destroy
     @checklist.destroy
-    redirect_to trip_checklists_path(@trip)
+    redirect_to trip_checklist_path(@trip)
   end
 
  private
