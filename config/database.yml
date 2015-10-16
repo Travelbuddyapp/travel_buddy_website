@@ -4,27 +4,51 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  # timeout: 5000
 
 development:
-  <<: *default
+  adapter: postgresql
+  encoding: utf8
   database: travel_buddy_development
+  host: localhost
+  pool: 5
+  timeout: 5000
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
-  <<: *default
+  adapter: postgresql
+  encoding: utf8
   database: travel_buddy_test
+  pool: 5
+  timeout: 5000
 
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: utf8
   database: travel_buddy_production
-  username: travel_buddy
-  password: <%= ENV['TRAVEL_BUDDY_DATABASE_PASSWORD'] %>
+  pool: 5
+  timeout: 5000
+  
+
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   # timeout: 5000
+
+# development:
+#   <<: *default
+#   database: travel_buddy_development
+
+# # Warning: The database defined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+# test:
+#   <<: *default
+#   database: travel_buddy_test
+
+# production:
+#   <<: *default
+#   database: travel_buddy_production
+#   username: travel_buddy
+#   password: <%= ENV['TRAVEL_BUDDY_DATABASE_PASSWORD'] %>
 
 
