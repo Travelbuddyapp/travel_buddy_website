@@ -7,6 +7,7 @@
       %th{"data-field" => "name"} Expires
   - if @user.documents.empty?
     %h4 There are currently zero documents
+    = link_to 'New Upload', new_document_path
   - else
     %tbody
       - @user.documents.each do |document|
@@ -22,7 +23,8 @@
             = link_to 'Destroy', document_path(document), method: 'delete', data:{confirm: 'Really Destroy?'}
       %tr
         %td
-          = link_to 'New Upload', new_document_path(@user)
+          = link_to 'New Upload', new_document_path
+
         %td
         %td
         %td

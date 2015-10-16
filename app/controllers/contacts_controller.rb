@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
-  before_action :find_user
-  before_action :find_contact, only: [:show, :edit, :update, :destroy]
+  before_action :user
+  before_action :contact, only: [:show, :edit, :update, :destroy]
 
   def index
     @contact = Contact.where(user_id: current_user.id)
@@ -40,16 +40,17 @@ class ContactsController < ApplicationController
 
   private
 
-  def find_user
-    @user = User.find(current_user)
+
+  def user
+    @user = current_user
   end
 
-  def find_contact
+  def contact
     @contact = Contact.find(params[:id])
   end
 
   def contact_params
-    params.require(:contact).permit(:name, :phone_number, :email, :note_field, :ice, :user_id)
+    params.require(:contact).permit(:name, :phone_number, :email, :note_field, :ice)
   end
 
 end
