@@ -8,12 +8,12 @@ class DocumentsController < ApplicationController
 
   def new
     @document = Document.new
+    # Below works for new and create, required for create.
+    # @document = @user.documents.new
   end
 
   def create
-    @document = Document.new(document_params)
-    # @document.user = @user
-    # above is handled by hidden fields
+    @document = @user.documents.new(document_params)
     if @document.save
       redirect_to documents_path
     else

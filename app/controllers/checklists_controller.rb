@@ -12,10 +12,8 @@ class ChecklistsController < ApplicationController
 
   def create
     @checklist = Checklist.new(checklist_params)
- 
     if @checklist.save
       redirect_to trip_checklists_path(@trip)
-      # TODO check if checklist_path is correct?
     else
       render :new
     end
@@ -23,8 +21,6 @@ class ChecklistsController < ApplicationController
 
   def show
     @list_items = ListItem.where(checklist_id: params[:id])
-    # not sure on if ^ is List_item, ListItem, or something else...
-    # also, is it params[:id] or something else?
   end
 
   def edit
@@ -57,5 +53,6 @@ class ChecklistsController < ApplicationController
   def checklist_params
     params.require(:checklist).permit(:title, :due_date, :trip_id, :user_id)
   end
+  
 end
 
