@@ -5,15 +5,15 @@
         %h5.white-text 
           This will be the footer
         %p.grey-text.text-lighten-4
-          -if current_user
+          -if user_signed_in?
             List all links to every page here
-            -# %br
             %br
-            = link_to "Contacts", contacts_path(current_user, @contacts)
+            %br
+            = link_to "Contacts", contacts_path
             %br
             %a{href: "/about"} About
             %br
-            = link_to "Documents", documents_path(current_user, @documents)
+            = link_to "Documents", documents_path
             %br
             = link_to "reservations", trip_reservations_path(current_user, @trip, @reservations)
             %br

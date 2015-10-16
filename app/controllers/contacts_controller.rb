@@ -41,7 +41,7 @@ class ContactsController < ApplicationController
   private
 
   def user
-    @user = User.find(current_user)
+    @user = current_user
   end
 
   def contact
