@@ -13,7 +13,7 @@ class ChecklistsController < ApplicationController
   def create
     @checklist = Checklist.new(checklist_params)
     if @checklist.save
-      redirect_to trip_checklist_path(@trip)
+      redirect_to trip_checklists_path(@trip)
     else
       render :new
     end

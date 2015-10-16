@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
   before_action :find_user
   before_action :find_trip
   before_action :find_reservation, only: [:show, :edit, :update, :destroy]
-  accepts_nested_attributes_for :addresses, allow_destroy: true
   
   def index
     @reservation = Reservation.all

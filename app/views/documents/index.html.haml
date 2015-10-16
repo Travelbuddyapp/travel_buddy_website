@@ -19,10 +19,10 @@
             - if document.expiration_date != nil
               = document.expiration_date.strftime('%m/%d/%Y')
           %td
-            = link_to 'Destroy', user_document_path(@user,document), method: 'delete', data:{confirm: 'Really Destroy?'}
+            = link_to 'Destroy', document_path(document), method: 'delete', data:{confirm: 'Really Destroy?'}
       %tr
         %td
-          = link_to 'New Upload', new_user_document_path(@user)
+          = link_to 'New Upload', new_document_path(@user)
         %td
         %td
         %td
