@@ -9,7 +9,7 @@ Shows only 1 trip<br>
       Description: <%= @trip.description %><br>
       Start Date: <%= @trip.start_date %><br>
       End Date: <%= @trip.end_date %><br>
-      Emergency Contact: <%= @trip.ice_id %><br>
+      Emergency Contact: <%= @trip.ice_name %><br>
       <div class="card-action">
         <%= link_to "Edit", edit_trip_path(@trip) %>
         <%= link_to 'Delete', trip_path(@trip), data: {:confirm => 'Are you sure?'}, :method => :delete %>
