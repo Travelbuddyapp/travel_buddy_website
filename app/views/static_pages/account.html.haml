@@ -1,0 +1,24 @@
+.row
+  .col.s12.m3
+    - if @user.avatar_file_name.nil?
+      %img.center{src:"http://emblemsbf.com/img/11864.jpg"}
+    - else
+      = image_tag @user.avatar.url(:medium), class: 'center'
+    %span.avatar-fullname
+      = "#{@user.first_name} #{@user.last_name}"
+    %span.avatar-information
+      = "Birthday: #{@user.birth_date}"
+    %span.avatar-information
+      = "Phone number: #{@user.phone_number}"
+    %span.avatar-information
+      = "Gender: #{@user.gender}"
+    - if @user.address.nil?
+      = link_to 'Add address', new_address_path
+    - else
+      = "Address: #{@user.address.address}"
+      |
+      = link_to 'Edit', edit_address_path(@user.address.id)
+    %br
+    = link_to 'Edit Profile', edit_user_registration_path
+
+/ = render 'vaccine'

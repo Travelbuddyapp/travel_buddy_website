@@ -13,8 +13,8 @@
 				Notes: <%= @contact.note_field %><br>
 				Emergency Contact: <%= @contact.ice %><br>
 				<div class="card-action">
-					<%= link_to "Edit", edit_user_contact_path %>
-					<%= link_to 'Delete', user_contact_path(current_user, @contact), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+					<%= link_to "Edit", edit_contact_path(@contact) %>
+					<%= link_to 'Delete', contact_path(@contact), data: {:confirm => 'Are you sure?'}, :method => :delete %>
 				</div>
 			</div>
 		</div>

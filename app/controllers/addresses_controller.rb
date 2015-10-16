@@ -1,11 +1,8 @@
 class AddressesController < ApplicationController
-  before_action :address, only: [:show, :edit, :update, :destroy]
   before_action :user
+  before_action :address, only: [:show, :edit, :update, :destroy]
 
   def index
-  end
-
-  def show
   end
 
   def new
@@ -14,12 +11,14 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    @address.user = @user
     if @address.save
-      redirect_to user_path(@user)
+      redirect_to account_path
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit
@@ -27,7 +26,7 @@ class AddressesController < ApplicationController
 
   def update
     if @address.update(address_params)
-      redirect_to user_path(@user)
+      redirect_to account_path
     else
       render :edit
     end
@@ -35,21 +34,21 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to user_path(@user)
+    redirect_to account_path
   end
 
   private
 
-  def address_params
-    params.require(:address).permit(:latitude, :longitude, :address)
+  def user
+    @user = User.find(current_user)
   end
 
   def address
     @address = Address.find(params[:id])
   end
 
-  def user
-    @user = User.find(params[:user_id])
+  def address_params
+    params.require(:address).permit(:latitude, :longitude, :address)
   end
 
 end

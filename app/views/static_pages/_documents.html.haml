@@ -1,0 +1,28 @@
+%h4.center-align Documents#index
+%table.centered.bordered.striped
+  %thead
+    %tr
+      %th{"data-field" => "id"} Name
+      %th{"data-field" => "name"} Date Uploaded
+      %th{"data-field" => "name"} Expires
+  - if @user.documents.empty?
+    %h4 There are currently zero documents
+  - else
+    %tbody
+      - @user.documents.each do |document|
+        %tr
+          %td
+            = link_to document.name.titleize, document.attachment.url(:original, false), target:"_blank"
+          %td
+            = document.created_at.strftime('%m/%d/%Y')
+          %td
+            - if document.expiration_date != nil
+              = document.expiration_date.strftime('%m/%d/%Y')
+          %td
+            = link_to 'Destroy', document_path(@user,document), method: 'delete', data:{confirm: 'Really Destroy?'}
+      %tr
+        %td
+          = link_to 'New Upload', new_document_path(@user)
+        %td
+        %td
+        %td

@@ -7,7 +7,7 @@
 <div class="row">
 
   <div class="col s12 m6 l4">
-    <div class="card-panel new-contact-link" data-user-id='<%= current_user[:id] %>'>
+    <div class="card-panel new-contact-link">
       <div class="center-align">
         <i class="fa fa-plus fa-2x"></i><br>
         New Contact
@@ -17,7 +17,7 @@
 
   <% @contact.each do |contact| %>
   <div class="col s12 m6 l4">
-    <div class="card-panel white show-contact-link" data-contact-id='<%= contact[:id] %>' data-user-id='<%= current_user[:id] %>'>
+    <div class="card-panel white show-contact-link" data-contact-id='<%= contact[:id] %>'>
       Name: <%= contact.name %><br>
       Phone Number: <%= contact.phone_number %><br>
     </div>
