@@ -3,10 +3,4 @@
   = f.text_field :title
   = f.label :due_date
   = f.date_field :due_date
-  %h3
-    Items
-    = f.fields_for :list_item do |item|
-      = render 'items_fields', f, :item
-    .links
-      = link_to_add_association 'add item', f, :items
   = f.submit
