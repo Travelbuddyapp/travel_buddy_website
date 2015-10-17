@@ -1,5 +1,5 @@
 class Vaccine < ActiveRecord::Base
   belongs_to :user
-  # TODO: validates :name???, :date_given, presence: true
+  validates :name, presence: true
 
 end

@@ -1,4 +1,5 @@
 class VaccinesController < ApplicationController
+  before_action :find_user
   before_action :find_vaccine, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,7 +15,7 @@ class VaccinesController < ApplicationController
     if @vaccine.save
       redirect_to vaccines_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -26,7 +27,7 @@ class VaccinesController < ApplicationController
 
   def update
     if @vaccine.update(vaccine_params)
-      redirect_to vaccines_path
+      redirect_to vaccine_path(@vaccine)
     else
       render 'edit'
     end
@@ -38,6 +39,10 @@ class VaccinesController < ApplicationController
   end
 
   private
+
+  def find_user
+    @user = User.find(current_user.id)
+  end
 
   def find_vaccine
     @vaccine = Vaccine.find(params[:id])
