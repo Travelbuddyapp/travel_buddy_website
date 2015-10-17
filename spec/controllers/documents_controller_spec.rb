@@ -82,10 +82,10 @@ RSpec.describe DocumentsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    it "destroys the vaccine" do
-      vaccine = Document.create(name: "Document 1")
+    it "destroys the document" do
+      document = Document.create(name: "Document 1")
       expect(Document.count).to eq(1)
-      delete :destroy, {id: vaccine.id}
+      delete :destroy, {id: document.id}
       expect(Document.count).to eq(0)
     end
   end
