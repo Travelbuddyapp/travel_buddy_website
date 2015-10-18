@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :reservation do
-    type "MyString"
+    type "Other"
     business_name "MyString"
     confirmation_number "MyString"
     check_in_date "2020-01-01"
