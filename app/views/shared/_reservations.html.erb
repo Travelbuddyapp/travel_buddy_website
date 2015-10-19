@@ -1,3 +1,5 @@
+<% if current_page?(root_path) %>
+
 <h4 class="center-align">Reservations</h4>
 
 <% if @reservation != nil%>
@@ -5,5 +7,6 @@
   Business Name: <%= f.business_name %><br>
   Confirmation # <%= f.confirmation_number %><br>
   Check in: <%= f.check_in_date %><br>
+<% end %>
 <% end %>
 <% end %>
