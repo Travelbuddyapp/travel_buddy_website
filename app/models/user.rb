@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
   has_many :contacts, dependent: :destroy
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address, allow_destroy: true , reject_if: proc { |attributes| attributes['address'].blank? }
-  
-  delegate :lodging, :travel, :vehicle, :dining, :activity, :event, :other, to: :reservations
 
   validates :first_name, :last_name, :birth_date, :phone_number, :gender, presence: true
   has_attached_file :avatar, styles: { medium: "230x230=", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

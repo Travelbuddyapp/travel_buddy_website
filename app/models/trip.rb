@@ -4,6 +4,7 @@ class Trip < ActiveRecord::Base
   has_many :reservations, dependent: :destroy
   has_one :contact
   validates :name, presence: true
+  delegate :lodgings, :travels, :vehicles, :dinings, :activities, :events, :others, to: :reservations
   
   def ice_name
     contact == nil ? "Not Set" : contact.name

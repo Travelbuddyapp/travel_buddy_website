@@ -1,20 +1,19 @@
 class ReservationsController < ApplicationController
-  before_action :find_user
-  before_action :find_trip
-  before_action :find_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :user
+  before_action :trip
+  before_action :reservation, only: [:show, :edit, :update, :destroy]
   
   def index
-    @reservation = Reservation.all
   end
 
   def new
-    @reservation = Reservation.new(trip_id: params[:trip_id])
+    @reservation = type_class.new
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = @trip.reservations.new(reservation_params)
     if @reservation.save
-      redirect_to trip_reservations_path(@trip)
+      redirect_to trip_path(@trip)
     else
       render :new
     end
@@ -28,7 +27,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to trip_reservations_path(@trip)
+      redirect_to trip_path(@trip)
     else
       render :edit
     end
@@ -36,25 +35,37 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
-    redirect_to trip_reservations_path(@trip)
+    redirect_to trip_path(@trip)
   end
 
   private
 
-  def find_user
-    @user = User.find(current_user.id)
+  def user
+    @user = current_user
   end
 
-  def find_trip
+  def trip
     @trip = Trip.find(params[:trip_id])
   end
 
-  def find_reservation
-    @reservation = Reservation.find(params[:id])
+  def reservation
+    @reservation = type_class.find(params[:id])
+  end
+
+  def set_type
+    @type = type
+  end
+
+  def type
+    Reservation.types.include?(params[:type]) ? params[:type] : "Reservation"
+  end
+
+  def type_class
+    type.constantize
   end
 
   def reservation_params
-    params.require(:reservation).permit(:type, :business_name, :confirmation_number, :check_in_date, :check_out_date, :note)
+    params.require(type.underscore.to_sym).permit(:type, :business_name, :confirmation_number, :check_in_date, :check_out_date, :note)
   end
 
 end
