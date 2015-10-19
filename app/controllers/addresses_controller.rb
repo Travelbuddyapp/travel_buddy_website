@@ -1,24 +1,22 @@
 class AddressesController < ApplicationController
-  before_action :user
-  before_action :address, only: [:show, :edit, :update, :destroy]
-
-  def index
-  end
-
+  before_action :find_user
+  before_action :find_trip
+  before_action :find_reservation
+  before_action :address, only: [:edit, :update, :destroy]
+  # This was set up for a reservation address, we may need to add
+  # more in to cover user address...  TODO?
   def new
     @address = Address.new
   end
 
   def create
+    # @address = @reservation.addresses.new(address_params)
     @address = Address.new(address_params)
     if @address.save
       redirect_to account_path
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def edit
@@ -39,8 +37,16 @@ class AddressesController < ApplicationController
 
   private
 
-  def user
-    @user = User.find(current_user)
+  def find_user
+    @user = current_user
+  end
+
+  def find_trip
+    @trip = Trip.find(params[:trip_id])
+  end
+
+  def find_reservation
+    @reservation = Reservation.find(params[:reservation_id])
   end
 
   def address

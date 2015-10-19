@@ -69,7 +69,7 @@ end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the checklist" do
+    it "destroys the list_item" do
       list_item = ListItem.create(content: 'Content 1')
       expect(ListItem.count).to eq(1)
       delete :destroy, {trip_id: trip.id, checklist_id: checklist.id, id: list_item.id}

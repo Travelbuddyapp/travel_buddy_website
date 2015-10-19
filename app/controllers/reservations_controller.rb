@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to trip_reservations_path(@trip)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -30,7 +30,7 @@ class ReservationsController < ApplicationController
     if @reservation.update(reservation_params)
       redirect_to trip_reservations_path(@trip)
     else
-      render 'edit'
+      render :edit
     end
   end
 
