@@ -19,9 +19,11 @@ class StaticPagesController < ApplicationController
   def user
     @user = current_user
   end
-
-  def trip_params
-    params.require(:user).permit(:name, :description, :start_date, :end_date, :ice_id)
-  end
+  # TODO for cleanup and possible functionality: Are trip_params needed below?
+  # If yes, then why don't we also need reservation and checklist params???
+  
+  # def trip_params
+  #   params.require(:user).permit(:name, :description, :start_date, :end_date, :ice_id)
+  # end
 
 end
