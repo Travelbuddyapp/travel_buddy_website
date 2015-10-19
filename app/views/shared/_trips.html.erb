@@ -1,3 +1,26 @@
 <% if current_page?(root_path) %>
-<h4 class="center-align">Trips#index</h4>
 <% end %>
+
+<h4 class="center-align">Trips</h4>
+<div class="row">
+  <div class="col s12 m6 l4 new-trip-link">
+    <div class="card-panel">
+      <div class="center-align">
+        <i class="fa fa-plus fa-2x"></i><br>
+          New Trip
+      </div>
+    </div>
+  </div>
+
+<% if @trips != nil %>
+<% @trips.each do |f| %>
+  <div class="col s12 m4 show-trip-link" data-trip-id='<%= f[:id] %>'>
+    <div class="card-panel">       
+      Name: <%= f.name %><br>
+      Start Date: <%= f.start_date %><br>
+      <%= link_to 'See checklist', trip_checklists_path(f) %>
+    </div>
+  </div>
+<% end %>
+<% end %>
+</div>
