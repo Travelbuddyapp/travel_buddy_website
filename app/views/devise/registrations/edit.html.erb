@@ -3,13 +3,17 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 <% if @user.avatar_file_name.nil? %>
-
   <img class="center responsive-img" src="http://emblemsbf.com/img/11864.jpg"/>
 <% else %>
   <img class="center responsive-img" @user.avatar.url(:medium) />
 <% end %>
 
  <div class="row">
+  <div class="field center">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
     <div class="field col s12 m6">
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name, autofocus: true %>
