@@ -14,15 +14,36 @@
   <% @checklists.each do |checklist| %>
     <li>
       <div class="collapsible-header"><i class="material-icons">view_list</i>
-      <%= checklist.title %> <%= checklist.due_date %></div>
+        <%= checklist.title %> 
+        <%= checklist.due_date %>
+        <% if @trip.present? %>
+          <%= link_to 'Show', trip_checklist_path(@trip, checklist), class: 'wave-effect waves-light btn secondary-content' %>
+        <% end %>
+      </div>
       <div class="collapsible-body">
+        <div class="collection">
           <% checklist.list_items.each do |item| %>
-          <div class="collapsible-header">
-        <ol>
-            <li class="collection-item"><%= item.content %></li>
-        </ol>
-        </div>
+            <div class="collection-item">
+              <% if @trip.present? %>
+                <% if item.completed == 'false' %>
+                  <input type="checkbox" class="secondary-content completed" id="<%= item.id %>" data-trip-id="<%= @trip.id %>" data-checklist-id="<%= checklist.id %>"/>
+                <% else %>
+                  <input type="checkbox" class="secondary-content completed" checked="checked" id="<%= item.id %>" data-trip-id="<%= @trip.id %>" data-checklist-id="<%= checklist.id %>"/>
+                <% end %>
+              <label for="<%= item.id %>"></label>
+              <% end %>
+              <%= item.content %>
+              <% if @trip.present? %>
+                <%= link_to 'X', trip_checklist_list_item_path(@trip, checklist, item), method: 'delete', class: 'waves-effect waves-circle waves-light btn-floating secondary-content delete-item', data: {confirm: 'Really delete this item?'} %>
+              <% end %>
+            </div>
           <% end %>
+          <div class="collapsible-header">
+            <% if @trip.present? %>
+              <%= link_to 'add list item', new_trip_checklist_list_item_path(@trip,checklist), class: 'waves-effect waves-light btn' %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </li>
   <% end %>

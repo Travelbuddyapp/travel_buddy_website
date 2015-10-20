@@ -15,5 +15,26 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
+   // navbar
   $(".button-collapse").sideNav();
+
+  // update completed? for list item
+  $('.completed').click(function() {
+    var checked = $(this).prop('checked');
+    var item_id = $(this).attr('id');
+    var trip_id = $(this).data('trip-id');
+    var checklist_id = $(this).data('checklist-id');
+    debugger
+    var url = '/trips/' + trip_id + '/checklists/' + checklist_id + '/list_items/' + item_id
+    $.ajax(url, {
+      type: 'PUT',
+      data: { list_item: { completed: checked }},
+      success: function(data) {
+
+      },
+      error: function(data) {
+
+      }
+    });
+  });
 });
