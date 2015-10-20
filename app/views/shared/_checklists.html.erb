@@ -25,14 +25,14 @@
           <% checklist.list_items.each do |item| %>
             <div class="collection-item">
               <% if @trip.present? %>
-                <% if item.completed == 'false' %>
+                <% if item.completed == false %>
                   <input type="checkbox" class="secondary-content completed" id="<%= item.id %>" data-trip-id="<%= @trip.id %>" data-checklist-id="<%= checklist.id %>"/>
                 <% else %>
                   <input type="checkbox" class="secondary-content completed" checked="checked" id="<%= item.id %>" data-trip-id="<%= @trip.id %>" data-checklist-id="<%= checklist.id %>"/>
                 <% end %>
               <label for="<%= item.id %>"></label>
               <% end %>
-              <%= item.content %>
+              <span class="flow-text"><%= item.content %></span>
               <% if @trip.present? %>
                 <%= link_to 'X', trip_checklist_list_item_path(@trip, checklist, item), method: 'delete', class: 'waves-effect waves-circle waves-light btn-floating secondary-content delete-item', data: {confirm: 'Really delete this item?'} %>
               <% end %>

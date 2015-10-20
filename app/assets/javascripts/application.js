@@ -24,16 +24,25 @@ $(document).ready(function() {
     var item_id = $(this).attr('id');
     var trip_id = $(this).data('trip-id');
     var checklist_id = $(this).data('checklist-id');
-    debugger
     var url = '/trips/' + trip_id + '/checklists/' + checklist_id + '/list_items/' + item_id
+    var content = $(this).siblings('.flow-text').html();
     $.ajax(url, {
       type: 'PUT',
       data: { list_item: { completed: checked }},
       success: function(data) {
-
+        if ( checked == true)
+        {
+          var msg = content + " has been checked"
+          Materialize.toast(msg, 3000, 'rounded')
+        }
+        else 
+        {
+          var msg = content + " has been unchecked"
+          Materialize.toast(msg, 3000, 'rounded')
+        }
       },
       error: function(data) {
-
+        Materialize.toast(data, 3000, 'rounded')
       }
     });
   });
