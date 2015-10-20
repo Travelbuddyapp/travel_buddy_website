@@ -15,7 +15,7 @@ class DocumentsController < ApplicationController
     if @document.save
       redirect_to documents_path
     else
-      flash[:notice] = "Make sure to include the file name and attachment!"
+      flash[:error] = "Make sure to include the file name and attachment!"
       redirect_to new_document_path
     end
   end
