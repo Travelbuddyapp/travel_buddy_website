@@ -1,6 +1,6 @@
 class ChecklistsController < ApplicationController
-  before_action :trip
-  before_action :user
+  before_action :find_user
+  before_action :find_trip
   before_action :checklist, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,6 +13,7 @@ class ChecklistsController < ApplicationController
 
   def create
     @checklist = @trip.checklists.new(checklist_params)
+    @checklist.update(user_id:current_user.id)
     if @checklist.save
       redirect_to trip_checklists_path(@trip)
     else
@@ -30,7 +31,7 @@ class ChecklistsController < ApplicationController
   def update
    
     if @checklist.update(checklist_params)
-      redirect_to trip_checklist_path(@trip)
+      redirect_to trip_checklists_path(@trip)
     else
       render :edit
     end
@@ -38,16 +39,16 @@ class ChecklistsController < ApplicationController
 
   def destroy
     @checklist.destroy
-    redirect_to trip_checklist_path(@trip)
+    redirect_to trip_checklists_path(@trip)
   end
 
   private
   
-  def user
+  def find_user
     @user = current_user
   end
 
-  def trip
+  def find_trip
     @trip = Trip.find(params[:trip_id])
   end
 

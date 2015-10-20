@@ -3,9 +3,10 @@ class StaticPagesController < ApplicationController
   before_action :user, only: [:home, :account]
 
   def home
-    @trip = Trip.all
+    @trips = Trip.where(user_id:@user)
     @reservation = Reservation.all
-    @checklist = Checklist.all
+    @checklists = Checklist.where(user_id:@user)
+    # @checklists = Checklist.where(trip_id:@trip)
   end
 
   def account
@@ -19,9 +20,11 @@ class StaticPagesController < ApplicationController
   def user
     @user = current_user
   end
-
-  def trip_params
-    params.require(:user).permit(:name, :description, :start_date, :end_date, :ice_id)
-  end
+  # TODO for cleanup and possible functionality: Are trip_params needed below?
+  # If yes, then why don't we also need reservation and checklist params???
+  
+  # def trip_params
+  #   params.require(:user).permit(:name, :description, :start_date, :end_date, :ice_id)
+  # end
 
 end

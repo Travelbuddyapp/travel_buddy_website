@@ -1,0 +1,4 @@
+- [:notice, :error, :alert].each do |level|
+  - unless flash[level].blank?
+    %div.text-center{:class => "alert #{"alert-#{flash_class(level)}"} hidden-xs"}
+      = content_tag :strong, flash[level]

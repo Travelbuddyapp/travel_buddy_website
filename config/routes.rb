@@ -11,26 +11,26 @@ Rails.application.routes.draw do
   resources :vaccines
   resources :trips do
     resources :reservations
-    resources :lodging, controller: 'reservations', type: 'Lodging' do
-      resources :addresses # done twice STI inheritance.
+    resources :lodgings, controller: 'reservations', type: 'Lodging' do
+      # resources :addresses # done twice STI inheritance.
     end
-    resources :travel, controller: 'reservations', type: 'Travel' do
-      resources :addresses # done twice STI inheritance.
+    resources :travels, controller: 'reservations', type: 'Travel' do
+      # resources :addresses # done twice STI inheritance.
     end
-    resources :vehicle, controller: 'reservations', type: 'Vehicle' do
-      resources :addresses # done twice STI inheritance.
+    resources :vehicles, controller: 'reservations', type: 'Vehicle' do
+      # resources :addresses # done twice STI inheritance.
     end
-    resources :dining, controller: 'reservations', type: 'Dining' do 
-      resources :addresses # done twice STI inheritance.
+    resources :dinings, controller: 'reservations', type: 'Dining' do 
+      # resources :addresses # done twice STI inheritance.
     end
     resources :activities, controller: 'reservations', type: 'Activity' do 
-      resources :addresses # done twice STI inheritance.
+      # resources :addresses # done twice STI inheritance.
     end
     resources :events, controller: 'reservations', type: 'Event' do 
-      resources :addresses # done twice STI inheritance.
+      # resources :addresses # done twice STI inheritance.
     end
     resources :other, controller: 'reservations', type: 'Other' do 
-      resources :addresses # done twice STI inheritance.
+      # resources :addresses # done twice STI inheritance.
     end #end of addresses nested inside of reservation
     resources :checklists do
       resources :list_items

@@ -1,3 +1,48 @@
 <h4 class="center-align">Checklists</h4>
+<div class="row">
+  <% if current_page?(root_path)%>
+  <div>
+  <% else %>
+  <div class="col s12 m6 l4 new-checklist-link"data-trip-id='<%= @trip.id %>'>
+  <% end %>
+    <div class="card-panel">
+      <div class="center-align">
+        <i class="fa fa-plus fa-2x"></i><br>
+          New Checklist
+      </div>
+    </div>
+  </div>
+  <% if @checklists != nil%>
+  <% @checklists.each do |checklist| %>
+  <% if current_page?(root_path)%>
+   <div>
+  <% else %>
+    <div class="col s12 m4 show-checklist-link" data-trip-id='<%= @trip.id %>' data-checklist-id='<%= checklist.id %>'>
+  <% end %>
+      <div class="card-panel">
+        Title: <%= checklist.title %><br>
+        Due Date: <%= checklist.due_date %>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
 
-<!-- <= link_to "new", new_user_trip_checklist_path %> -->
+  <% if @checklists != nil%>
+<ul class="collapsible popout" data-collapsible="accordion">
+  <% @checklists.each do |checklist| %>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i><%= checklist.title %></div>
+      <div class="collapsible-body">
+        <ol>
+          <% checklist.list_items.each do |item| %>
+            <li><%= item.content %></li>
+          <% end %>
+        </ol>
+      </div>
+    </li>
+  <% end %>
+  <% end %>
+</ul>
+
+

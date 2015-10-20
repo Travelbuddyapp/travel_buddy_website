@@ -10,21 +10,23 @@ class ApplicationController < ActionController::Base
   protected
   
   def configure_permitted_parameters
-   devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :birth_date << :phone_number << :gender << :avatar
-   devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name << :birth_date << :phone_number << :gender << :avatar
+    devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :birth_date << :phone_number << :gender << :avatar
+    devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name << :birth_date << :phone_number << :gender << :avatar
   end
   # TODO: Do we need validation below now that user route is gone?
-  def require_permission
-    if user_signed_in? && params[:id]
-      if params[:user_id] == current_user.id.to_s
-      elsif params[:id] == current_user.id.to_s
-      else
-        flash[:error1] = "Wrong route, You can only see your stuff."
-        redirect_to root_path
-      end
-    end
-  end
-  # I'm proud of this bit of code, I wrote it myself! -Willard Moore
+  # I commented out below since we should no longer need it.
+  # If we need to add if back in, specs will have to be made for it!
+
+  # def require_permission
+  #   if user_signed_in? && params[:id]
+  #     if params[:user_id] == current_user.id.to_s
+  #     elsif params[:id] == current_user.id.to_s
+  #     else
+  #       flash[:error1] = "Wrong route, You can only see your stuff."
+  #       redirect_to root_path
+  #     end
+  #   end
+  # end
 end
 
 

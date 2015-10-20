@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+
   before_action :trip, only: [:show, :edit, :update, :destroy]
   before_action :user
 
@@ -20,6 +21,8 @@ class TripsController < ApplicationController
   end
 
   def show
+    @reservations = @trip.reservations
+    @checklists = @trip.checklists
   end
 
   def edit

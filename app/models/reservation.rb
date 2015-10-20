@@ -3,7 +3,6 @@ class Reservation < ActiveRecord::Base
   has_one :address, dependent: :destroy
   validates :type, presence: true
   accepts_nested_attributes_for :address, allow_destroy: true , reject_if: proc { |attributes| attributes['address'].blank? }
-  # validates_presence_of :name
 
   def self.types
     %w(Lodging Travel Vehicle Dining Activity Event Other)

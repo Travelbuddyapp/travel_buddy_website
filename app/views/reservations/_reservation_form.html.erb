@@ -1,20 +1,15 @@
-
-
 <%= form_for [@trip, @reservation] do |f| %>
   <%= f.label :business_name %>
   <%= f.text_field :business_name %>
-
+  <%= f.label :type %>
+  <%= f.select :type, Reservation.types %>
   <%= f.label :confirmation_number %>
   <%= f.number_field :confirmation_number %>
-
   <%= f.label :check_in_date %>
   <%= f.date_field :check_in_date %>
-
   <%= f.label :check_out_date %>
   <%= f.date_field :check_out_date %>
-
   <%= f.label :note %>
   <%= f.text_field :note %>
-
   <%= f.submit %>
 <% end %>

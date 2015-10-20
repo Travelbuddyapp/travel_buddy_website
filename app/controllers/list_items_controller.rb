@@ -1,6 +1,7 @@
 class ListItemsController < ApplicationController
-  before_action :trip
-  before_action :checklist
+  before_action :find_user
+  before_action :find_trip
+  before_action :find_checklist
   before_action :list_item, only: [:edit, :update, :destroy]
 
   def new
@@ -10,7 +11,7 @@ class ListItemsController < ApplicationController
   def create
     @list_item = @checklist.list_items.new(list_item_params)
     if @list_item.save
-      redirect_to trip_checklist_path(@trip,@checklist)
+      redirect_to trip_checklist_path(@trip, @checklist)
     else
       render :new
     end  
@@ -21,7 +22,7 @@ class ListItemsController < ApplicationController
 
   def update
     if @list_item.update(list_item_params)
-      redirect_to trip_checklist_path(@trip,@checklist)
+      redirect_to trip_checklist_path(@trip, @checklist)
     else 
       render :edit 
     end  
@@ -29,16 +30,20 @@ class ListItemsController < ApplicationController
 
   def destroy
     @list_item.destroy
-    redirect_to trip_checklist_path(@trip,@checklist)
+    redirect_to trip_checklist_path(@trip, @checklist)
   end  
 
   private
 
-  def trip
+  def find_user
+    @user = current_user
+  end
+
+  def find_trip
     @trip = Trip.find(params[:trip_id])
   end
 
-  def checklist
+  def find_checklist
     @checklist = Checklist.find(params[:checklist_id])
   end
 
@@ -47,6 +52,7 @@ class ListItemsController < ApplicationController
   end
 
   def list_item_params
-    params.require(:list_item).permit(:content)
+    params.require(:list_item).permit(:content, :completed)
   end
+
 end
