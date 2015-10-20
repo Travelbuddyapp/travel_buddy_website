@@ -1,23 +1,16 @@
 <h4 class="center-align">Checklists</h4>
-<div class="row">
+
   <% if current_page?(root_path)%>
-  <div>
+  <p class="center-align">New checklists are made within a Trip.</p>
+  <ul class="collapsible popout" data-collapsible="accordion">
   <% else %>
-  <div class="col s12 m6 l4 new-checklist-link"data-trip-id='<%= @trip.id %>'>
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li class="new-checklist-link"data-trip-id='<%= @trip.id %>'>
+      <div class="collapsible-header"><i class="fa fa-plus fa-2x"></i>New Checklist</div>
+    </li>
   <% end %>
-    <div class="card-panel">
-      <div class="center-align">
-        <i class="fa fa-plus fa-2x"></i><br>
-          New Checklist
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
   <% if @checklists != nil%>
-<ul class="collapsible popout" data-collapsible="accordion">
   <% @checklists.each do |checklist| %>
     <li>
       <div class="collapsible-header"><i class="material-icons">view_list</i>
@@ -35,5 +28,3 @@
   <% end %>
   <% end %>
 </ul>
-
-
