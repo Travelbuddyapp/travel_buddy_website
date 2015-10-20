@@ -3,18 +3,29 @@
   <%= f.text_field :business_name %>
   <%= f.label :type %>
   <%= f.select :type, Reservation.types %>
-  <%= f.label :confirmation_number %>
-  <%= f.text_field :confirmation_number %>
+  <div class="row">
+  <div class="col s12 m6">
   <%= f.label :check_in_date %>
   <%= f.date_field :check_in_date %>
+  </div>
+  <div class="col s12 m6">
   <%= f.label :check_out_date %>
   <%= f.date_field :check_out_date %>
-  <%= f.label :note %>
-  <%= f.text_field :note %>
+  </div>
+  <div class="col s12">
   <%= f.fields_for :address, @address do |builder| %>
     <%= builder.label :address %>
     <%= builder.text_field :address %>
   <% end %>
+  </div>
+  <div class="col s12">
+  <%= f.label :confirmation_number %>
+  <%= f.text_field :confirmation_number %>
+  </div>
+  </div>
+  <%= f.label :note %>
+  <%= f.text_field :note %>
+
   <%= f.submit %>
 <% end %>
 

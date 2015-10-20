@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = type_class.new
+    @address = @reservation.address || Address.new
   end
 
   def create
