@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
-  before_action :find_user
-  before_action :find_trip
-  before_action :find_reservation
+  # before_action :find_user
+  # before_action :find_trip
+  # before_action :find_reservation
   before_action :address, only: [:edit, :update, :destroy]
   # This was set up for a reservation address, we may need to add
   # more in to cover user address...  TODO?
@@ -10,7 +10,6 @@ class AddressesController < ApplicationController
   end
 
   def create
-    # @address = @reservation.addresses.new(address_params)
     @address = Address.new(address_params)
     if @address.save
       redirect_to account_path
@@ -54,7 +53,7 @@ class AddressesController < ApplicationController
   end
 
   def address_params
-    params.require(:address).permit(:latitude, :longitude, :address)
+    params.require(:address).permit(:latitude, :longitude, :address, :user_id, :reservation_id)
   end
 
 end

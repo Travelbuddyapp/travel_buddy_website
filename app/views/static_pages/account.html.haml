@@ -13,7 +13,10 @@
     %span.avatar-information
       = "Gender: #{@user.gender}"
     - if @user.address.nil?
-      = link_to 'Add address', new_address_path
+      = form_for Address.new do |f|
+        = f.text_field :address
+        = f.hidden_field :user_id, value: @user.id
+        = f.submit
     - else
       = "Address: #{@user.address.address}"
       |

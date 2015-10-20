@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @address = @reservation.address || Address.new
   end
 
   def update
@@ -65,7 +66,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(type.underscore.to_sym).permit(:type, :business_name, :confirmation_number, :check_in_date, :check_out_date, :note)
+    params.require(type.underscore.to_sym).permit(:type, :business_name, :confirmation_number, :check_in_date, :check_out_date, :note, address_attributes: [:address])
   end
 
 end
