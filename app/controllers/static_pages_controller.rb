@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def account
+    
   end
 
   def about_us

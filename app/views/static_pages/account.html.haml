@@ -7,7 +7,7 @@
     %span.avatar-fullname
       = "#{@user.first_name} #{@user.last_name}"
     %span.avatar-information
-      = "Birthday: #{@user.birth_date}"
+      = "Birthday: #{@user.birth_date.strftime("%m/%d/%Y")}"
     %span.avatar-information
       = "Phone number: #{@user.phone_number}"
     %span.avatar-information
