@@ -22,6 +22,7 @@ class TripsController < ApplicationController
 
   def show
     @reservations = @trip.reservations
+    @checklists = @trip.checklists
   end
 
   def edit

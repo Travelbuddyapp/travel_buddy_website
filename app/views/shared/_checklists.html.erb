@@ -1,10 +1,10 @@
-<% if current_page?(root_path) %>
-<!-- <= link_to "new", new_user_trip_checklist_path %> -->
-<h4 class="center-align">Checklists</h4>
-<% else %>
 <h4 class="center-align">Checklists</h4>
 <div class="row">
+  <% if current_page?(root_path)%>
+  <div>
+  <% else %>
   <div class="col s12 m6 l4 new-checklist-link"data-trip-id='<%= @trip.id %>'>
+  <% end %>
     <div class="card-panel">
       <div class="center-align">
         <i class="fa fa-plus fa-2x"></i><br>
@@ -14,7 +14,11 @@
   </div>
   <% if @checklists != nil%>
   <% @checklists.each do |checklist| %>
+  <% if current_page?(root_path)%>
+   <div>
+  <% else %>
     <div class="col s12 m4 show-checklist-link" data-trip-id='<%= @trip.id %>' data-checklist-id='<%= checklist.id %>'>
+  <% end %>
       <div class="card-panel">
         Title: <%= checklist.title %><br>
         Due Date: <%= checklist.due_date %>
@@ -42,4 +46,3 @@
 </ul>
 
 
-<% end %>

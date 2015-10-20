@@ -3,9 +3,10 @@ class StaticPagesController < ApplicationController
   before_action :user, only: [:home, :account]
 
   def home
-    @trip = Trip.all
+    @trips = Trip.where(user_id:@user)
     @reservation = Reservation.all
-    @checklist = Checklist.all
+    @checklists = Checklist.where(user_id:@user)
+    # @checklists = Checklist.where(trip_id:@trip)
   end
 
   def account
