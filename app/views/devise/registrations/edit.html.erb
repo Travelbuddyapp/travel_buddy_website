@@ -2,14 +2,10 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= devise_error_messages! %>
-  <% if @user.avatar_file_name.nil? %>
-    <img class="center responsive-img" src="http://emblemsbf.com/img/11864.jpg"/>
-  <% else %>
-    <%= image_tag @user.avatar.url(:medium), class: 'center responsive-img'%>
-  <% end %>
+  <%= image_tag @user.avatar.url(:medium), class: 'center responsive-img'%>
 
   <div class="row">
-    <div class="file-field input-field center">
+    <div class="file-field input-field center col s12">
       <div class="btn">
         <span>Avatar</span>
         <input type="file" name="user[avatar]" id="user_avatar">
@@ -28,9 +24,7 @@
       <%= f.text_field :last_name %>
       <%= f.label :last_name %>
     </div>
-  </div>
 
-  <div class="row">
     <div class="input-field col s12 m6">
       <%= f.date_field :birth_date, class: "datepicker" %>
       <%= f.label :birth_date %>
@@ -40,41 +34,41 @@
       <%= f.number_field :phone_number %>
       <%= f.label :phone_number %>
     </div>
-  </div>
+  
+    <div class="input-field col s12">
+      <%= f.email_field :email, autofocus: true %>
+      <%= f.label :email %>
+    </div>
 
-  <div class="input-field">
-    <%= f.email_field :email, autofocus: true %>
-    <%= f.label :email %>
-  </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <div class="input-field col s12">
+      <%= f.label :password %> 
+      <%= f.password_field :password, placeholder: "leave blank if you don't want to change it", autocomplete: "off" %>
+    </div>
 
-  <div class="input-field">
-    <%= f.label :password %> 
-    <%= f.password_field :password, placeholder: "leave blank if you don't want to change it", autocomplete: "off" %>
-  </div>
+    <div class="input-field col s12">
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.label :password_confirmation %>
+    </div>
 
-  <div class="input-field">
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    <%= f.label :password_confirmation %>
-  </div>
+    <div class="input-field col s12">
+      <%= f.password_field :current_password, placeholder:'Password required to make changes!!', autocomplete: "off" %>
+      <%= f.label :current_password %>
+    </div>
 
-  <div class="input-field">
-    <%= f.password_field :current_password, placeholder:'Password required to make changes!!', autocomplete: "off" %>
-    <%= f.label :current_password %>
-  </div>
+    <div class="input-field">
+      <%= f.radio_button :gender, id = "Male" %>
+      <label for="user_gender_male"> Male </label>
+      <%= f.radio_button :gender, id = "Female" %>
+      <label for="user_gender_female"> Female </label>
+    </div>
 
-  <div class="input-field">
-    <%= f.radio_button :gender, id = "Male" %>
-    <label for="user_gender_male"> Male </label>
-    <%= f.radio_button :gender, id = "Female" %>
-    <label for="user_gender_female"> Female </label>
-  </div>
-
-  <div class="input-field center-align">
-    <%= f.submit "Update", class: 'btn' %>
+    <div class="input-field center-align">
+      <%= f.submit "Update", class: 'btn' %>
+    </div>
   </div>
 <% end %>
 
