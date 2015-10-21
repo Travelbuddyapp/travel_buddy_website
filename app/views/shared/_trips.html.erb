@@ -14,8 +14,7 @@
   <div class="col s12 m4 show-trip-link" data-trip-id='<%= f[:id] %>'>
     <div class="card-panel">       
       Name: <%= f.name %><br>
-      Start Date: <%= f.start_date %><br>
-      <%= link_to 'See checklist', trip_checklists_path(f) %>
+      Start Date: <%= f.start_date %>
     </div>
   </div>
 <% end %>

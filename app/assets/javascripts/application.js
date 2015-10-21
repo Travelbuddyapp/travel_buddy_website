@@ -52,5 +52,8 @@ $(document).ready(function() {
     selectMonths: true,
     selectYears: 100
   });
+
+  // materialize tabs 
+  $('ul.tabs').tabs();
         
 });
