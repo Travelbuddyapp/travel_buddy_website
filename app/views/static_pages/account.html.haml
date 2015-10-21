@@ -1,9 +1,6 @@
 .row
   .col.s12.m3
-    - if @user.avatar_file_name.nil?
-      %img.center{src:"http://emblemsbf.com/img/11864.jpg"}
-    - else
-      = image_tag @user.avatar.url(:medium), class: 'center'
+    = image_tag @user.avatar.url(:medium), class: 'center'
     %span.avatar-fullname
       = "#{@user.first_name} #{@user.last_name}"
     %span.avatar-information
