@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-gem 'aws-sdk', '~> 1.36.1'
-gem 'fog'
 gem 'devise'
 gem 'haml'
 gem 'paperclip'
 gem 'materialize-sass'
+
+# AWS
+gem 'aws-sdk', '~> 1.36.1'
+gem 'fog'
+gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
