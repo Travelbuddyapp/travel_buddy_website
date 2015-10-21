@@ -5,5 +5,5 @@
   = f.number_field :longitude
   = f.label :address
   = f.text_field :address
-  = f.hidden_field :user_id, :value => @user.id
+  = f.hidden_field :user_id, :value => current_user.id
   = f.submit

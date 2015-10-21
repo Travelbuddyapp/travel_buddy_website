@@ -1,7 +1,49 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h4 class="center-align">Edit <%= resource_name.to_s.humanize %> Proflie</h4 class="center-align">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+<% if @user.avatar_file_name.nil? %>
+  <img class="center responsive-img" src="http://emblemsbf.com/img/11864.jpg"/>
+<% else %>
+  <img class="center responsive-img" @user.avatar.url(:medium) />
+<% end %>
+
+ <div class="row">
+  <div class="field center">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+    <div class="field col s12 m6">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+
+    <div class="field col s12 m6">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field col s12 m6">
+      <%= f.label :birth_date %><br />
+      <%= f.date_field :birth_date %>
+    </div>
+
+    <div class="field col s12 m6">
+      <%= f.label :phone_number %><br />
+      <%= f.number_field :phone_number %>
+    </div>
+  </div>
+
+  <div class="field center-align">
+    <%= f.radio_button :gender, id = "Male" %>
+    <label for="user_gender_male"> Male </label>
+    <%= f.radio_button :gender, id = "Female" %>
+    <label for="user_gender_female"> Female </label>
+  </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -23,17 +65,19 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>(Password required to make changes!!)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
+  <div class="actions right-align">
     <%= f.submit "Update" %>
   </div>
 <% end %>
 
+<div class="center-align">
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
 
 <%= link_to "Back", :back %>

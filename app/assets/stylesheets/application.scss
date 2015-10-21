@@ -14,8 +14,21 @@
  *= require_self
  */
  @import "materialize";
-
- .alert {
+ // Notice is green for success!
+ .notice {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  border-radius: 4px;
+  padding: 15px;
+  border: 1px solid;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+ }
+// Error is red for warning
+ .error {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
@@ -27,5 +40,17 @@
   margin-left: 10%;
   margin-right: 10%;
  }
-
+// Alert class is Yellow
+ .alert {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  border-radius: 4px;
+  padding: 15px;
+  border: 1px solid;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+ }
 

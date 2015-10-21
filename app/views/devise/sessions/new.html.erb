@@ -1,6 +1,12 @@
-<h2>Log in</h2>
+<div class="row">
+  <div class="col m8 hide-on-small-only">
+    <%= image_tag "Travel_Buddy_logo_icon.png" %>
+  </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="col s12 m4">
+  <h4 class="center-align">Log in</h4>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -12,15 +18,17 @@
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="field right-align">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
 
-  <div class="actions">
+  <div class="actions right-align">
     <%= f.submit "Log in" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>

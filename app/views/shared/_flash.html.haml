@@ -1,4 +1,14 @@
-- [:notice, :error, :alert].each do |level|
+- [:notice].each do |level|
+  - unless flash[level].blank?
+    %div.text-center{:class => "notice #{"notice-#{flash_class(level)}"} hidden-xs"}
+      = content_tag :strong, flash[level]
+
+- [:error].each do |level|
+  - unless flash[level].blank?
+    %div.text-center{:class => "error #{"error-#{flash_class(level)}"} hidden-xs"}
+      = content_tag :strong, flash[level]
+
+- [:alert].each do |level|
   - unless flash[level].blank?
     %div.text-center{:class => "alert #{"alert-#{flash_class(level)}"} hidden-xs"}
       = content_tag :strong, flash[level]

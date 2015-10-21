@@ -11,7 +11,7 @@ class ListItemsController < ApplicationController
   def create
     @list_item = @checklist.list_items.new(list_item_params)
     if @list_item.save
-      redirect_to trip_checklist_path(@trip, @checklist)
+      redirect_to trip_path(@trip)
     else
       render :new
     end  
@@ -22,15 +22,16 @@ class ListItemsController < ApplicationController
 
   def update
     if @list_item.update(list_item_params)
-      redirect_to trip_checklist_path(@trip, @checklist)
+      render nothing: true
     else 
-      render :edit 
+      flash[:error] = "Unable to update item"
+      redirect_to trip_path(@trip)
     end  
   end
 
   def destroy
     @list_item.destroy
-    redirect_to trip_checklist_path(@trip, @checklist)
+    redirect_to trip_checklists_path(@trip)
   end  
 
   private
