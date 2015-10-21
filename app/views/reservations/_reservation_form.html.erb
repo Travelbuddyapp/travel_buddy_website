@@ -1,31 +1,43 @@
 <%= form_for [@trip, @reservation] do |f| %>
-  <%= f.label :business_name %>
-  <%= f.text_field :business_name %>
-  <%= f.label :type %>
-  <%= f.select :type, Reservation.types %>
-  <div class="row">
-  <div class="col s12 m6">
-  <%= f.label :check_in_date %>
-  <%= f.date_field :check_in_date %>
+  <div class="input-field col s12">
+    <%= f.text_field :business_name %>
+    <%= f.label :business_name %>
   </div>
-  <div class="col s12 m6">
-  <%= f.label :check_out_date %>
-  <%= f.date_field :check_out_date %>
-  </div>
-  <div class="col s12">
-  <%= f.fields_for :address, @address do |builder| %>
-    <%= builder.label :address %>
-    <%= builder.text_field :address %>
-  <% end %>
-  </div>
-  <div class="col s12">
-  <%= f.label :confirmation_number %>
-  <%= f.text_field :confirmation_number %>
-  </div>
-  </div>
-  <%= f.label :note %>
-  <%= f.text_field :note %>
 
-  <%= f.submit %>
+  <div class="input-field col s12">
+    <%= f.select :type, Reservation.types %>
+    <%= f.label :type %>
+  </div>
+
+  <div class="input-field col s12 m6">
+    <%= f.date_field :check_in_date, class: "datepicker" %>
+    <%= f.label :check_in_date %>
+  </div>
+
+  <div class="input-field col s12 m6">
+    <%= f.date_field :check_out_date, class: "datepicker" %>
+    <%= f.label :check_out_date %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.fields_for :address, @address do |builder| %>
+      <%= builder.text_field :address %>
+      <%= builder.label :address %>
+    <% end %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.text_field :confirmation_number %>
+    <%= f.label :confirmation_number %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.text_field :note %>
+    <%= f.label :note %>
+  </div>
+
+  <div class="input-field center-align">
+    <input type="submit" class="btn" value="Submit">
+  </div>
 <% end %>
 

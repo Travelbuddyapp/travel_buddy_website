@@ -1,19 +1,31 @@
 <%= form_for @trip do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="input-field col s12">
+    <%= f.text_field :name %>
+    <%= f.label :name %>
+  </div>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <div class="input-field col s12">
+    <%= f.text_field :description %>
+    <%= f.label :description %>
+  </div>
 
-  <%= f.label :start_date %>
-  <%= f.date_field :start_date %>
+  <div class="input-field col s12">
+    <%= f.date_field :start_date, class: "datepicker" %>
+    <%= f.label :start_date %>
+  </div>
 
-  <%= f.label :end_date %>
-  <%= f.date_field :end_date %>
+  <div class="input-field col s12">
+    <%= f.date_field :end_date, class: "datepicker" %>
+    <%= f.label :end_date %>
+  </div>
 
-  <%= f.label :ice_id %>
-  <%= f.text_field :ice_id %>
+  <div class="input-field col s12">
+    <%= f.text_field :ice_id %>
+    <%= f.label :ice_id %>
+  </div>
 
-  <%= f.submit %>
+  <div class="input-field center-align">
+    <input type="submit" class="btn" value="Submit">
+  </div>
 <% end %>
 <%= link_to 'back', :back %>

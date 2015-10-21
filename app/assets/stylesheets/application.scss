@@ -60,23 +60,18 @@
   margin-right: 10%;
  }
 
- body {
-    background-color: white;
+  .page-flexbox-wrapper {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
 
-  main {
+  #main {
     flex: 1 0 auto;
   }
 
   a {
     color: #0A4DA6;
-  }
-
-  div.field_with_errors {
-    display: inline;
   }
 
       
