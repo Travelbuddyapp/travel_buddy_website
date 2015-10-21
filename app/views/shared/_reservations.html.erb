@@ -1,31 +1,37 @@
-<% if current_page?(root_path) %>
-
 <h4 class="center-align">Reservations</h4>
-<p class="center-align">New Reservations are made within a Trip.</p>
 
+<% if current_page?(root_path)%>
+  <p class="center-align">New reservations are made within a Trip.<br>Not all reservations are shown here.</p>
+  <ul class="collapsible popout" data-collapsible="accordion">
 <% else %>
-<h4 class="center-align">Reservations</h4>
-<ul class="collapsible popout" data-collapsible="accordion">
-<% if @reservations != nil %>
-  <% @reservations.each do |reservation| %>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>
-        <%= reservation.business_name %>
-      </div>
-      <div class="collapsible-body container">
-        Type: <%= reservation.type %><br>
-        Confirmation # <%= reservation.confirmation_number %><br>
-        Check in Date: <%= reservation.check_in_date %><br>
-        Check out Date: <%= reservation.check_out_date %><br>
-        Note: <%= reservation.note %><br>
-        <%= link_to 'Edit', sti_reservation_path(@trip, reservation.type, reservation, :edit) %>
-        <%= link_to 'Destroy', sti_reservation_path(@trip, reservation.type, reservation), method: :delete, data: {confirm: 'Are you sure?' } %>
-      </div>
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li class="new-reservation-link"data-trip-id='<%= @trip.id %>'>
+      <div class="collapsible-header"><i class="fa fa-plus fa-2x"></i>New Reservation</div>
     </li>
-  <% end %>
 <% end %>
+
+  <% if @reservations != nil %>
+    <% @reservations.each do |reservation| %>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">hotel</i>
+          <%= reservation.business_name %>
+          <%= link_to 'Show', trip_reservation_path(@trip, reservation), class: 'wave-effect waves-light btn secondary-content' %>
+        </div>
+        <div class="collapsible-body container">
+          Type: <%= reservation.type %><br>
+          Confirmation # <%= reservation.confirmation_number %><br>
+          Check in Date: <%= reservation.check_in_date %><br>
+          Check out Date: <%= reservation.check_out_date %><br>
+
+          Note: <%= reservation.note %><br>
+          <%= link_to 'Edit', sti_reservation_path(@trip, reservation.type, reservation, :edit) %>
+          <%= link_to 'Destroy', sti_reservation_path(@trip, reservation.type, reservation), method: :delete, data: {confirm: 'Are you sure?' } %>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
 </ul>
 
 
-<%= link_to "New reservation", new_trip_reservation_path(@trip) %>
-<% end %>
+  <!-- <= link_to "New reservation", new_trip_reservation_path(@trip) %> -->
+  <!-- < end %> -->

@@ -1,10 +1,6 @@
 class AddressesController < ApplicationController
-  # before_action :find_user
-  # before_action :find_trip
-  # before_action :find_reservation
   before_action :address, only: [:edit, :update, :destroy]
-  # This was set up for a reservation address, we may need to add
-  # more in to cover user address...  TODO?
+
   def new
     @address = Address.new
   end
@@ -35,18 +31,6 @@ class AddressesController < ApplicationController
   end
 
   private
-
-  def find_user
-    @user = current_user
-  end
-
-  def find_trip
-    @trip = Trip.find(params[:trip_id])
-  end
-
-  def find_reservation
-    @reservation = Reservation.find(params[:reservation_id])
-  end
 
   def address
     @address = Address.find(params[:id])

@@ -1,9 +1,25 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
-
-Type: <%= @reservation.type %><br>
-Business Name: <%= @reservation.business_name %><br>
-Confirmation # <%= @reservation.confirmation_number %><br>
-Check in Date: <%= @reservation.check_in_date %><br>
-Check out Date: <%= @reservation.check_out_date %><br>
-Note: <%= @reservation.note %><br>
+<h1><%= @reservation.business_name %> Reservation</h1>
+<%= link_to 'back', trip_path(@trip) %>
+<div class="row">
+  <div class="col s12 m6 l10">
+    <div class="card">
+    <div class="container">
+      Type: <%= @reservation.type %><br>
+      Business Name: <%= @reservation.business_name %><br>
+      Confirmation #: <%= @reservation.confirmation_number %><br>
+      Check in Date: <%= @reservation.check_in_date %><br>
+      Check out Date: <%= @reservation.check_out_date %><br>
+      <% if @reservation.address == nil %>
+        No Address Added <br>
+      <% else %>
+        Address: <%= @reservation.address.address %><br>
+      <% end %>
+      Note: <%= @reservation.note %><br>
+      <div class="card-action">
+        <%= link_to "Edit", edit_trip_reservation_path(@trip, @reservation) %>
+        <%= link_to 'Delete', trip_reservation_path(@trip, @reservation), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
