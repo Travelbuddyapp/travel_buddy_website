@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :birth_date, :phone_number, :gender, presence: true
   has_attached_file :avatar, styles: { medium: "230x230=", thumb: "100x100>" },
-   default_url: "/images/:style/missing.png",
+   default_url: "/images/:style/default_avatar.jpg",
    :url  => ":s3_domain_url",
     :path => "public/avatars/:id/:style_:basename.:extension",
     :storage => :fog,
