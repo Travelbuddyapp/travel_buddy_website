@@ -41,14 +41,8 @@
     <%= f.label :password_confirmation %>
   </div>
 
-  <div class="input-field center-align">
-    <%= f.radio_button :gender, id = "Male" %>
-    <label for="user_gender_male"> Male </label>
-    <%= f.radio_button :gender, id = "Female" %>
-    <label for="user_gender_female"> Female </label>
-  </div>
-
-  <div class="file-field input-field">
+<div class="row">
+  <div class="file-field input-field col s12 m8">
     <div class="btn">
       <span>Avatar</span>
       <input type="file" name="user[avatar]" id="user_avatar">
@@ -58,6 +52,13 @@
     </div>
   </div>
 
+  <div class="input-field center-align col s12 m4">
+    <%= f.radio_button :gender, id = "Male" %>
+    <label for="user_gender_male"> Male </label>
+    <%= f.radio_button :gender, id = "Female" %>
+    <label for="user_gender_female"> Female </label>
+  </div>
+</div>
   <div class="input-field center-align">
     <input type="submit" class="btn" value="Register">
   </div>
