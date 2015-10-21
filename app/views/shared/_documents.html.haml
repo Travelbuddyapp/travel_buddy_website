@@ -16,7 +16,7 @@
         - @user.documents.each do |document|
           %tr
             %td
-              = link_to document.name.titleize, document.attachment.url(:original, false), target:"_blank"
+              = link_to document.name.titleize, document.attachment.url(:original, false), target:"_blank", rel:"external"
             %td
               = document.created_at.strftime('%m/%d/%Y')
             %td
