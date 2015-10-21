@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ @import "materialize/components/color";
+  $primary-color: color("blue", "accent-2") !default;
+  $primary-color-light: color("blue", "lighten-5") !default;
+  $primary-color-dark: color("grey", "darken-4") !default;
+  $secondary-color: color("blue", "accent-2") !default;
+  $link-color: color("deep-orange", "base") !default;
  @import "materialize";
  // Notice is green for success!
  .notice {
@@ -55,6 +61,7 @@
  }
 
  body {
+    background-color: white;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -62,6 +69,10 @@
 
   main {
     flex: 1 0 auto;
+  }
+
+  a {
+    color: #0A4DA6;
   }
       
 
