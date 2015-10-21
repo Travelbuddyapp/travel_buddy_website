@@ -5,6 +5,7 @@ gem 'devise'
 gem 'haml'
 gem 'paperclip'
 gem 'materialize-sass'
+gem 'puma'
 
 # AWS
 gem 'aws-sdk', '~> 1.36.1'
