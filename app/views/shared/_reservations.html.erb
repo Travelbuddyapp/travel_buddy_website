@@ -10,14 +10,15 @@
     </li>
 <% end %>
 
-  <% if @reservations != nil %>
-    <% @reservations.each do |reservation| %>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">hotel</i>
-          <%= reservation.business_name %>
-          <%= link_to 'Show', trip_reservation_path(@trip, reservation), class: 'wave-effect waves-light btn secondary-content' %>
-        </div>
-        <div class="collapsible-body container">
+<% if @reservations != nil %>
+  <% @reservations.each do |reservation| %>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">hotel</i>
+        <%= reservation.business_name %>
+        <%= link_to 'Show', trip_reservation_path(@trip, reservation), class: 'wave-effect waves-light btn secondary-content' %>
+      </div>
+      <div class="collapsible-body container">
+        <div class="collection">
           Type: <%= reservation.type %><br>
           Confirmation # <%= reservation.confirmation_number %><br>
           Check in Date: <%= reservation.check_in_date %><br>
@@ -27,9 +28,10 @@
           <%= link_to 'Edit', sti_reservation_path(@trip, reservation.type, reservation, :edit) %>
           <%= link_to 'Destroy', sti_reservation_path(@trip, reservation.type, reservation), method: :delete, data: {confirm: 'Are you sure?' } %>
         </div>
-      </li>
-    <% end %>
+      </div>
+    </li>
   <% end %>
+<% end %>
 </ul>
 
 
