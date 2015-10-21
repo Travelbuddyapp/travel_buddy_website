@@ -55,5 +55,13 @@ $(document).ready(function() {
 
   // materialize tabs 
   $('ul.tabs').tabs();
+
+  // Open attachments in a new tab
+  $(document).ready(function(){
+    $('a[rel="external"]').click(function() {
+        window.open($(this).attr('href'));
+        return false;
+    });
+});
         
 });
