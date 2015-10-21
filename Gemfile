@@ -5,7 +5,6 @@ gem 'devise'
 gem 'haml'
 gem 'paperclip'
 gem 'materialize-sass'
-gem 'puma'
 
 # AWS
 gem 'aws-sdk', '~> 1.36.1'
@@ -41,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 group :production do
 
+  gem 'puma'
   gem 'rails_12factor'
 
 end
