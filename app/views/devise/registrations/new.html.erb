@@ -1,63 +1,65 @@
-<h2>Sign up</h2>
+<h2 class="center-align">Register</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
   <%= devise_error_messages! %>
   <div class="row">
-    <div class="field col s12 m6">
-      <%= f.label :first_name %><br />
+    <div class="input-field col s12 m6">
       <%= f.text_field :first_name, autofocus: true %>
+      <%= f.label :first_name %>
     </div>
 
-    <div class="field col s12 m6">
-      <%= f.label :last_name %><br />
+    <div class="input-field col s12 m6">
       <%= f.text_field :last_name %>
+      <%= f.label :last_name %>
     </div>
   </div>
 
   <div class="row">
-    <div class="field col s12 m6">
-      <%= f.label :birth_date %><br />
-      <%= f.date_field :birth_date %>
+    <div class="input-field col s12 m6">
+      <%= f.label :birth_date %>
+      <%= f.date_field :birth_date, class: "datepicker" %>
     </div>
-
-    <div class="field col s12 m6">
-      <%= f.label :phone_number %><br />
-      <%= f.number_field :phone_number %>
+    
+    <div class="input-field col s12 m6">
+      <%= f.text_field :phone_number %>
+      <%= f.label :phone_number %>
     </div>
   </div>
 
-  <div class="field center-align">
+  <div class="input-field">
+    <%= f.email_field :email %>
+    <%= f.label :email %><br />
+  </div>
+
+  <div class="input-field">
+    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :password %>
+  </div>
+
+  <div class="input-field">
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :password_confirmation %>
+  </div>
+
+  <div class="input-field center-align">
     <%= f.radio_button :gender, id = "Male" %>
     <label for="user_gender_male"> Male </label>
     <%= f.radio_button :gender, id = "Female" %>
     <label for="user_gender_female"> Female </label>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email , autofocus: true %>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Avatar</span>
+      <input type="file" name="user[avatar]" id="user_avatar">
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="input-field center-align">
+    <input type="submit" class="btn" value="Register">
   </div>
 <% end %>
 

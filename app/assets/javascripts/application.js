@@ -46,4 +46,11 @@ $(document).ready(function() {
       }
     });
   });
+
+  // materialize date-picker
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 100
+  });
+        
 });
