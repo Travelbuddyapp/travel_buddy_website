@@ -1,8 +1,42 @@
 %h1.center-align
   = @checklist.title
+= link_to 'back', trip_path(@trip)
+%br
 = link_to 'add list item', new_trip_checklist_list_item_path(@trip,@checklist)
 %br
-- @list_items.each do |item|
-  = item.content
-  = link_to 'destroy', trip_checklist_list_item_path(@trip,@checklist,item), method: 'delete', data:{confirm: 'Really Destroy?'}
-  %br
+%br
+%ul.collection.with-header
+  %li.collection-header.center-align 
+    %h4 Due Date: "#{@checklist.due_date}"
+  - @list_items.each do |item|
+    .collection-item
+      - if item.completed == false
+        %input.secondary-content.completed{"data-checklist-id" => @checklist.id, "data-trip-id" => @trip.id, :id => item.id, :type => "checkbox"}/
+      - else
+        %input.secondary-content.completed{:checked => "checked", "data-checklist-id" => @checklist.id, "data-trip-id" => @trip.id, :id => item.id, :type => "checkbox"}/
+      %label{:for => item.id}
+      %span.flow-text= item.content 
+      = link_to 'X', trip_checklist_list_item_path(@trip, @checklist, item), method: 'delete', class: 'waves-effect waves-circle waves-light btn-floating secondary-content delete-item', data: {confirm: 'Really delete this item?'}
+  %li.new-list-item-link.center-align{"data-trip-id" => @trip.id}
+    .collection-header
+      = link_to 'add list item', new_trip_checklist_list_item_path(@trip, @checklist), class: 'waves-effect waves-light btn'
+  %li.new-list-item-link{"data-trip-id" => @trip.id}
+    .collection-header
+      = link_to 'edit checklist', edit_trip_checklist_path(@trip, @checklist), class: 'waves-effect waves-light btn'
+      = link_to 'delete checklist', trip_checklist_path(@trip, @checklist), method: 'delete', class: 'waves-effect waves-light btn secondary-content delete-item', data: {confirm: 'Really delete this checklist?'}
+
+
+.row
+  .col.s12.m6.l10
+    .card
+      .container
+        %h5.center-align Checklist: #{@checklist.title}
+        %h5.center-align Start Date: #{@checklist.due_date}
+        %br
+        - @list_items.each do |item|
+          %li.center-align= item.content
+
+          %br
+        .card-action
+          = link_to "Edit", edit_trip_checklist_path(@trip, @checklist)
+          = link_to 'Delete', trip_checklist_path(@trip, @checklist), data: {:confirm => 'Are you sure?'}, :method => :delete

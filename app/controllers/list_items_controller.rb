@@ -25,13 +25,13 @@ class ListItemsController < ApplicationController
       render nothing: true
     else 
       flash[:error] = "Unable to update item"
-      redirect_to trip_path(@trip)
+      redirect_to trip_checklist_path(@trip, @checklist)
     end  
   end
 
   def destroy
     @list_item.destroy
-    redirect_to trip_checklists_path(@trip)
+    redirect_to trip_checklist_path(@trip, @checklist)
   end  
 
   private
