@@ -38,8 +38,8 @@
               <% end %>
             </div>
           <% end %>
-          <div class="collapsible-header">
             <% if @trip.present? %>
+          <div class="collapsible-header">
               <%= link_to 'add list item', new_trip_checklist_list_item_path(@trip,checklist), class: 'waves-effect waves-light btn' %>
             <% end %>
           </div>
