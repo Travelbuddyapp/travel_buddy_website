@@ -14,6 +14,8 @@
 //= require materialize-sprockets
 //= require jquery_ujs
 //= require_tree .
+//= require cocoon
+
 $(document).ready(function() {
    // navbar
   $(".button-collapse").sideNav();

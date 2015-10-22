@@ -10,6 +10,12 @@ gem 'materialize-sass'
 gem 'aws-sdk', '~> 1.36.1'
 gem 'fog'
 gem 'figaro'
+
+gem 'cocoon'
+# gem 'simple_form'
+# simple_form may make dynamically created form fields easier on cocoon
+# however, it is not required, so I am waiting on adding it for now.
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
