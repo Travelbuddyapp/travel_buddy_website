@@ -44,5 +44,9 @@ class Reservation < ActiveRecord::Base
     raise 'You need to override this method in your sub classes'
     'We have recorded your generic reservation.'
   end
+
+  def self.most_recent
+    
+  end
   
 end

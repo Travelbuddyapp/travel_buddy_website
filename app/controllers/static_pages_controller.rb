@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   def home
     @trips = Trip.where(user_id:@user)
     @reservation = Reservation.all
-    @checklists = Checklist.where(user_id:@user)
+    @checklists = Checklist.where(user_id:current_user).order(:due_date).limit(5)
     # @checklists = Checklist.where(trip_id:@trip)
   end
 
@@ -21,11 +21,5 @@ class StaticPagesController < ApplicationController
   def user
     @user = current_user
   end
-  # TODO for cleanup and possible functionality: Are trip_params needed below?
-  # If yes, then why don't we also need reservation and checklist params???
-  
-  # def trip_params
-  #   params.require(:user).permit(:name, :description, :start_date, :end_date, :ice_id)
-  # end
 
 end
