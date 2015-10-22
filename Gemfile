@@ -12,6 +12,7 @@ gem 'fog'
 gem 'figaro'
 
 gem 'cocoon'
+gem 'react-rails'
 # gem 'simple_form'
 # simple_form may make dynamically created form fields easier on cocoon
 # however, it is not required, so I am waiting on adding it for now.
