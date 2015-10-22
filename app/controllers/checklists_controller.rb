@@ -13,7 +13,7 @@ class ChecklistsController < ApplicationController
 
   def create
     @checklist = @trip.checklists.new(checklist_params)
-    @checklist.update(user_id:current_user.id)
+    @checklist.user_id = current_user.id
     if @checklist.save
       redirect_to trip_checklists_path(@trip)
     else

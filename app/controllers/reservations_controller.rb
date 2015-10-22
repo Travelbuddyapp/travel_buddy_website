@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @trip.reservations.new(reservation_params)
+    @reservation.user_id = current_user.id
     if @reservation.save
       redirect_to trip_path(@trip)
     else
