@@ -1,8 +1,6 @@
 <h1>Edit <%= @reservation.type %> Reservation</h1>
 
-<div class="row">
-  <%= render 'reservation_form' %>
-</div>
+<%= render 'reservation_form' %>
 
 <%= link_to 'Back', trip_reservation_path(@trip, @reservation) %>
 

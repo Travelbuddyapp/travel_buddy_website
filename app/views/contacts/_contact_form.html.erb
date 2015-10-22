@@ -1,22 +1,32 @@
 <%= form_for @contact do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="input-field col s12">
+    <%= f.text_field :name, autofocus: true %>
+    <%= f.label :name %>
+  </div>
 
-  <%= f.label :phone_number %>
-  <%= f.number_field :phone_number %>
+  <div class="input-field col s12">
+    <%= f.text_field :phone_number %>
+    <%= f.label :phone_number %>
+  </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <div class="input-field col s12">
+    <%= f.email_field :email %>
+    <%= f.label :email %>
+  </div>
 
-  <%= f.label :note_field %>
-  <%= f.text_field :note_field %>
+  <div class="input-field col s12">
+    <%= f.text_field :note_field %>
+    <%= f.label :note_field %>
+  </div>
 
-  <%= f.check_box :ice %>
-  <label for="contact_ice"> Emergency Contact </label>
+  <div class="input-field col s12">
+    <%= f.check_box :ice %>
+    <label for="contact_ice"> Emergency Contact </label>
  
-  <br>
-  <br>
+  </div>
 
-  <%= f.submit %>
+  <div class="input-field center-align">
+    <input class="btn" type="submit" value="Submit">
+  </div>
 <% end %>
 <%= link_to "Back", :back %>

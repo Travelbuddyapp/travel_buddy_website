@@ -1,8 +1,18 @@
-= form_for @document do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.label :expiration_date
-  = f.date_field :expiration_date
-  = f.label :attachment
-  = f.file_field :attachment
-  = f.submit 'Create'
+= form_for @document, html: { multipart: true } do |f|
+  .input-field.col.s12
+    = f.text_field :name, autofocus: true
+    = f.label :name
+  .input-field.col.s12
+    = f.label :expiration_date
+    = f.date_field :expiration_date, class: 'datepicker'
+
+  .file-field.input-field
+    .btn
+      %span
+        Document
+      %input{type: "file", name: "document[attachment]", id: "document_attachment"}
+    .file-path-wrapper
+      %input.file-path.validate{type: 'text'}
+
+  .input-field.center-align
+    %input.btn{ type: 'submit', value: 'Submit'}

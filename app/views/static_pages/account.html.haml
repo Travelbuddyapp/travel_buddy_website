@@ -13,7 +13,7 @@
       = form_for Address.new do |f|
         = f.text_field :address
         = f.hidden_field :user_id, value: @user.id
-        = f.submit
+        %input.btn{ type: 'submit', value: 'Submit'}
     - else
       = "Address: #{@user.address.address}"
       |

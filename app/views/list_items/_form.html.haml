@@ -1,4 +1,6 @@
 = form_for [@trip, @checklist, @list_item] do |f|
-  = f.label :content
-  = f.text_field :content
-  = f.submit
+  .input-field.col.s12
+    = f.text_field :content, autofocus: true
+    = f.label :content
+  .input-field.center-align
+    %input.btn{ type: 'submit', value: 'Submit'}

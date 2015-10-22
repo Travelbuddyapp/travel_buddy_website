@@ -1,6 +1,9 @@
 = form_for [@trip, @checklist] do |f|
-  = f.label :title
-  = f.text_field :title
-  = f.label :due_date
-  = f.date_field :due_date
-  = f.submit
+  .input-field.col.s12
+    = f.text_field :title, autofocus: true
+    = f.label :title
+  .input-field.col.s12
+    = f.label :due_date
+    = f.date_field :due_date, class: "datepicker"
+  .input-field.center-align
+    %input.btn{ type: 'submit', value: 'Submit'}

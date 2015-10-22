@@ -1,6 +1,6 @@
 <%= form_for [@trip, @reservation] do |f| %>
   <div class="input-field col s12">
-    <%= f.text_field :business_name %>
+    <%= f.text_field :business_name, autofocus: true %>
     <%= f.label :business_name %>
   </div>
 

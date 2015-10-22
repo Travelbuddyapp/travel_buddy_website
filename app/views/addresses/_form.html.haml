@@ -1,9 +1,8 @@
 = form_for @address do |f|
-  = f.label :latitude
-  = f.number_field :latitude
-  = f.label :longitude
-  = f.number_field :longitude
-  = f.label :address
-  = f.text_field :address
-  = f.hidden_field :user_id, :value => current_user.id
-  = f.submit
+  .input-field.col.s12
+    = f.text_field :address
+    = f.label :address
+  .input-field.col.s12
+    = f.hidden_field :user_id, :value => current_user.id
+  .input-field.center-align
+    %input.btn{ type: 'submit', value: 'Submit'}
