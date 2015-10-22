@@ -57,7 +57,7 @@ class ChecklistsController < ApplicationController
   end
 
   def checklist_params
-    params.require(:checklist).permit(:title, :due_date)
+    params.require(:checklist).permit(:title, :due_date, list_items_attributes: [:id, :content, :completed, :checklist_id, :_destroy])
   end
   
 end
