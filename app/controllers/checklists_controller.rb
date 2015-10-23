@@ -15,7 +15,7 @@ class ChecklistsController < ApplicationController
     @checklist = @trip.checklists.new(checklist_params)
     @checklist.user_id = current_user.id
     if @checklist.save
-      redirect_to trip_checklists_path(@trip)
+      redirect_to trip_path(@trip)
     else
       render :new
     end
