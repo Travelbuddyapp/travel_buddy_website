@@ -1,16 +1,81 @@
+<section>
+  <h1 class="center-align">About Us</h1>
 
-<h1 class="center-align">About Us</h1>
+  <div class="center-align">
+    <div class="row">
+      <div class="col s4 responsive-img">
+      <%= link_to(image_tag("icons/github_octocat.png", width: "60%", :alt => "Github"), "https://github.com/Willardgmoore/travel_buddy") %>
+      </div>
+      <div class="col s4 responsive-img">
+      <%= link_to(image_tag("icons/feature_qa.png", width: "50%", :alt => "Github"), "http://qa.travelbuddyapp.us/") %>
+      </div>
+      <div class="col s4 responsive-img">
+      <%= link_to(image_tag("icons/deploy_heroku.png", width: "60%", :alt => "Github"), "http://travelbuddyapp.us/") %>
+      </div>
+    </div>
 
-<div class="center-align">
-  <div class="row">
-    <div class="col s12 m4"><%= image_tag "icons/github_octocat.png", width: "60%" %></div>
-    <div class="col s12 m4"><%= image_tag "icons/feature_qa.png", width: "50%" %></div>
-    <div class="col s12 m4"><%= image_tag "icons/deploy_heroku.png", width: "60%" %></div>
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+
+    <div class="row ">
+      <div class="col s4"><%= link_to "Github", "https://github.com/Willardgmoore/travel_buddy" %></div>
+      <div class="col s4"><%= link_to "Staging Environment", "http://qa.travelbuddyapp.us/" %></div>
+      <div class="col s4"><%= link_to "Production Environment", "http://travelbuddyapp.us/" %></div>
+    </div>
+  <hr/>
+</section>
+
+<section class="wrapper">
+ <div class="row">
+    <!-- Person left -->
+    <div class="col s12 m4 responsive-img">
+      <div>
+      <%= link_to(image_tag("willard.jpg", width: "90%", :alt => "My Face", class:"rcorners5"), "https://www.linkedin.com/in/willardgmoore") %>
+      </div>
+      <div class="row center-align">
+        <div class="col s6 m6 ">
+        <%= link_to(image_tag("icons/gitopuss_open_box.jpg", width: "50%", :alt => "Github"), "https://github.com/Willardgmoore") %>
+        </div>
+        <div class="col s6 m6 ">
+        <%= link_to(image_tag("icons/Linkedin.ico", width: "50%", :alt => "Linkedin"), "https://www.linkedin.com/in/willardgmoore") %>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Person center -->
+      <div class="col s12 m4 responsive-img">
+      <div>
+      <%= link_to(image_tag("parker.jpg", width: "90%", :alt => "Your Face", class:"rcorners4"), "https://www.linkedin.com/pub/parker-bond/102/790/181") %>
+      </div>
+      <div class="row center-align">
+        <div class="col s6 m6 ">
+        <%= link_to(image_tag("icons/github.jpeg", width: "40%", :alt => "Github"), "https://www.linkedin.com/pub/parker-bond/102/790/181") %>
+        </div>
+        <div class="col s6 m6 ">
+        <%= link_to(image_tag("icons/linkedIn1.png", width: "50%", :alt => "Linkedin"), "https://www.linkedin.com/pub/parker-bond/102/790/181") %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Person right -->
+       <div class="col s12 m4 responsive-img">
+      <div>
+      <%= link_to(image_tag("jordan.jpg", width: "90%", :alt => "Your Face", class:"rcorners6"), "https://www.linkedin.com/in/jordanswu") %>
+      </div>
+      <div class="row center-align">
+        <div class="col s6 m6 ">
+        <%= link_to(image_tag("icons/github_octocat.png", width: "50%", :alt => "Github"), "https://www.linkedin.com/in/jordanswu") %>
+        </div>
+        <div class="col s6 m6 ">
+        <%= link_to(image_tag("icons/linkedin_logo.png", width: "50%", :alt => "Linkedin"), "https://www.linkedin.com/in/jordanswu") %>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="row">
-    <div class="col s12 m4"><%= link_to "Github", "https://github.com/Willardgmoore/travel_buddy" %></div>
-    <div class="col s12 m4"><%= link_to "Staging Environment", "http://qa.travelbuddyapp.us/" %></div>
-    <div class="col s12 m4"><%= link_to "Production Environment", "http://travelbuddyapp.us/" %></div>
+  <div class="responsive-img center-align">
+    <%= link_to(image_tag("dpl_mountain.jpg", width: "80%", :alt => "DevPointLabs"), "http://www.devpointlabs.com/") %>
   </div>
 </div>
