@@ -17,9 +17,16 @@
       %label{:for => item.id}
       %span.flow-text= item.content 
       = link_to 'X', trip_checklist_list_item_path(@trip, @checklist, item), method: 'delete', class: 'waves-effect waves-circle waves-light btn-floating secondary-content delete-item', data: {confirm: 'Really delete this item?'}
-  %li.new-list-item-link.center-align{"data-trip-id" => @trip.id}
-    .collection-header
-      = link_to 'add list item', new_trip_checklist_list_item_path(@trip, @checklist), class: 'waves-effect waves-light btn'
+      
+  = form_for [@trip, @checklist] do |f|
+    #items
+      = f.fields_for :list_items do |item|
+        -# = render 'checklists/list_item_fields', f: item
+      .links.center-align
+        = link_to_add_association 'add item', f, :list_items
+    .input-field.center-align
+      %input.btn{ type: 'submit', value: 'Submit'}
+
   %li.new-list-item-link{"data-trip-id" => @trip.id}
     .collection-header
       = link_to 'edit checklist', edit_trip_checklist_path(@trip, @checklist), class: 'waves-effect waves-light btn'
