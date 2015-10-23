@@ -8,7 +8,7 @@
       Description: <%= @trip.description %><br>
       Start Date: <%= @trip.start_date %><br>
       End Date: <%= @trip.end_date %><br>
-      Emergency Contact: <%= @trip.ice_name %><br>
+      Emergency Contact: <%= link_to @ice.name, contact_path(@ice) %><br>
       <div class="card-action">
         <%= link_to "Edit", edit_trip_path(@trip) %>
         <%= link_to 'Delete', trip_path(@trip), data: {:confirm => 'Are you sure?'}, :method => :delete %>

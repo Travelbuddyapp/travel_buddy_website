@@ -20,8 +20,12 @@
   </div>
 
   <div class="input-field col s12">
-    <%= f.text_field :ice_id %>
-    <%= f.label :ice_id %>
+    <select name="trip[ice_id]">
+      <option value="" disabled selected>Choose Your emergency contact</option>
+      <% @user.contacts.each do |contact| %>
+        <option value="<%= contact.id %>"> <%= contact.name %></option>
+      <% end %>
+    </select>
   </div>
 
   <div class="input-field center-align">

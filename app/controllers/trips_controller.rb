@@ -23,6 +23,8 @@ class TripsController < ApplicationController
   def show
     @reservations = @trip.reservations
     @checklists = @trip.checklists
+    @ice = @user.contacts.where('contacts.id = ?', @trip.ice_id.to_i).limit(1)[0]
+    binding.pry
   end
 
   def edit
