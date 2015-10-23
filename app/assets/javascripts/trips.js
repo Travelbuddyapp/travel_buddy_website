@@ -7,4 +7,9 @@ $(document).ready(function() {
     var trip_id = $(this).data('trip-id');
     window.location = '/trips/' + trip_id
   });
+
+  $('#ice-id-select-form').select2({
+    placeholder: "Choose Your emergency contact",
+    allowClear: true
+  });
 })

@@ -20,8 +20,8 @@
   </div>
 
   <div class="input-field col s12">
-    <select name="trip[ice_id]">
-      <option value="" disabled selected>Choose Your emergency contact</option>
+    <select class="browser-default" name="trip[ice_id" id="ice-id-select-form">
+      <option></option>
       <% @user.contacts.each do |contact| %>
         <option value="<%= contact.id %>"> <%= contact.name %></option>
       <% end %>
