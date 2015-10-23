@@ -90,6 +90,20 @@
 .wrapper{
     background-attachment: fixed;
     background-position: center center;
-    background-image: url("images/Blue_Abstract_Wallpaper.png");
     background-size: cover;      
+}
+
+.blue_wallpaper{
+    background-image: url("Blue_Abstract_Wallpaper.png");
+}
+
+.blue_tear{
+    background-image: url("blue_tear.jpg");
+    background-size: 80%;
+}
+.tranparent6{
+  opacity: 0.6;
+}
+.tranparent4{
+  opacity: 0.9;
 }
