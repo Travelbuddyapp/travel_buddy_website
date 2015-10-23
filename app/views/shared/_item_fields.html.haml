@@ -1,0 +1,9 @@
+.nested-fields
+  .field
+    = f.label :content
+    %br
+    = f.text_field :content
+  .field
+    = f.check_box :completed
+    = f.label :completed
+  = link_to_remove_association "remove list item",
