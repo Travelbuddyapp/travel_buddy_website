@@ -25,18 +25,3 @@
       = link_to 'edit checklist', edit_trip_checklist_path(@trip, @checklist), class: 'waves-effect waves-light btn'
       = link_to 'delete checklist', trip_checklist_path(@trip, @checklist), method: 'delete', class: 'waves-effect waves-light btn secondary-content delete-item', data: {confirm: 'Really delete this checklist?'}
 
-
-.row
-  .col.s12.m6.l10
-    .card
-      .container
-        %h5.center-align Checklist: #{@checklist.title}
-        %h5.center-align Start Date: #{@checklist.due_date}
-        %br
-        - @list_items.each do |item|
-          %li.center-align= item.content
-
-          %br
-        .card-action
-          = link_to "Edit", edit_trip_checklist_path(@trip, @checklist)
-          = link_to 'Delete', trip_checklist_path(@trip, @checklist), data: {:confirm => 'Are you sure?'}, :method => :delete
