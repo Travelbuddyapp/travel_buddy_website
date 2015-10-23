@@ -74,5 +74,22 @@
     color: #0A4DA6;
   }
 
-      
+.rcorners4 {
+    border-radius: 15px 50px 30px 5px;
+    padding: 20px; 
+}
+.rcorners5 {
+  border-radius: 15px 50px 30px;
+  padding: 20px; 
+}
 
+.rcorners6 {
+    border-radius: 15px 50px;
+    padding: 20px; 
+}
+.wrapper{
+    background-attachment: fixed;
+    background-position: center center;
+    background-image: url("images/Blue_Abstract_Wallpaper.png");
+    background-size: cover;      
+}
