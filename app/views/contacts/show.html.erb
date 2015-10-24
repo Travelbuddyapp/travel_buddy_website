@@ -1,22 +1,20 @@
-<h1>Contacts#show</h1>
-<p>Find me in app/views/contacts/show.html.erb</p>
-
 <%= link_to "Back", contacts_path %><br>
-
 <div class="row">
-	<div class="col s12 m6 l10">
-		<div class="card">
-			<div class="container">
-				Name: <%= @contact.name %><br>
-				Phone Number: <%= @contact.phone_number %><br>
-				Email: <%= @contact.email %><br>
-				Notes: <%= @contact.note_field %><br>
-				Emergency Contact: <%= @contact.ice %><br>
-				<div class="card-action">
-					<%= link_to "Edit", edit_contact_path(@contact) %>
-					<%= link_to 'Delete', contact_path(@contact), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  <div class="col offset-m3 s12 m6">
+    <div class="card light-blue accent-4">
+      <div class="card-content white-text">
+        <span class="card-title"><%= @contact.name %></span>
+        <div>
+					Phone Number: <%= @contact.phone_number %><br>
+					Email: <%= @contact.email %><br>
+					Notes: <%= @contact.note_field %><br>
+					Emergency Contact: <%= @contact.ice %><br>
 				</div>
-			</div>
-		</div>
-	</div>
+			</div> 
+      <div class="card-action">
+				<%= link_to "Edit", edit_contact_path(@contact) %>
+				<%= link_to 'Delete', contact_path(@contact), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 .row
-  .col.s12.m3
+  .col.s12.offset-m4.m4
     = image_tag @user.avatar.url(:medium), class: 'center'
     %span.avatar-fullname
       = "#{@user.first_name} #{@user.last_name}"
@@ -11,7 +11,7 @@
       = "Gender: #{@user.gender}"
     - if @user.address.nil?
       = form_for Address.new do |f|
-        = f.text_field :address
+        = f.text_field :address, placeholder: 'Enter in address'
         = f.hidden_field :user_id, value: @user.id
         %input.btn{ type: 'submit', value: 'Submit'}
     - else
