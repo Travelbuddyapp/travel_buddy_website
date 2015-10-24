@@ -1,7 +1,10 @@
 <h1>Edit <%= @reservation.type %> Reservation</h1>
 
 <%= render 'reservation_form' %>
-
-<%= link_to 'Back', trip_reservation_path(@trip, @reservation) %>
+<div class="container">
+  <div class="topish-left">
+    <%= link_to 'Back', trip_reservation_path(@trip, @reservation) %>
+  </div>
+</div>
 
 

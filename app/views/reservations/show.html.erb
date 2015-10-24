@@ -1,5 +1,9 @@
 <h1><%= @reservation.business_name %> Reservation</h1>
-<%= link_to 'back', trip_path(@trip) %>
+<div class="container">
+  <div class="topish-left">
+    <%= link_to 'Back', trip_path(@trip) %>
+  </div>
+</div>
 <div class="row">
   <div class="col s12 m6 l10">
     <div class="card">

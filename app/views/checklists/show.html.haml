@@ -1,10 +1,9 @@
-%h1.center-align
+%h2.center-align
   = @checklist.title
-= link_to 'back', trip_path(@trip)
-%br
-= link_to 'add list item', new_trip_checklist_list_item_path(@trip,@checklist)
-%br
-%br
+.container
+  .topish-left
+    = link_to 'Back', trip_path(@trip)
+
 %ul.collection.with-header
   %li.collection-header.center-align 
     %h4 Due Date: "#{@checklist.due_date}"

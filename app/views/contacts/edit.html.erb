@@ -1,3 +1,8 @@
-<h1>Contacts#edit</h1>
-<p>Find me in app/views/contacts/edit.html.erb</p>
+<h2 class="center-align">Edit Contact</h2>
+<p class="center-align">Edit contact with name: <%= @contact.name %></p>
+<div class="container">
+  <div class="topish-left">
+    <%= link_to 'Back', contact_path(@contact) %>
+  </div>
+</div>
 <%= render 'contact_form' %>

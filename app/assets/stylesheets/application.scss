@@ -14,15 +14,23 @@
  *= require_tree .
  *= require_self
  */
- @import "materialize/components/color";
+@import "materialize/components/color";
   $primary-color: color("blue", "accent-2") !default;
   $primary-color-light: color("blue", "lighten-1") !default;
   $primary-color-dark: color("grey", "darken-4") !default;
   $secondary-color: color("blue", "accent-2") !default;
   $link-color: color("deep-orange", "base") !default;
- @import "materialize";
+@import "materialize";
+
+// This is to position the back link uniformly.
+.topish-left { 
+  position: absolute; 
+  top: 75px; 
+  left: 5%;
+  }
+
  // Notice is green for success!
- .notice {
+.notice {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
@@ -33,9 +41,9 @@
   margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
- }
+  }
 // Error is red for warning
- .error {
+.error {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
@@ -46,9 +54,9 @@
   margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
- }
+  }
 // Alert class is Yellow
- .alert {
+.alert {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
@@ -59,25 +67,25 @@
   margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
- }
+  }
 
-  .page-flexbox-wrapper {
+.page-flexbox-wrapper {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
 
-  #main {
-    flex: 1 0 auto;
+#main {
+  flex: 1 0 auto;
   }
 
-  a {
-    color: #0A4DA6;
+a {
+  color: #0A4DA6;
   }
 
 .rcorners4 {
-    border-radius: 15px 50px 30px 5px;
-    padding: 20px; 
+  border-radius: 15px 50px 30px 5px;
+  padding: 20px; 
 }
 .rcorners5 {
   border-radius: 15px 50px 30px;
@@ -85,22 +93,22 @@
 }
 
 .rcorners6 {
-    border-radius: 15px 50px;
-    padding: 20px; 
+  border-radius: 15px 50px;
+  padding: 20px; 
 }
 .wrapper{
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;      
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;      
 }
 
 .blue_wallpaper{
-    background-image: url("Blue_Abstract_Wallpaper.png");
+  background-image: url("Blue_Abstract_Wallpaper.png");
 }
 
 .blue_tear1{
-    background-image: url("blue_tear.jpg");
-    background-size: 80%;
+  background-image: url("blue_tear.jpg");
+  background-size: 80%;
 }
 .tranparent6{
   opacity: 0.6;
@@ -112,3 +120,4 @@
 .card-panel {
   cursor: pointer;
 }
+
