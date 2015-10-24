@@ -1,0 +1,19 @@
+<h4 class="center-align">Reservations</h4>
+<ul class="collapsible popout" data-collapsible="accordion">
+  <% @reservations.each do |reservation| %>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">hotel</i>
+        <%= reservation.business_name %>
+      </div>
+      <div class="collapsible-body container">
+        <div class="collection">
+          Type: <%= reservation.type %><br>
+          Confirmation # <%= reservation.confirmation_number %><br>
+          Check in Date: <%= reservation.check_in_date %><br>
+          Check out Date: <%= reservation.check_out_date %><br>
+          Note: <%= reservation.note %><br>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

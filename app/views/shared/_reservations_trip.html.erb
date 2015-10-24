@@ -1,16 +1,8 @@
 <h4 class="center-align">Reservations</h4>
-
-<% if current_page?(root_path)%>
-  <p class="center-align">New reservations are made within a Trip.<br>Not all reservations are shown here.</p>
-  <ul class="collapsible popout" data-collapsible="accordion">
-<% else %>
-  <ul class="collapsible popout" data-collapsible="accordion">
-    <li class="new-reservation-link"data-trip-id='<%= @trip.id %>'>
-      <div class="collapsible-header"><i class="fa fa-plus fa-2x"></i>New Reservation</div>
-    </li>
-<% end %>
-
-<% if @reservations != nil %>
+<ul class="collapsible popout" data-collapsible="accordion">
+  <li class="new-reservation-link"data-trip-id='<%= @trip.id %>'>
+    <div class="collapsible-header"><i class="fa fa-plus fa-2x"></i>New Reservation</div>
+  </li>
   <% @reservations.each do |reservation| %>
     <li>
       <div class="collapsible-header"><i class="material-icons">hotel</i>
@@ -23,7 +15,6 @@
           Confirmation # <%= reservation.confirmation_number %><br>
           Check in Date: <%= reservation.check_in_date %><br>
           Check out Date: <%= reservation.check_out_date %><br>
-
           Note: <%= reservation.note %><br>
           <%= link_to 'Edit', sti_reservation_path(@trip, reservation.type, reservation, :edit) %>
           <%= link_to 'Destroy', sti_reservation_path(@trip, reservation.type, reservation), method: :delete, data: {confirm: 'Are you sure?' } %>
@@ -31,9 +22,4 @@
       </div>
     </li>
   <% end %>
-<% end %>
 </ul>
-
-
-  <!-- <= link_to "New reservation", new_trip_reservation_path(@trip) %> -->
-  <!-- < end %> -->

@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @trips = Trip.where(user_id:@user)
-    @reservaions = Reservation.where(user_id:current_user).order(:check_in_date).limit(5)
+    @reservations = Reservation.where(user_id:current_user).order(:check_in_date).limit(5)
     @checklists = Checklist.where(user_id:current_user).order(:due_date).limit(5)
   end
 
