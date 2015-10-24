@@ -1,7 +1,7 @@
 <h4 class="center-align">Trips</h4>
 <div class="row">
-  <div class="col s12 m6 l4 new-trip-link">
-    <div class="card-panel">
+  <div class="col s12 m6 l4 new-trip-link" >
+    <div class="card-panel hoverable">
       <div class="center-align">
         <i class="fa fa-plus fa-2x"></i><br>
           New Trip
@@ -12,9 +12,10 @@
 <% if @trips != nil %>
 <% @trips.each do |f| %>
   <div class="col s12 m4 show-trip-link" data-trip-id='<%= f[:id] %>'>
-    <div class="card-panel">       
+    <div class="card-panel hoverable">       
       Name: <%= f.name %><br>
-      Start Date: <%= f.start_date %>
+      Start Date: <%= f.start_date %><br>
+      End Date: <%= f.end_date %>
     </div>
   </div>
 <% end %>

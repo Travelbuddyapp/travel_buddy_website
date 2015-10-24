@@ -22,7 +22,9 @@
 
 $(document).ready(function() {
    // navbar
-  $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav({
+    menuWidth: 300
+  });
 
   // update completed? for list item
   $('.completed').click(function() {
