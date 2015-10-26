@@ -5,7 +5,8 @@
   </li>
   <% @reservations.each do |reservation| %>
     <li>
-      <div class="collapsible-header"><i class="material-icons">hotel</i>
+      <div class="collapsible-header">
+        <%= reservation.icon.html_safe %>
         <%= reservation.business_name %>
         <%= link_to 'Show', trip_reservation_path(@trip, reservation), class: 'wave-effect waves-light btn secondary-content' %>
       </div>

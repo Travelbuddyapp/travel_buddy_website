@@ -2,7 +2,8 @@
 <ul class="collapsible popout" data-collapsible="accordion">
   <% @reservations.each do |reservation| %>
     <li>
-      <div class="collapsible-header"><i class="material-icons">hotel</i>
+      <div class="collapsible-header">
+      <%= reservation.icon.html_safe %>
         <%= reservation.business_name %>
       </div>
       <div class="collapsible-body container">
