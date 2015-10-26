@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "documents/pdf"
   get '/about', to: 'static_pages#about_us', as: :about
   get '/account', to: 'static_pages#account', as: :account
+  get '/get_markers', to: 'reservations#get_markers', as: :get_markers
 
   get 'by_type', to: 'reservations#by_type'
 

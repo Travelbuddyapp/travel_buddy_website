@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :user
-  before_action :trip
+  before_action :trip, except: [:get_markers]
   before_action :reservation, only: [:show, :edit, :update, :destroy]
   
   def by_type
@@ -44,6 +44,19 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy
     redirect_to trip_path(@trip)
+  end
+
+  def get_markers
+    @reservation = Reservation.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@reservation) do |reservation, marker|
+      marker.lat reservation.address.latitude
+      marker.lng reservation.address.longitude
+      marker.infowindow "#{reservation.business_name}<br>
+                         Check in at #{reservation.check_in_date}<br>
+                         Check out at #{reservation.check_out_date}<br>
+                         note : #{reservation.note}"
+    end
+    render json: {hash: @hash}
   end
 
   private
