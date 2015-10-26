@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
   
   def by_type
     render json: { reservations: Reservation.by_type }
-  end #TODO: is it .by_trip or .by_type ???
+  end
 
   def index
   end

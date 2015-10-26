@@ -3,8 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  if window.location.pathname.match(/\/trips\/\d+\/reservations/).length
-    # labels = []
+  if window.location.pathname.match(/\/trips\/\d+\/reservations/)
     reservationData = []
     id = parseInt(window.location.pathname.split("/trips/")[1].split("/")[0])
     $.ajax '/by_type',
