@@ -3,12 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  if window.location.pathname.match(/\/trips\/\d+\/reservations/)
+  if window.location.pathname.match(/\/account/)
     reservationData = []
-    id = parseInt(window.location.pathname.split("/trips/")[1].split("/")[0])
+    console.log("Chart")
+    # id = parseInt(window.location.pathname.split("/trips/")[1].split("/")[0])
     $.ajax '/by_type',
       type: 'GET'
-      data: trip_id: id
+      # data: trip_id: id
       success: (data) ->
         for type, count of data.reservations
           switch type

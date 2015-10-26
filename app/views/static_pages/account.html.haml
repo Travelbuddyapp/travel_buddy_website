@@ -1,5 +1,5 @@
 .row
-  .col.s12.m4
+  .col.s12.m6
     = image_tag @user.avatar.url(:medium), class: 'center'
     %span.avatar-fullname
       = "#{@user.first_name} #{@user.last_name}"
@@ -20,12 +20,11 @@
       = link_to 'Edit', edit_address_path(@user.address.id)
     %br
     = link_to 'Edit Profile', edit_user_registration_path
-  -# .col.s12.m6
-  -#   .container
-  -#     %h2.center-align Chart JS Reservation Type
-  -#     %hr
-  -#     .row
-  -#       .col.s4
-  -#         %canvas#reservations_by_type{height: 400}
+  .col.s12.m6
+    .container
+      %h4.center-align Reservations by Type:
+      %br
+      .row
+        .col.s4
+          %canvas#reservations_by_type{height: 400}
 
-/ = render 'vaccine'

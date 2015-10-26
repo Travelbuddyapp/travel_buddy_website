@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :user
-  before_action :trip
+  before_action :trip, except: [:by_type]
   before_action :reservation, only: [:show, :edit, :update, :destroy]
   
   def by_type

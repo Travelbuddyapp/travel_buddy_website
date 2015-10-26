@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/account', to: 'static_pages#account', as: :account
 
   get 'by_type', to: 'reservations#by_type'
+  # get 'by_type', to: 'static_pages#by_type'
 
   resources :addresses
   resources :contacts
