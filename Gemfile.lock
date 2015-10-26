@@ -56,6 +56,8 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (6.0.2)
+    chart-js-rails (0.0.9)
+      railties (> 3.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -361,6 +363,7 @@ DEPENDENCIES
   aws-sdk (~> 1.36.1)
   better_errors
   byebug
+  chart-js-rails
   cocoon
   coffee-rails (~> 4.1.0)
   database_cleaner

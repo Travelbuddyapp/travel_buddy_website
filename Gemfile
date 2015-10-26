@@ -13,6 +13,8 @@ gem 'aws-sdk', '~> 1.36.1'
 gem 'fog'
 gem 'figaro'
 
+gem 'chart-js-rails'
+
 gem 'cocoon'
 gem 'react-rails'
 # gem 'simple_form'
