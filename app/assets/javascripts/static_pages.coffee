@@ -6,10 +6,8 @@ $(document).ready ->
   if window.location.pathname.match(/\/account/)
     reservationData = []
     console.log("Chart")
-    # id = parseInt(window.location.pathname.split("/trips/")[1].split("/")[0])
     $.ajax '/by_type',
       type: 'GET'
-      # data: trip_id: id
       success: (data) ->
         for type, count of data.reservations
           switch type
