@@ -3,8 +3,8 @@ class StaticPagesController < ApplicationController
   before_action :user, only: [:home, :account]
 
   def by_type
-    binding.pry
-    render json: { reservations: current_user.reservations.by_type }
+    reservations = Reservation.joins(:trip).where('trips.user_id = ?', current_user.id).by_type
+    render json: { reservations: reservations }
   end #TODO: do we need this here or in reservations controller when done?
 
   def home
