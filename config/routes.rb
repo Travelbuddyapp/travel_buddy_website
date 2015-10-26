@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/get_markers', to: 'reservations#get_markers', as: :get_markers
 
   get 'by_type', to: 'reservations#by_type'
+  # get 'by_type', to: 'static_pages#by_type'
 
   resources :addresses
   resources :contacts
