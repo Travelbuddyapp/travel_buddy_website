@@ -17,8 +17,8 @@ $(document).ready ->
             when 'Vehicle' then set = {value: count, color: "#5A6B75", highlight: 'rgba(90,107,117,.1)', label: type}
             when 'Dining' then set = {value: count, color: "#BC774C", highlight: 'rgba(188,119,76,.1)', label: type}
             when 'Activity' then set = {value: count, color: "#FDB45C", highlight: 'rgba(253,180,92,.1)', label: type}
-            when 'Event' then set = {value: count, color: "#AB2116", highlight: 'rgba(171,33,22,.1)', label: type}
-            when 'Other' then set = {value: count, color: "#5A6B75", highlight: 'rgba(90,107,117,.1)', label: type}
+            when 'Event' then set = {value: count, color: "#2E8B57", highlight: 'rgba(171,33,22,.1)', label: type}
+            when 'Other' then set = {value: count, color: "#FFD700", highlight: 'rgba(90,107,117,.1)', label: type}
           reservationData.push(set)
 
         $('#reservations_by_type').empty()
