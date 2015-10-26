@@ -3,7 +3,8 @@ class StaticPagesController < ApplicationController
   before_action :user, only: [:home, :account]
 
   def by_type
-    render json: { reservations: Reservation.by_type }
+    binding.pry
+    render json: { reservations: current_user.reservations.by_type }
   end #TODO: do we need this here or in reservations controller when done?
 
   def home

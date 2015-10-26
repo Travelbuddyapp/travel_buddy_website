@@ -4,7 +4,8 @@ class ReservationsController < ApplicationController
   before_action :reservation, only: [:show, :edit, :update, :destroy]
   
   def by_type
-    render json: { reservations: Reservation.by_type }
+    reservations = Reservation.joins(:trip).where('trips.user_id = ?', current_user.id).by_type
+    render json: { reservations: reservations }
   end
 
   def index
