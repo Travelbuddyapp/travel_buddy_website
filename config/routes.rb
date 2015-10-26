@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about_us', as: :about
   get '/account', to: 'static_pages#account', as: :account
 
+  get 'by_type', to: 'reservations#by_type'
+
   resources :addresses
   resources :contacts
   resources :documents

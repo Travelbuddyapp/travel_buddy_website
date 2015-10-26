@@ -11,6 +11,16 @@ class Reservation < ActiveRecord::Base
     # TODO: check if Events and Activities is plural or singular?
   end
 
+  def self.by_type
+    reservations = {}
+    results = select('count(*) AS count, type')
+              .group(:type)
+    results.each do |r|
+      reservations[r[:type]] = r[:count]
+    end
+    reservations
+  end
+
   #scopes
   def self.lodgings
     where(type: 'Lodging')

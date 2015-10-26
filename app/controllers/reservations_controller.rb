@@ -3,6 +3,10 @@ class ReservationsController < ApplicationController
   before_action :trip
   before_action :reservation, only: [:show, :edit, :update, :destroy]
   
+  def by_type
+    render json: { reservations: Reservation.by_type }
+  end #TODO: is it .by_trip or .by_type ???
+
   def index
   end
 
