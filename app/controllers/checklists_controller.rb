@@ -1,6 +1,7 @@
 class ChecklistsController < ApplicationController
   before_action :find_user
   before_action :find_trip
+  before_action :restrict_checklist_access
   before_action :checklist, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -60,5 +61,11 @@ class ChecklistsController < ApplicationController
     params.require(:checklist).permit(:title, :due_date, list_items_attributes: [:id, :content, :completed, :checklist_id, :_destroy])
   end
   
+  def restrict_checklist_access 
+    if @trip
+      restrict_access if @trip.user_id != current_user.id
+      restrict_access if checklist.user_id != current_user.id
+    end
+  end
 end
 

@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :user
+  before_action :restrict_reservation_access
   before_action :trip, except: [:by_type, :get_markers]
   before_action :reservation, only: [:show, :edit, :update, :destroy]
   
@@ -89,4 +90,10 @@ class ReservationsController < ApplicationController
     params.require(type.underscore.to_sym).permit(:type, :business_name, :confirmation_number, :check_in_date, :check_out_date, :note, address_attributes: [:address])
   end
 
+  def restrict_reservation_access 
+    if @trip
+      restrict_access if @trip.user_id != current_user.id
+      restrict_access if reservation.user_id != current_user.id
+    end
+  end
 end

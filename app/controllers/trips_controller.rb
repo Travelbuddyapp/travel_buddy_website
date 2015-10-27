@@ -2,6 +2,7 @@ class TripsController < ApplicationController
 
   before_action :trip, only: [:show, :edit, :update, :destroy]
   before_action :user
+  before_action :restrict_trip_access
 
   def index
     @trips = Trip.where(user_id:@user)
@@ -54,6 +55,12 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(:name, :description, :start_date, :end_date, :ice_id)
+  end
+
+  def restrict_trip_access 
+    if @trip
+      restrict_access if @trip.user_id != current_user.id
+    end
   end
 end
 

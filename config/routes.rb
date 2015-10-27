@@ -27,9 +27,9 @@ Rails.application.routes.draw do
     resources :events, controller: 'reservations', type: 'Event' do 
     end
     resources :other, controller: 'reservations', type: 'Other' do 
-    end #end of addresses nested inside of reservation
+    end #end of addresses nested insidesof reservation
     resources :checklists do
-      resources :list_items
+      resources :list_items, except: [:show, :index]
     end # end of cheklist/list item do loop
   end # end of trips nesting loop
 
