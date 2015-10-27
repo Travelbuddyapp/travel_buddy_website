@@ -1,6 +1,5 @@
-<section class="container">
-  <h1 class="center-align">About Us</h1>
-
+<div class="container">
+  <h1 class="center-align blue-text accent-2">About Us</h1>
   <div class="center-align">
     <div class="row">
       <div class="col s4 responsive-img">
@@ -13,17 +12,32 @@
       <%= link_to(image_tag("icons/deploy_heroku.png", width: "60%", :alt => "Github"), "http://travelbuddyapp.us/") %>
       </div>
     </div>
-
     <div class="row ">
-    <strong>
-      <div class="col s4"><%= link_to "Github", "https://github.com/Willardgmoore/travel_buddy" %></div>
-      <div class="col s4"><%= link_to "Staging Environment", "http://qa.travelbuddyapp.us/" %></div>
-      <div class="col s4"><%= link_to "Production Environment", "http://travelbuddyapp.us/" %></div>
-      </strong>
+        <div class="col s4"><%= link_to "Github", "https://github.com/Willardgmoore/travel_buddy" %></div>
+        <div class="col s4"><%= link_to "Staging Environment", "http://qa.travelbuddyapp.us/" %></div>
+        <div class="col s4"><%= link_to "Production Environment", "http://travelbuddyapp.us/" %></div>
     </div>
-<p><strong>How we stand out.</strong><br>We wanted similate a <strong>real work environment</strong> as much as possible. To do so, we created <strong>seperate Develop, Staging, and Production</strong> branches and Heroku Servers. Furthermore, we have seperate buckets on Amazon Web Services to keep our QA environment from interupting our production environment, while allowing us to really test our product before each production release. <br><br>
-In our journey to make travel easier for you, we ended up using lots of cool technologies. Some things that we ended up including to make our app great are: <strong>Single Table Inheritance, Nested Attributes, Nested Routes, Polymorphic Associations, React, 98% Rspec Coverage, and some awesome Ruby gems like: Cocoon, Materialize, Chart-js, Gmaps, Devise, Paperclip, and Puma. </strong>  Please login and see how we can make your travels easier!</p>
-</section>
+  </div>
+</div>
+
+<div class="light-grey section">
+  <div class="container row">
+    <h5 class="center-align">
+      How we stand out
+    </h5>
+    <p class="flow-text">We wanted similate a real work environment as much as possible. To do so, we created seperate Develop, Staging, and Production branches and Heroku Servers. Furthermore, we have seperate buckets on Amazon Web Services to keep our QA environment from interupting our production environment, while allowing us to really test our product before each production release.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container row">
+    <h5 class="center-align">
+      In our Journey
+    </h5>
+    <p class="flow-text">
+    to make travel easier for you, we ended up using lots of cool technologies. Some things that we ended up including to make our app great are: <strong>Single Table Inheritance, Nested Attributes, Nested Routes, Polymorphic Associations, React, 98% Rspec Coverage, and some awesome Ruby gems like: Cocoon, Materialize, Chart-js, Gmaps, Devise, Paperclip, and Puma. </strong>  Please login and see how we can make your travels easier!</p>
+  </div>
+</div>
 
 <section class="wrapper blue_wallpaper">
  <div class="row">
@@ -81,11 +95,11 @@ In our journey to make travel easier for you, we ended up using lots of cool tec
 </section>
 
 <section class="blue_tear ">  
+  <div class='container center-align'>
+    <p class="flow-text">Dev Point Labs is an 11 week intensive Ruby on Rails Bootcamp in Salt Lake City. It covers a full web development stack (HTML, CSS, Javascript, Rails) as well as testing, version control, hosting, active record/SQL as well as JQuery, Ajax, ReactJS, and much more! </p>
+  </div>
   <div class="responsive-img center-align tranparent6">
     <%= link_to(image_tag("dpl_mountain.jpg", width: "80%", :alt => "DevPointLabs"), "http://www.devpointlabs.com/") %>
-  </div>
-  <div class='container center-align'>
-    <strong><p>Dev Point Labs is an 11 week intensive Ruby on Rails Bootcamp in Salt Lake City. It covers a full web development stack (HTML, CSS, Javascript, Rails) as well as testing, version control, hosting, active record/SQL as well as JQuery, Ajax, ReactJS, and much more! </p></strong>
   </div>
 </section>
 
