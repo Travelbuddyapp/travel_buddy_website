@@ -31,10 +31,11 @@ class ChecklistsController < ApplicationController
 
   def update
    
-    if @checklist.update(checklist_params)
+    begin @checklist.update(checklist_params)
       redirect_to trip_checklist_path(@trip, @checklist)
-    else
-      render :edit
+    rescue => e
+      flash[:error] = "Please add a list item before submitting."
+      redirect_to trip_checklist_path(@trip, @checklist)
     end
   end
 

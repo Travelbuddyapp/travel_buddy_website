@@ -23,8 +23,8 @@
         -# = render 'checklists/list_item_fields', f: item
       .links.center-align
         = link_to_add_association 'add item', f, :list_items
-    .input-field.center-align
-      %input.btn{ type: 'submit', value: 'Submit'}
+      .input-field.center-align
+        %input.btn{ type: 'submit', value: 'Submit'}
 
   %li.new-list-item-link{"data-trip-id" => @trip.id}
     .collection-header
