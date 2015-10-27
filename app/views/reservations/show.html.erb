@@ -5,24 +5,24 @@
   </div>
 </div>
 <div class="row">
-  <div class="col s12 m6 l10">
+  <div class="col offset-m3 s12 m6">
     <div class="card">
-    <div class="container">
-      Type: <%= @reservation.type %><br>
-      Business Name: <%= @reservation.business_name %><br>
-      Confirmation #: <%= @reservation.confirmation_number %><br>
-      Check in Date: <%= @reservation.check_in_date %><br>
-      Check out Date: <%= @reservation.check_out_date %><br>
-      <% if @reservation.address == nil %>
-        No Address Added <br>
-      <% else %>
-        Address: <%= @reservation.address.address %><br>
-      <% end %>
-      Note: <%= @reservation.note %><br>
+      <div class="card-content white-text">
+        <span class="card-title"><%= @reservation.business_name %><br></span>
+        Type: <%= @reservation.type %><br>
+        Confirmation #: <%= @reservation.confirmation_number %><br>
+        Check in Date: <%= @reservation.check_in_date %><br>
+        Check out Date: <%= @reservation.check_out_date %><br>
+        <% if @reservation.address == nil %>
+          No Address Added <br>
+        <% else %>
+          Address: <%= @reservation.address.address %><br>
+        <% end %>
+        Note: <%= @reservation.note %>
+      </div>
       <div class="card-action">
         <%= link_to "Edit", edit_trip_reservation_path(@trip, @reservation) %>
         <%= link_to 'Delete', trip_reservation_path(@trip, @reservation), data: {:confirm => 'Are you sure?'}, :method => :delete %>
-      </div>
       </div>
     </div>
     <div class="col s12">

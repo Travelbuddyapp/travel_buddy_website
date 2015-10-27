@@ -1,36 +1,54 @@
-<div class="row">
+<div class="row valign-wrapper">
   <div class="col m8 hide-on-small-only responsive-img left-align">
     <%= image_tag "50.gif", width: "100%" %>
   </div>
 
-  <div class="col s12 m4">
-  <h4 class="center-align">Log in</h4>
+  <div class="col s12 m4 valign border">
+    <h4 class="center-align blue-text text-darken-2">Log in</h4>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="input-field">
-    <%= f.email_field :email, autofocus: true %>
-    <%= f.label :email %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="input-field">
+        <%= f.email_field :email, autofocus: true %>
+        <%= f.label :email %>
+      </div>
+
+      <div class="input-field">
+        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.label :password %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field right-align">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions right-align">
+        <%= f.submit "Log in" , class: 'btn waves-light'%>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="input-field">
-    <%= f.password_field :password, autocomplete: "off" %>
-    <%= f.label :password %>
+</div>
+<div class="section light-grey">
+  <div class="row container">
+    <h1>
+      <blockquote>
+        We travel not to escape life, but for life not to escape us.
+      </blockquote>
+    </h1>
   </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field right-align">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+</div>
+<div class="parallax-container">
+  <div class="parallax"><img src="http://scottosmith.com/wp-content/uploads/2013/09/salt_lake_city_130828-16.jpg"></div>
+</div>
+<div class="section">
+  <div class="row container">
+    <strong><h4 class="center-align">Keeping track of what you need, for when you need it.</h4></strong>
+    <strong><p class="center-align">One Pleasant Trip at a Time</p></strong>
+    <div class="center">
+      <%= link_to "Sign Up Today", new_user_registration_path, class: "btn-large" %>
     </div>
-  <% end -%>
-
-  <div class="actions right-align">
-    <%= f.submit "Log in" , class: 'btn'%>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
 </div>
-</div>
-<strong><h4 class="center-align">Keeping track of what you need, for when you need it.</h4></strong>
-<strong><p class="center-align">One Pleasant Trip at a Time</p></strong>

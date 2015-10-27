@@ -14,6 +14,7 @@
  *= require_tree .
  *= require_self
  */
+@import url(https://fonts.googleapis.com/css?family=Arvo);
 @import "materialize/components/color";
   $primary-color: color("blue", "accent-2") !default;
   $primary-color-light: color("blue", "lighten-1") !default;
@@ -22,6 +23,9 @@
   $link-color: color("deep-orange", "base") !default;
 @import "materialize";
 
+body{
+  font-family: 'Arvo', serif;
+}
 // This is to position the back link uniformly.
 .topish-left { 
   position: absolute; 
@@ -120,4 +124,17 @@ a {
 .card-panel {
   cursor: pointer;
 }
+
+.card {
+  background-color: #666 !important;
+}
+
+.input-field label {
+    color: #8c9eff;
+}
+
+label {
+    color: #8c9eff;
+}
+
 

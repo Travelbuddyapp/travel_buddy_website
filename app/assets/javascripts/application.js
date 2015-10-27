@@ -68,11 +68,10 @@ $(document).ready(function() {
   $('ul.tabs').tabs();
 
   // Open attachments in a new tab
-  $(document).ready(function(){
-    $('a[rel="external"]').click(function() {
-        window.open($(this).attr('href'));
-        return false;
-    });
-});
-        
+  $('a[rel="external"]').click(function() {
+    window.open($(this).attr('href'));
+    return false;
+  });
+
+  $('.parallax').parallax();       
 });
