@@ -19,8 +19,6 @@
       
   = form_for [@trip, @checklist] do |f|
     #items
-      = f.fields_for :list_items do |item|
-        -# = render 'checklists/list_item_fields', f: item
       .links.center-align
         = link_to_add_association 'add item', f, :list_items
       .input-field.center-align

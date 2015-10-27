@@ -30,7 +30,6 @@ class ChecklistsController < ApplicationController
   end
 
   def update
-   
     begin @checklist.update(checklist_params)
       redirect_to trip_checklist_path(@trip, @checklist)
     rescue => e
