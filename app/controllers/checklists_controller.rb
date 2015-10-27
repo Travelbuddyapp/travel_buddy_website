@@ -64,7 +64,7 @@ class ChecklistsController < ApplicationController
   def restrict_checklist_access 
     if @trip
       restrict_access if @trip.user_id != current_user.id
-      restrict_access if checklist.user_id != current_user.id
+      # restrict_access if checklist.user_id != current_user.id
     end
   end
 end
