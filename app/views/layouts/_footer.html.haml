@@ -1,30 +1,30 @@
-%footer.page-footer
-  .container
-    .row
-      .col.l6.s12
-        %h5.white-text 
-          This will be the footer
-        %p.grey-text.text-lighten-4
-          -if user_signed_in?
-            List all links to every page here
-            %br
+%footer.blue-background
+  -# .container
+    -# .row
+    -#   .col.l6.s12
+    -#     %h5.white-text 
+    -#       This will be the footer
+    -#     %p.grey-text.text-lighten-4
+    -#       -if user_signed_in?
+    -#         List all links to every page here
+    -#         %br
 
-            = link_to "Contacts", contacts_path
-            %br
-            %a{href: "/about"} About
-            %br
-            = link_to "Documents", documents_path
-            %br
-            = link_to "Vaccines", vaccines_path
-            %br
-            = link_to "Trips", trips_path
-            -# = link_to "reservations", trip_reservations_path(Trip.first.id, @reservations)
-            %br
-            -# = link_to "checklists", "http://localhost:3000/trips/#{Trip.first.id}/checklists"
-            %br
-            -# = link_to "checklists", "http://localhost:3000/trips/#{Trip.first.id}/checklists"
-            %br
-            A web application that will assist in planning your travels
+    -#         = link_to "Contacts", contacts_path
+    -#         %br
+    -#         %br
+    -#         = link_to "Documents", documents_path
+    -#         %br
+    -#         = link_to "Vaccines", vaccines_path
+    -#         %br
+    -#         = link_to "Trips", trips_path
+    -#         -# = link_to "reservations", trip_reservations_path(Trip.first.id, @reservations)
+    -#         %br
+    -#         -# = link_to "checklists", "http://localhost:3000/trips/#{Trip.first.id}/checklists"
+    -#         %br
+    -#         -# = link_to "checklists", "http://localhost:3000/trips/#{Trip.first.id}/checklists"
+    -#         %br
+    -#         A web application that will assist in planning your travels
   .footer-copyright
-    .container
-      %p.center-align © 2015 Travel Buddy
+    .container.center-align
+      %span © 2015 Travel Buddy
+      %a{href: "/about"} About

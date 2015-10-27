@@ -45,10 +45,26 @@
 </div>
 <div class="section">
   <div class="row container">
+  <!--  -->
+      <h5 class="col s4">
+      <%= image_tag("icons/check.png", width: "20%") %>
+        Never forget your socks again
+      </h5>
+      <h5 class="col s4">
+      <%= image_tag("icons/check.png", width: "20%") %>
+        Keep your trip organized
+      </h5>
+      <h5 class="col s4">
+      <%= image_tag("icons/check.png", width: "20%") %>
+       Easy access to various documents
+      </h5>
+  </div>
+  <!--  -->
+     <div class="center-align"> <%= link_to "Sign Up Today", new_user_registration_path, class: "btn-large" %>
+     </div>
     <strong><h4 class="center-align">Keeping track of what you need, for when you need it.</h4></strong>
     <strong><p class="center-align">One Pleasant Trip at a Time</p></strong>
     <div class="center">
-      <%= link_to "Sign Up Today", new_user_registration_path, class: "btn-large" %>
     </div>
   </div>
 </div>
