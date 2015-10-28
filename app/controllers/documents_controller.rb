@@ -13,6 +13,7 @@ class DocumentsController < ApplicationController
   def create
     @document = @user.documents.new(document_params)
     if @document.save
+      flash[:notice] = "Document uploaded successfully."
       redirect_to documents_path
     else
       flash[:error] = "Make sure to include the file name and attachment!"
