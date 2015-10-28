@@ -20,7 +20,7 @@
  $primary-color-light: color("blue", "lighten-1") !default;
  $primary-color-dark: color("blue", "darken-4") !default;
  $secondary-color: color("blue", "accent-2") !default;
- $link-color: color("red", "darken-4") !default;
+ $link-color: color("orange", "base") !default;
  @import "materialize";
 
  body{
