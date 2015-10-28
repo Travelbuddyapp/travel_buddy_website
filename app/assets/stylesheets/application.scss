@@ -14,16 +14,16 @@
  *= require_tree .
  *= require_self
  */
-@import url(https://fonts.googleapis.com/css?family=Arvo);
-@import "materialize/components/color";
-  $primary-color: color("blue", "accent-2") !default;
-  $primary-color-light: color("blue", "lighten-1") !default;
-  $primary-color-dark: color("grey", "darken-4") !default;
-  $secondary-color: color("blue", "accent-2") !default;
-  $link-color: color("deep-orange", "base") !default;
-@import "materialize";
+ @import url(https://fonts.googleapis.com/css?family=Arvo);
+ @import "materialize/components/color";
+ $primary-color: color("blue", "accent-2") !default;
+ $primary-color-light: color("blue", "lighten-1") !default;
+ $primary-color-dark: color("grey", "darken-4") !default;
+ $secondary-color: color("blue", "accent-2") !default;
+ $link-color: color("deep-orange", "base") !default;
+ @import "materialize";
 
-body{
+ body{
   font-family: 'Arvo', serif;
 }
 // This is to position the back link uniformly.
@@ -31,10 +31,10 @@ body{
   position: absolute; 
   top: 75px; 
   left: 5%;
-  }
+}
 
  // Notice is green for success!
-.notice {
+ .notice {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
@@ -45,7 +45,7 @@ body{
   margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
-  }
+}
 // Error is red for warning
 .error {
   color: #a94442;
@@ -58,7 +58,7 @@ body{
   margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
-  }
+}
 // Alert class is Yellow
 .alert {
   color: #8a6d3b;
@@ -71,21 +71,21 @@ body{
   margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
-  }
+}
 
 .page-flexbox-wrapper {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
 #main {
   flex: 1 0 auto;
-  }
+}
 
 a {
   color: #0A4DA6;
-  }
+}
 
 .rcorners4 {
   border-radius: 30px 60px 30px 60px;
@@ -130,11 +130,16 @@ a {
 }
 
 .input-field label {
-    color: #8c9eff;
+  color: #8c9eff;
 }
 
 label {
-    color: #8c9eff;
+  color: #8c9eff;
 }
 
+.sticky-footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
 

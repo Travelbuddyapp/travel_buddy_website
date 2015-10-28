@@ -4,13 +4,13 @@
     <div class="card-panel hoverable">
       <div class="center-align">
         <i class="fa fa-plus fa-2x"></i><br>
-          New Trip
+        New Trip
       </div>
     </div>
   </div>
 
-<% if @trips != nil %>
-<% @trips.each do |f| %>
+  <% if @trips != nil %>
+  <% @trips.each do |f| %>
   <div class="col s12 m6 l4 show-trip-link" data-trip-id='<%= f[:id] %>'>
     <div class="card-panel hoverable">       
       Name: <%= f.name %><br>
@@ -18,6 +18,6 @@
       End Date: <%= f.end_date %>
     </div>
   </div>
-<% end %>
-<% end %>
+  <% end %>
+  <% end %>
 </div>
