@@ -18,7 +18,7 @@
  @import "materialize/components/color";
  $primary-color: color("blue", "accent-2") !default;
  $primary-color-light: color("blue", "lighten-1") !default;
- $primary-color-dark: color("grey", "darken-4") !default;
+ $primary-color-dark: color("blue", "darken-4") !default;
  $secondary-color: color("blue", "accent-2") !default;
  $link-color: color("deep-orange", "base") !default;
  @import "materialize";
@@ -144,4 +144,11 @@ label {
   left: 0;
   bottom: 0;
   width: 100%;
+}
+.bottom-margin-zero {
+  margin-bottom: 0px;
+}
+
+.top-margin-zero {
+  margin-top: 0px;
 }
