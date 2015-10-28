@@ -37,6 +37,7 @@ $(document).ready(function() {
     var item_id = $(this).attr('id');
     var trip_id = $(this).data('trip-id');
     var checklist_id = $(this).data('checklist-id');
+    // trips/:trip_id/checklists/:checklist_id/list_items/:id
     var url = '/trips/' + trip_id + '/checklists/' + checklist_id + '/list_items/' + item_id
     var content = $(this).siblings('.flow-text').html();
     $.ajax(url, {

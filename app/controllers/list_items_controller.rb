@@ -3,6 +3,7 @@ class ListItemsController < ApplicationController
   before_action :find_trip
   before_action :find_checklist
   before_action :list_item, only: [:edit, :update, :destroy]
+  skip_before_action :require_permission
 
   def new
     @list_item = ListItem.new
