@@ -3,22 +3,32 @@
     %ul.tabs
       %li.tab.col.s12.m3
         %a.active{href: '#trips'}
-          %i.fa.fa-plane
-            Trips
+          .hide-on-large-only
+            %i.fa.fa-plane.fa-2x
+              Trips
+          .hide-on-med-and-down.inline
+            %i.fa.fa-plane
+              Trips
       %li.tab.col.s12.m3
         %a{href: '#checklists'}
-          %i.fa.fa-list
-            .hide-on-med-and-down.inline
+          .hide-on-large-only
+            %i.fa.fa-list.fa-2x
+          .hide-on-med-and-down.inline
+            %i.fa.fa-list
               Checklists
       %li.tab.col.s12.m3
         %a{href: '#reservations'}
-          %i.fa.fa-calendar
-            .hide-on-med-and-down.inline
+          .hide-on-large-only
+            %i.fa.fa-calendar.fa-2x
+          .hide-on-med-and-down.inline
+            %i.fa.fa-calendar
               Reservations
       %li.tab.col.s12.m3
         %a{href: '#documents'}
-          %i.fa.fa-files-o
-            .hide-on-med-and-down.inline
+          .hide-on-large-only
+            %i.fa.fa-files-o.fa-2x
+          .hide-on-med-and-down.inline
+            %i.fa.fa-files-o
               Documents
     #trips
       = render partial: '/shared/trips'
