@@ -27,11 +27,12 @@ class DocumentsController < ApplicationController
   end
 
   def update
-    if @document.update(document_params)
-      redirect_to documents_path
-    else
-      render :edit
-    end
+    flash[:error] = "Please only create and delete documents."
+    # if @document.update(document_params)
+    #   redirect_to documents_path
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy

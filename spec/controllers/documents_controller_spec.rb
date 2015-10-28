@@ -4,6 +4,7 @@ RSpec.describe DocumentsController, type: :controller do
   let(:user){FactoryGirl.create(:user)}
   let(:document){FactoryGirl.create(:document, user_id: user.id)}
   before(:each) do
+    # @file = fixture_file_upload('files/test_lic.xml', 'text/xml')
     sign_in user
   end
 
@@ -32,13 +33,26 @@ RSpec.describe DocumentsController, type: :controller do
       expect(Document.first.name).to eq(doc_name)
     end
 
+    # it 'capybara new doc test' do
+    #   file = Hash.new
+    #   file['datafile'] = @file
+    #   post :create, :upload => file
+    #   response.should be_success
+    # end
+
     it 'renders the new template on error' do
       create_params = {name: nil}
       post :create, { user_id: user.id, document: create_params }
       expect(Document.count).to eq(0)
       expect(response).to render_template('new')
     end
-    
+
+    # it "can upload a license" do
+    #   visit documents_path
+    #   # attach_file "uploadLicense", /path/to/file/to/upload
+    #   click_button "Upload License"
+    # end
+
   end
 
   describe "GET #show" do
