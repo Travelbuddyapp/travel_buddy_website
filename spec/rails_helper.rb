@@ -11,6 +11,7 @@ require 'rspec/rails'
 require 'devise'
 require 'factory_girl_rails'
 require 'shoulda-matchers'
+require 'capybara/rspec'
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
