@@ -25,6 +25,12 @@
 
  body{
   font-family: 'Arvo', serif;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  height: auto !important;
+  min-height: 100%;
+  height: 100%;
 }
 // This is to position the back link uniformly.
 .topish-left { 
@@ -126,7 +132,7 @@ a {
 }
 
 .card {
-  background-color: #666 !important;
+  background-color: #B1B8BA !important;
 }
 
 .input-field label {
@@ -137,9 +143,10 @@ label {
   color: #8c9eff;
 }
 
-.sticky-footer{
-  position: relative;
+
+.sticky-footer {
+  position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%;
 }
-
