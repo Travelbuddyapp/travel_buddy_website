@@ -8,13 +8,21 @@
     </div>
   </div>
   <div class="col s12 m6 offset-m3">
-    <div class="card-panel blue accent-2 bottom-margin-zero">
-      <h3 class="center-align white-text">Contact List</h3>
-    </div>
-    <div class="collection top-margin-zero">
+    <ul class="collapsible popout" data-collapsible="accordion">
       <% @contact.each do |contact| %>
-        <%= link_to contact.name, contact_path(contact), class: "collection-item" %>
+        <li>
+          <div class="collapsible-header">
+            <%= contact.name %>
+          </div>
+          <div class="collapsible-body container">
+            <div class="collection">
+              Phone number: <%= contact.phone_number %><br>
+              Email: <%= contact.email %><br>
+              Note: <%= contact.note_field %><br>
+            </div>
+          </div>
+        </li>
       <% end %>
-    <div>
+    </ul>
   </div>
 </div>
