@@ -19,8 +19,8 @@
             <span class="card-title black-text"><%= f.name %></span>
           </div>
           <div class="card-content">
-            <p class="flow-text">Start date: <%= f.start_date %><p>
-            <p class="flow-text">End date: <%= f.end_date %><p>
+            <p class="flow-text">Start date: <%= f.start_date.try(:strftime, '%B %e, %Y') %><p>
+            <p class="flow-text">End date: <%= f.end_date.try(:strftime, '%B %e, %Y') %><p>
           </div>
         </div>
       </div>

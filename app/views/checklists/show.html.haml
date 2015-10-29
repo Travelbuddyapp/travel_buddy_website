@@ -6,7 +6,7 @@
 
 %ul.collection.with-header
   %li.collection-header.center-align 
-    %h4 Due Date: "#{@checklist.due_date}"
+    %h4 Due Date: "#{@checklist.due_date.try(:strftime, '%B %e, %Y')}"
   - @list_items.each do |item|
     .collection-item
       - if item.completed == false

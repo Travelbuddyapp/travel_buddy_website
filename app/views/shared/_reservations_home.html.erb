@@ -10,9 +10,10 @@
         <div class="collection">
           Type: <%= reservation.type %><br>
           Confirmation # <%= reservation.confirmation_number %><br>
-          Check in Date: <%= reservation.check_in_date %><br>
-          Check out Date: <%= reservation.check_out_date %><br>
+          Check in Date: <%= reservation.check_in_date.try(:strftime, '%B %e, %Y') %><br>
+          Check out Date: <%= reservation.check_out_date.try(:strftime, '%B %e, %Y') %><br>
           Note: <%= reservation.note %><br>
+          <%= link_to 'Go to Trip', trip_path(reservation.trip_id), class: 'waves-effect waves-light btn' %>
         </div>
       </div>
     </li>
