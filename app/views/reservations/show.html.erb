@@ -20,7 +20,7 @@
         <% if @reservation.address == nil %>
           No Address Added <br>
         <% else %>
-          Address: <%= link_to @reservation.address.address, "https://www.google.com/maps/search/#{@reservation.address.address}" %><br>
+          Address: <%= @reservation.address.address %><br>
         <% end %>
         Note: <%= @reservation.note %>
       </div>
@@ -29,10 +29,11 @@
         <%= link_to 'Delete', trip_reservation_path(@trip, @reservation), data: {:confirm => 'Are you sure?'}, :method => :delete %>
       </div>
     </div>
-    <%= binding.pry %>
-    <p class="flow-text center-align"> Google Maps</p>
-    <div class="col s12">
-      <div id="map" style='height: 400px;' data-reservation-id="<%= @reservation.id %>"></div>
-    </div>
+    <% unless @reservation.address.nil? %>
+      <p class="flow-text center-align"> Google Maps</p>
+      <div class="col s12">
+        <div id="map" style='height: 400px;' data-reservation-id="<%= @reservation.id %>"></div>
+      </div>
+    <% end %>
   </div>
 </div>

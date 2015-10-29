@@ -26,6 +26,6 @@
 
   %li.new-list-item-link{"data-trip-id" => @trip.id}
     .collection-header
-      = link_to 'edit checklist', edit_trip_checklist_path(@trip, @checklist), class: 'waves-effect waves-light btn'
-      = link_to 'delete checklist', trip_checklist_path(@trip, @checklist), method: 'delete', class: 'waves-effect waves-light btn secondary-content delete-item', data: {confirm: 'Really delete this checklist?'}
+      = link_to 'edit', edit_trip_checklist_path(@trip, @checklist), class: 'waves-effect waves-light btn'
+      = link_to 'delete', trip_checklist_path(@trip, @checklist), method: 'delete', class: 'waves-effect waves-light btn secondary-content delete-item', data: {confirm: 'Really delete this checklist?'}
 
