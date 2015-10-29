@@ -7,26 +7,30 @@
       </div>
     </div>
   </div>
-  <div class="col s12 m6 offset-m3">
-    <div class="card-panel blue accent-2 bottom-margin-zero">
-      <h3 class="center-align white-text">Contact List</h3>
-    </div>
-    <ul class="collapsible popout top-margin-zero" data-collapsible="accordion">
-      <% @contact.each do |contact| %>
-        <li>
-          <div class="collapsible-header">
-            <%= contact.name %>
-          </div>
-          <div class="collapsible-body container">
-            <div class="collection">
-              Phone number: <%= contact.phone_number %><br>
-              Email: <%= contact.email %><br>
-              Note: <%= contact.note_field %><br>
-              <%= link_to 'Show', contact_path(contact), class: 'waves-effect waves-light btn' %>
+  <% if @contact.empty? %>
+    <p class="flow-text center-align">You currently have zero contacts</p>
+  <% else %>
+    <div class="col s12 m6 offset-m3">
+      <div class="card-panel blue accent-2 bottom-margin-zero">
+        <h3 class="center-align white-text">Contact List</h3>
+      </div>
+      <ul class="collapsible popout top-margin-zero" data-collapsible="accordion">
+        <% @contact.each do |contact| %>
+          <li>
+            <div class="collapsible-header">
+              <%= contact.name %>
             </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+            <div class="collapsible-body container">
+              <div class="collection">
+                Phone number: <%= contact.phone_number %><br>
+                Email: <%= contact.email %><br>
+                Note: <%= contact.note_field %><br>
+                <%= link_to 'Show', contact_path(contact), class: 'waves-effect waves-light btn' %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
