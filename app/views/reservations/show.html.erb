@@ -19,7 +19,7 @@
         <% if @reservation.address == nil %>
           No Address Added <br>
         <% else %>
-          Address: <%= @reservation.address.address %><br>
+          Address: <%= link_to @reservation.address.address, "https://www.google.com/maps/search/#{@reservation.address.address}" %><br>
         <% end %>
         Note: <%= @reservation.note %>
       </div>
