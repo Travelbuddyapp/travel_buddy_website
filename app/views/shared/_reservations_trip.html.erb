@@ -7,7 +7,8 @@
       <div class="collapsible-header">
         <%= reservation.icon.html_safe %>
         <%= reservation.business_name %>
-        <%= link_to 'Show', trip_reservation_path(@trip, reservation), class: 'wave-effect waves-light btn secondary-content' %>
+        <%= link_to 'Show', trip_reservation_path(@trip, reservation), class: 'wave-effect waves-light btn secondary-content hide-on-small-only' %>
+        <%= link_to '<i class="fa fa-eye"></i>'.html_safe, trip_reservation_path(@trip, reservation), class: 'secondary-content hide-on-med-and-up' %>
       </div>
       <div class="collapsible-body container">
         <div class="collection">

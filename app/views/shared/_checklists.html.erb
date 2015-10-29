@@ -14,7 +14,8 @@
       <div class="collapsible-header"><i class="material-icons">view_list</i>
         <%= checklist.title %> 
         <% if @trip.present? %>
-          <%= link_to 'Show', trip_checklist_path(@trip, checklist), class: 'wave-effect waves-light btn secondary-content' %>
+          <%= link_to 'Show', trip_checklist_path(@trip, checklist), class: 'wave-effect waves-light btn secondary-content hide-on-small-only' %>
+          <%= link_to '<i class="fa fa-eye"></i>'.html_safe, trip_checklist_path(@trip, checklist), class: 'secondary-content hide-on-med-and-up' %>
         <% end %>
       </div>
       <div class="collapsible-body">

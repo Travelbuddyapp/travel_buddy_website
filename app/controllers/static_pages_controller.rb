@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def account
-
+    @reservations = Reservation.where(user_id: current_user.id)
   end
 
   def about_us

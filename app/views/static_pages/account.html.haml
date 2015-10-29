@@ -20,45 +20,49 @@
       = link_to 'Edit', edit_address_path(@user.address.id)
     %br
     = link_to 'Edit Profile', edit_user_registration_path
-  .col.s12.m6
-    .container
-      %h4.center-align Reservations by Type:
-      %canvas#reservations_by_type{height: 400}
-    .container
-      %ul.doughnut-legend
-        %li
-          %span{:style => "background-color:#517EA6"}>
-            %i.fa.fa-i-cursor
-          %i.fa.fa-bed
-          Lodging
-        %li
-          %span{:style => "background-color:#AB2116"}>
-            %i.fa.fa-i-cursor
-          %i.fa.fa-plane
-          Travel
-        %li
-          %span{:style => "background-color:#5A6B75"}>
-            %i.fa.fa-i-cursor
-          %i.fa.fa-car
-          Vehicle
-        %li
-          %span{:style => "background-color:#BC774C"}>
-            %i.fa.fa-i-cursor
-          %i.fa.fa-cutlery
-          Dining
-        %li
-          %span{:style => "background-color:#FDB45C"}>
-            %i.fa.fa-i-cursor
-          %i.fa.fa-map-signs
-          Activity
-        %li
-          %span{:style => "background-color:#2E8B57"}>
-            %i.fa.fa-i-cursor
-          %i.fa.fa-calendar-check-o
-          Event
-        %li
-          %span{:style => "background-color:#FFD700"}>
-            %i.fa.fa-i-cursor
-          %i.fa.fa-black-tie
-          Other
+  - if @reservations.empty?
+    %p.center-align.flow-text
+      Add reservations to a trip for reservation chart to show up
+  - else
+    .col.s12.m6
+      .container
+        %h4.center-align Reservations by Type:
+        %canvas#reservations_by_type{height: 400}
+      .container
+        %ul.doughnut-legend.center-align
+          %li
+            %span{:style => "background-color:#517EA6"}>
+              %i.fa.fa-i-cursor
+            %i.fa.fa-bed
+            Lodging
+          %li
+            %span{:style => "background-color:#AB2116"}>
+              %i.fa.fa-i-cursor
+            %i.fa.fa-plane
+            Travel
+          %li
+            %span{:style => "background-color:#5A6B75"}>
+              %i.fa.fa-i-cursor
+            %i.fa.fa-car
+            Vehicle
+          %li
+            %span{:style => "background-color:#BC774C"}>
+              %i.fa.fa-i-cursor
+            %i.fa.fa-cutlery
+            Dining
+          %li
+            %span{:style => "background-color:#FDB45C"}>
+              %i.fa.fa-i-cursor
+            %i.fa.fa-map-signs
+            Activity
+          %li
+            %span{:style => "background-color:#2E8B57"}>
+              %i.fa.fa-i-cursor
+            %i.fa.fa-calendar-check-o
+            Event
+          %li
+            %span{:style => "background-color:#FFD700"}>
+              %i.fa.fa-i-cursor
+            %i.fa.fa-black-tie
+            Other
 
