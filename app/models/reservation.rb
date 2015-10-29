@@ -2,6 +2,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :trip
   has_one :address, dependent: :destroy
   validates :type, presence: true
+  validates :business_name, presence: true
   accepts_nested_attributes_for :address, allow_destroy: true , reject_if: proc { |attributes| attributes['address'].blank? }
 
   def self.types

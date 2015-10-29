@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to trip_path(@trip)
     else
+      flash[:error] = "Please include a reservation name and type."
       render :new
     end
   end
