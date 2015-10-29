@@ -51,10 +51,10 @@ end
 
   describe "GET #edit" do
 
-    it "returns http success" do
-      get :edit, {user_id: user.id, trip_id: trip.id, id: reservation.id}
-      expect(response).to have_http_status(:success)
-    end
+    # it "returns http success" do
+    #   get :edit, {user_id: user.id, trip_id: trip.id, id: reservation.id}
+    #   expect(response).to have_http_status(:success)
+    # end
 
     # it "validates address" do
 
@@ -62,6 +62,7 @@ end
 
     it 'renders the edit template' do
       get :edit, {user_id: user.id, trip_id: trip.id, id: reservation.id}
+      expect(response).to have_http_status(:success)
       expect(response).to render_template('edit')
     end
     
