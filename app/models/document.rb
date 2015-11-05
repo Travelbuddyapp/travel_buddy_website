@@ -6,10 +6,13 @@ class Document < ActiveRecord::Base
     :url  => ":s3_domain_url",
     :path => "public/documents/:id/:basename.:extension",
     :storage => :fog,
+    # :server_side_encryption => :aes256,
     :fog_credentials => {
       provider: 'AWS',
       aws_access_key_id: ENV["AWS_ACCES_KEY_ID"],
       aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+      # binding.pry
+      # object.save('x-amz-server-side​-encryption' => 'AES256')
     },
     fog_directory: ENV["FOG_DIRECTORY"]
       

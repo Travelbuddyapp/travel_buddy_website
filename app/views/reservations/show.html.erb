@@ -20,7 +20,8 @@
         <% if @reservation.address == nil %>
           No Address Added <br>
         <% else %>
-          Address: <%= @reservation.address.address %><br>
+          Address: <%= link_to @reservation.address.address, "http://maps.google.com/maps?saddr=#{current_user.current_sign_in_ip}&amp;daddr=#{@reservation.address.address}&amp;ll=#{current_user.current_sign_in_ip}" %>
+          <br>
         <% end %>
         Note: <%= @reservation.note %>
       </div>
