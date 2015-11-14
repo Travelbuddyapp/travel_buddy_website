@@ -20,6 +20,7 @@
 /coverage
 /public/system/users
 /public/system/documents
+.DS_Store
 
 # Ignore application configuration
 /config/application.yml
