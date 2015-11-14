@@ -3,6 +3,10 @@ ruby '2.2.2'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+
+# Admin Dashboard
+gem 'activeadmin', '~> 1.0.0.pre2'
+
 # Select2 is a jQuery based replacement for select boxes
 gem "select2-rails"
 gem 'devise'
