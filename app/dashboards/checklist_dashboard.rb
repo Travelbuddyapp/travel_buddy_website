@@ -24,10 +24,10 @@ class ChecklistDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :trip,
-    :user,
-    :list_items,
     :id,
+    :user,
+    :trip,
+    :list_items,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
