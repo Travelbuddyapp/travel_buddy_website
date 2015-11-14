@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
+gem 'administrate'
 gem 'geocoder'
 gem 'gmaps4rails'
 # Select2 is a jQuery based replacement for select boxes
