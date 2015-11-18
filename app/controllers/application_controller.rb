@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   # If we need to add if back in, specs will have to be made for it!
 
   def require_permission
-    # binding.pry
-    if user_signed_in? && params[:id]
+    if request.path[0..5] == "/admin"
+    elsif user_signed_in? && params[:id]
       if params[:controller].singularize.camelize.constantize.find(params[:id]).user_id != current_user.id
         lost_user_path
         # flash[:error] = "Wrong route, You can only see your stuff."
