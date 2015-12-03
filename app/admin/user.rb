@@ -15,4 +15,18 @@ permit_params :user_id, :first_name, :last_name, :birth_date, :phone_number, :ge
 # end
 
 
+  form do |f|
+    f.inputs "Admin Details" do
+      f.input :first_name
+      f.input :last_name
+      f.input :birth_date
+      f.input :phone_number
+      f.input :gender
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
+  end
+
 end
