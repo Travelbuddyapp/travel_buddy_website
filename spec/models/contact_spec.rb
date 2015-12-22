@@ -7,7 +7,9 @@ RSpec.describe Contact, type: :model do
     it { should respond_to(:email) }
     it { should respond_to(:note_field) }
     it { should respond_to(:ice) }
-    it { should belong_to(:trip) }
+    # it { should belong_to(:trip) }
+    # contacts don't belong to a trip, TODO: 
+    # maybe validate if trip has emergency contact(ICE)
     it { should belong_to(:user) }
     it { should validate_presence_of(:name) }
   end

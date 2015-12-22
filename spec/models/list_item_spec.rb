@@ -6,6 +6,9 @@ RSpec.describe ListItem, type: :model do
     it { should respond_to(:completed) }
     it { should belong_to(:checklist) }
     it { should validate_presence_of(:content) }
-    it { should validate_presence_of(:completed) }
+    # TODO: validate boolean value of completed...
+    # it { should validate_presence_of(:completed) }
+    # expect(:completed).to be_in([true, false])
   end
+
 end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
+  
   describe 'attributes' do
     it { should respond_to(:type) }
     it { should respond_to(:business_name) }
@@ -12,4 +13,9 @@ RSpec.describe Reservation, type: :model do
     it { should belong_to(:trip) }
     it { should have_one(:address) }
   end
+
+  describe 'type' do
+    it { }
+  end
+
 end
