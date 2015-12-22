@@ -11,10 +11,14 @@ RSpec.describe User, type: :model do
     it { should have_many(:vaccines) }
     it { should have_many(:contacts) }
     it { should have_one(:address) }
-    it { should validate_presence_of(:first_name) }
+  end
+
+  describe 'validations' do
+    it { should validate_presence_of :first_name }
     it { should validate_presence_of(:last_name) }
     it { should validate_presence_of(:birth_date) }
     it { should validate_presence_of(:phone_number) }
     it { should validate_presence_of(:gender) }
   end
+
 end
