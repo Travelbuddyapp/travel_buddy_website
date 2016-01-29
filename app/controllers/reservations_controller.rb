@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
   before_action :restrict_reservation_access
   before_action :trip, except: [:by_type, :get_markers]
   before_action :reservation, only: [:show, :edit, :update, :destroy]
+  # include StiHelper
   
   def by_type
     reservations = Reservation.joins(:trip).where('trips.user_id = ?', current_user.id).by_type
@@ -75,16 +76,16 @@ class ReservationsController < ApplicationController
     @reservation = type_class.find(params[:id])
   end
 
-  def set_type
-    @type = type
+  def type_class
+    type.constantize
   end
 
   def type
     Reservation.types.include?(params[:type]) ? params[:type] : "Reservation"
   end
 
-  def type_class
-    type.constantize
+  def set_type
+    @type = type
   end
 
   def reservation_params
